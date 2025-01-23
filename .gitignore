@@ -9,3 +9,5 @@ bank/
 .env
 # Output
 .output/
+# Cache
+.cache/
