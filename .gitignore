@@ -8,6 +8,8 @@ bank/
 # ignore the .env file
 .env
 # Output
-.output/
+output/
 # Cache
-.cache/
+cache/
+db/
+data/

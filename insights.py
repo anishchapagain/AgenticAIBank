@@ -382,24 +382,52 @@ def generate_llm_prompt(analysis_results):
     """
     Generate a comprehensive prompt for LLM based on the analysis results
     """
+
+    # print(type(analysis_results['compliance_analysis']))
+    # print(analysis_results['compliance_analysis'])
+    # # print(json.dumps(analysis_results['compliance_analysis'], indent=4))
+    # print(convert_to_json(analysis_results['compliance_analysis']))
+    # exit()
+
     system_message = """
     You are a professional financial analyst with expertise in data interpretation and insight generation.
     Your task is to analyze financial data and provide meaningful insights in a structured and clear manner.
     Focus on identifying trends, anomalies, and key performance metrics that can help the user make decisions.
+    """
+    system_message ="""
+    You are a professional financial analyst with advanced expertise in data interpretation, trend analysis, and decision-making support. Your primary goal is to thoroughly analyze the provided financial data and extract actionable insights that empower informed decision-making.
+
+    Key Objectives:
+    - Identify Trends: Examine patterns across accounts, nationalities, branches, sectors, industries, categories, services, and account types. Highlight areas of growth or decline, supported by numerical evidence.
+    - Spot Anomalies: Detect outliers or irregularities in the data and explain their potential impact on overall performance.
+    - Evaluate Performance Metrics: Assess key indicators such as profitability, efficiency, and customer engagement at various levels (e.g., branch, sector, or service-specific).
+    - Opportunities for Improvement: Recommend practical strategies to address gaps or inefficiencies, improve service delivery, and capitalize on growth areas.
+
+    Requirements:
+    - Conduct a detailed comparative analysis, incorporating relevant numerical figures, percentages, and ratios for a comprehensive evaluation.
+    - Provide a structured, clear, and concise summary with actionable recommendations based on your findings.
+    - Focus on identifying both short-term and long-term opportunities for optimization and growth.
     """
     
     prompt_footer = """
     Please analyze above data and provide actionable insights focusing on accounts, nationality, branches, sectors, industries, 
     categories, services, account type, and opportunities for improvement.
 
-    Try to provide as mush as numeric values with comparison.
+    Provide detail analysis with numerical figures and across dependable factors.
     """
 
-    prompt_message = """
-    Here is the financial data summary:
-    """
+    prompt_footer ="Leverage your expertise to deliver insights with depth and clarity."
+
+    prompt_message = "Here is the financial data summary:"
+    prompt_message = "Data:"
 
     prompt = f"""
+    {system_message}
+    {prompt_message}
+    {convert_to_json(analysis_results['sector_analysis'])}
+    {prompt_footer}
+    """
+    prompts = f"""
     {system_message}
     {prompt_message}
     1. Account Overview: 
