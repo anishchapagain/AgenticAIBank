@@ -39,7 +39,7 @@
     "cross_border_customers": 37
   },
   "sector_analysis": {
-    "industry_distribution": {
+    "industry_by_numbers": {
       "INDIVIDUALS": 14019,
       "STAFF": 1656,
       "SOCIAL COMMITTEES & ASSOCIATION": 166,
@@ -86,7 +86,7 @@
       "FINANCE COMPANIES C CLASS FI": 1,
       "MUNICIPALITIES AND VDCS": 1
     },
-    "sector_distribution": {
+    "sector_by_numbers": {
       "LOCAL - PERSONS": 15674,
       "PROPRIETORY CONCERN": 130,
       "PUBLIC LIMITED COMPANY": 113,
@@ -104,7 +104,7 @@
       "CORPORATION": 3,
       "INTERNATIONAL CORPORATE": 1
     },
-    "sector_wise_account_balance_sum": {
+    "total_amount_by_sector": {
       "CORPORATION": 62583468.0,
       "FOREIGN - PERSONS": 523622.53125,
       "FOREIGN - PRIVATE": -283356832.0,
@@ -122,7 +122,7 @@
       "PUBLIC LIMITED COMPANY": 687481600.0,
       "SSECTOR": -3401852672.0
     },
-    "sector_wise_account_balance_average": {
+    "average_amounts_by_sector": {
       "CORPORATION": 20861156.0,
       "FOREIGN - PERSONS": 104724.5078125,
       "FOREIGN - PRIVATE": -8095909.5,
@@ -140,7 +140,43 @@
       "PUBLIC LIMITED COMPANY": 6083908.0,
       "SSECTOR": -36579060.0
     },
-    "sector_wise_negative_balance": {
+    "minimum_amounts_by_sector": {
+      "CORPORATION": 1000.0,
+      "FOREIGN - PERSONS": 2846.14990234375,
+      "FOREIGN - PRIVATE": -153486496.0,
+      "INT'L NON-GOVERNMENTAL ORGANISATION": -11000.0,
+      "INTERNATIONAL CORPORATE": -21400.0,
+      "JOINT VENTURE COMPANY": -32782.05859375,
+      "LOCAL - GOVERNMENT": -14115000.0,
+      "LOCAL - PERSONS": -7022224.5,
+      "LOCAL - PRIVATE": -13300.0,
+      "NON-GOVERNMENTAL ORGANISATION (NGO)": -30000.0,
+      "OTHERS": -61584696.0,
+      "PARTNERSHIP FIRM": -11300.0,
+      "PRIVATE LIMITED COMPANY": -5485721.0,
+      "PROPRIETORY CONCERN": -19596142.0,
+      "PUBLIC LIMITED COMPANY": -23356380.0,
+      "SSECTOR": -2484591360.0
+    },
+    "maximum_amounts_by_sector": {
+      "CORPORATION": 50781068.0,
+      "FOREIGN - PERSONS": 327596.5,
+      "FOREIGN - PRIVATE": 79000.0,
+      "INT'L NON-GOVERNMENTAL ORGANISATION": 196770.875,
+      "INTERNATIONAL CORPORATE": -21400.0,
+      "JOINT VENTURE COMPANY": 42000.0,
+      "LOCAL - GOVERNMENT": 473256832.0,
+      "LOCAL - PERSONS": 19007132.0,
+      "LOCAL - PRIVATE": 231068.546875,
+      "NON-GOVERNMENTAL ORGANISATION (NGO)": 1998230.0,
+      "OTHERS": 46900376.0,
+      "PARTNERSHIP FIRM": 21612.0,
+      "PRIVATE LIMITED COMPANY": 6727432.5,
+      "PROPRIETORY CONCERN": 260000.0,
+      "PUBLIC LIMITED COMPANY": 686592896.0,
+      "SSECTOR": 43494060.0
+    },
+    "sector_wise_negative_balances": {
       "FOREIGN - PRIVATE": 19,
       "INT'L NON-GOVERNMENTAL ORGANISATION": 1,
       "INTERNATIONAL CORPORATE": 1,
@@ -156,7 +192,7 @@
       "PUBLIC LIMITED COMPANY": 55,
       "SSECTOR": 34
     },
-    "industry_wise_negative_balance": {
+    "total_industry_with_negative_balances": {
       "***FINANCE & FIN. INST.***": 27,
       "AGRO-BASED OTHER INDUSTRY": 1,
       "CEMENT, SOIL AND STONE": 2,

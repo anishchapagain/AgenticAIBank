@@ -43,3 +43,41 @@ Requirements:
 Conduct a detailed comparative analysis, incorporating relevant numerical figures, percentages, and ratios for a comprehensive evaluation.
 Provide a structured, clear, and concise summary with actionable recommendations based on your findings.
 Focus on identifying both short-term and long-term opportunities for optimization and growth.
+
+
+Analyze the provided JSON data thoroughly, covering the following aspects:
+
+Industry Distribution:
+
+Identify the top 5 industries by the number of accounts.
+Highlight the industries with the least accounts.
+Analyze the proportion of each industry to the total.
+Sector Distribution:
+
+Identify the sectors with the highest and lowest representation.
+Calculate the percentage contribution of each sector to the total.
+Sector-wise Account Balances:
+
+Provide insights into sectors with the highest and lowest total balances.
+Discuss sectors with negative balance sums and possible implications.
+Highlight the average balance trends per sector and identify anomalies.
+Negative Balance Accounts:
+
+List sectors and industries with the highest number of negative balance accounts.
+Identify patterns or trends in sectors/industries prone to negative balances.
+Inactive Accounts:
+
+Determine the sectors and industries with the highest number of inactive accounts.
+Compare inactive accounts to total accounts for each category to compute inactivity rates.
+Comparative Insights:
+
+Compare account activity, balances, and negative trends between sectors and industries.
+Highlight any outliers or notable trends.
+Recommendations:
+
+Suggest actionable recommendations to improve performance in low-performing sectors/industries.
+Identify sectors/industries that require closer monitoring due to high negative balances or inactivity rates.
+Visual Representation:
+
+Include suggestions for visualizing this data, such as bar charts, pie charts, or heatmaps, to provide clear insights for decision-makers.
+Provide your findings in a structured format, including summaries, detailed analyses, and actionable recommendations where applicable.

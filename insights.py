@@ -220,22 +220,23 @@ def analyze_banking_data_a(df):
         'cross_border_customers': len(df[df['national'] != df['resident']])
     }
 
-    sector_acbal = df.groupby('sector')['acbal'].agg(['mean', 'sum']).to_dict()
+    sector_acbal = df.groupby('sector')['acbal'].agg(['mean', 'sum', 'min', 'max']).to_dict()
     sector_negative_acbal = df[df['acbal'] < 0].groupby('sector')['acbal'].agg(['count', 'sum']).to_dict()
     industry_negative_acbal = df[df['acbal'] < 0].groupby('industry')['acbal'].agg(['count', 'sum']).to_dict()
 
     # Industry and Sector Analysis
     sector_analysis = {
-        'industry_distribution': df['industry'].value_counts().to_dict(),
-        'sector_distribution': df['sector'].value_counts().to_dict(),
-        'sector_wise_account_balance_sum': sector_acbal['sum'],
-        'sector_wise_account_balance_average': sector_acbal['mean'],
-        'sector_wise_negative_balance': sector_negative_acbal['count'],
-        'industry_wise_negative_balance': industry_negative_acbal['count'],
+        'industry_by_numbers': df['industry'].value_counts().to_dict(),
+        'sector_by_numbers': df['sector'].value_counts().to_dict(),
+        'total_amount_by_sector': sector_acbal['sum'],
+        'average_amounts_by_sector': sector_acbal['mean'],
+        'minimum_amounts_by_sector': sector_acbal['min'],
+        'maximum_amounts_by_sector': sector_acbal['max'],
+        'sector_wise_negative_balances': sector_negative_acbal['count'],
+        'total_industry_with_negative_balances': industry_negative_acbal['count'],
         'inactive_accounts_by_sector': df[df['inactive']].groupby('sector')['inactive'].count().to_dict(),
         'inactive_accounts_by_industry': df[df['inactive']].groupby('industry')['inactive'].count().to_dict()
     }
-    print('Sector analysis done')
 
     # Category Analysis
     category_analysis = {
@@ -388,22 +389,28 @@ def generate_llm_prompt(analysis_results):
     # # print(json.dumps(analysis_results['compliance_analysis'], indent=4))
     # print(convert_to_json(analysis_results['compliance_analysis']))
     # exit()
-
+    
+    # Identify Trends: Examine patterns across accounts, nationalities, branches, sectors, industries, categories, services, and account types. Highlight areas of growth or decline, supported by numerical evidence.
+    
     system_message = """
     You are a professional financial analyst with expertise in data interpretation and insight generation.
     Your task is to analyze financial data and provide meaningful insights in a structured and clear manner.
     Focus on identifying trends, anomalies, and key performance metrics that can help the user make decisions.
     """
+    
     system_message ="""
-    You are a professional financial analyst with advanced expertise in data interpretation, trend analysis, and decision-making support. Your primary goal is to thoroughly analyze the provided financial data and extract actionable insights that empower informed decision-making.
+    You are a professional financial analyst with advanced expertise in data interpretation, trend analysis, and decision-making. 
+    Your primary goal is to thoroughly analyze the provided financial data provided in JSON and extract actionable insights.
 
     Key Objectives:
-    - Identify Trends: Examine patterns across accounts, nationalities, branches, sectors, industries, categories, services, and account types. Highlight areas of growth or decline, supported by numerical evidence.
-    - Spot Anomalies: Detect outliers or irregularities in the data and explain their potential impact on overall performance.
-    - Evaluate Performance Metrics: Assess key indicators such as profitability, efficiency, and customer engagement at various levels (e.g., branch, sector, or service-specific).
-    - Opportunities for Improvement: Recommend practical strategies to address gaps or inefficiencies, improve service delivery, and capitalize on growth areas.
+    - Identify Trends: Examine patterns across JSON Keys. Highlight areas of growth or decline, supported by numerical evidence.
+    - Comparing: Compare maximum entities provided. Use percentage and real numeric data.
+    - Analysis: Analyze the distribution with minimum top 5, highest, lowest, positive, negative, average, totals including numeric value or percentage.
+    - Spot Anomalies: Detect outliers or irregularities in the data and explain in short about their potential impact on overall performance.
+    - Evaluate Performance Metrics: Assess key indicators and Recommend practical strategies to address gaps or inefficiencies, improve service delivery, and capitalize on growth areas.
 
     Requirements:
+    - Include the value and name as possible for the metrics.
     - Conduct a detailed comparative analysis, incorporating relevant numerical figures, percentages, and ratios for a comprehensive evaluation.
     - Provide a structured, clear, and concise summary with actionable recommendations based on your findings.
     - Focus on identifying both short-term and long-term opportunities for optimization and growth.
@@ -416,10 +423,9 @@ def generate_llm_prompt(analysis_results):
     Provide detail analysis with numerical figures and across dependable factors.
     """
 
-    prompt_footer ="Leverage your expertise to deliver insights with depth and clarity."
+    prompt_footer ="Leverage your expertise to deliver insights with depth and clarity. Do not provide large sentences except for recommendation and fraud cases."
 
     prompt_message = "Here is the financial data summary:"
-    prompt_message = "Data:"
 
     prompt = f"""
     {system_message}
@@ -427,6 +433,8 @@ def generate_llm_prompt(analysis_results):
     {convert_to_json(analysis_results['sector_analysis'])}
     {prompt_footer}
     """
+
+    return prompt
     prompts = f"""
     {system_message}
     {prompt_message}
@@ -444,21 +452,20 @@ def generate_llm_prompt(analysis_results):
     - Cross-Border Customers: {analysis_results['nationality_analysis']['cross_border_customers']}
 
     3. Industry and Sector Analysis:
-    - Industry Distribution: {analysis_results['sector_analysis']['industry_distribution']}
+    - Industry Distribution: {analysis_results['sector_analysis']['industry_counts']}
     - Inactive Accounts by Sector: {analysis_results['sector_analysis']['inactive_accounts_by_sector']}
     - Inactive Accounts by Industry: {analysis_results['sector_analysis']['inactive_accounts_by_industry']}
-    - Sector Wise Average Balance: {analysis_results['sector_analysis']['sector_wise_account_balance_average']}
-    - Sector Wise Total Balance: {analysis_results['sector_analysis']['sector_wise_account_balance_sum']}
-    - Industry Wise Negative Balance: {analysis_results['sector_analysis']['industry_wise_negative_balance']}
-    - Industry Wise Total of Negative Balance: {analysis_results['sector_analysis']['industry_wise_negative_balance']}
-    - Sector Distribution: {analysis_results['sector_analysis']['sector_distribution']}
+    - Sector Wise Average Balance: {analysis_results['sector_analysis']['sector_wise_account_average']}
+    - Sector Wise Total Balance: {analysis_results['sector_analysis']['sector_wise_account_sum']}
+    - Industry Wise Negative Balance: {analysis_results['sector_analysis']['industry_wise_negative_account_balance']}
+    - Sector Distribution: {analysis_results['sector_analysis']['sector_counts']}
     - Category Distribution: {analysis_results['category_analysis']['category_distribution']}
 
     4. Branch Wise Analysis:
     - Total Branches: {analysis_results['branch_analysis']['total_branches']}
     - Branch Distribution: {analysis_results['branch_analysis']['branch_distribution']}
     - Branch Account Types: {analysis_results['branch_analysis']['branch_wise_account_type']}
-    - Branch Wise Averge Balance: {analysis_results['branch_analysis']['branch_wise_total_balance']['mean']}
+    - Branch Wise Average Balance: {analysis_results['branch_analysis']['branch_wise_total_balance']['mean']}
     - Branch Wise Highest Balance: {analysis_results['branch_analysis']['branch_wise_total_balance']['sum']}
     - Branch Wise Minimum Balance: {analysis_results['branch_analysis']['branch_wise_min_balance']}
     - Branch Wise Maximum Balance: {analysis_results['branch_analysis']['branch_wise_max_balance']}
@@ -580,7 +587,7 @@ def preprocess_data(df):
     df["sector"] = df["sector"].map(sector_code_to_name).fillna('SSECTOR')
     df["category"] = df["category"].map(category_code_to_name).fillna('CCATEGORY')
 
-    print(df[['name','branch','industry','actype','sector','category','dob']].iloc[:3])
+    # print(df[['name','branch','industry','actype','sector','category','dob']].iloc[:3])
     return df
 
 
@@ -617,8 +624,8 @@ if __name__ == "__main__":
         os.makedirs('input')
 
     # Define/Choose the LLM models to use
-    models = ['gemma:2b', 'gemma2:latest', 'phi4:latest', 'llama3.2:latest']
-    model_name = models[0]
+    models = ['gemma:2b', 'gemma2:latest', 'phi4:latest', 'llama3.2:latest','deepseek-r1:14b','qwen2.5-coder:7b']
+    model_name = models[-1]
     
     # >> TEST
     # Load the data
@@ -631,6 +638,7 @@ if __name__ == "__main__":
 
     # Get analysis results and prompt
     analysis, prompt = run_analysis(df) # Analyze bank data 'A' & Return Prompt
+    now_datetime = datetime.now().strftime(date_time_format)
     response = query_ai_llm(model_name, prompt)
     print(response)
     # Convert the dictionary to a JSON string and write
@@ -680,9 +688,9 @@ if __name__ == "__main__":
     with open(filename, 'w') as f:
         f.write(response)
 
-    now_datetime = datetime.now().strftime(date_time_format)
     
-    time_taken = datetime.strptime(now_datetime, date_time_format) - datetime.strptime(current_datetime, date_time_format)
+    
+    time_taken = datetime.strptime(current_datetime, date_time_format) - datetime.strptime(now_datetime, date_time_format)
     print(f" -- Analysis results saved to {filename} - took: {time_taken.total_seconds()} seconds")
     exit()
 
