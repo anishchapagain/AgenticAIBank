@@ -220,32 +220,46 @@ def analyze_banking_data_a(df):
         'cross_border_customers': len(df[df['national'] != df['resident']])
     }
 
+    # Sector Analysis
     sector_acbal = df.groupby('sector')['acbal'].agg(['mean', 'sum', 'min', 'max']).to_dict()
     sector_negative_acbal = df[df['acbal'] < 0].groupby('sector')['acbal'].agg(['count', 'sum']).to_dict()
-    industry_negative_acbal = df[df['acbal'] < 0].groupby('industry')['acbal'].agg(['count', 'sum']).to_dict()
-
-    # Industry and Sector Analysis
     sector_analysis = {
-        'industry_by_numbers': df['industry'].value_counts().to_dict(),
-        'sector_by_numbers': df['sector'].value_counts().to_dict(),
+        # 'sector_by_numbers': df['sector'].value_counts().to_dict(),
         'total_amount_by_sector': sector_acbal['sum'],
         'average_amounts_by_sector': sector_acbal['mean'],
         'minimum_amounts_by_sector': sector_acbal['min'],
         'maximum_amounts_by_sector': sector_acbal['max'],
-        'sector_wise_negative_balances': sector_negative_acbal['count'],
-        'total_industry_with_negative_balances': industry_negative_acbal['count'],
+        'sectors_with_negative_balance': sector_negative_acbal['count'],
         'inactive_accounts_by_sector': df[df['inactive']].groupby('sector')['inactive'].count().to_dict(),
-        'inactive_accounts_by_industry': df[df['inactive']].groupby('industry')['inactive'].count().to_dict()
+        # 'active_accounts_by_sector': df[df['active']].groupby('sector')['active'].count().to_dict()
+        }
+
+    # Industry Analysis
+    industry_acbal = df.groupby('industry')['acbal'].agg(['mean', 'sum', 'min', 'max']).to_dict()
+    industry_negative_acbal = df[df['acbal'] < 0].groupby('industry')['acbal'].agg(['count', 'sum']).to_dict()
+    industry_analysis = {
+        # 'industry_by_numbers': df['industry'].value_counts().to_dict(),
+        'total_amount_by_industry': industry_acbal['sum'],
+        'maximum_amounts_by_industry': industry_acbal['max'],
+        'average_amounts_by_industry': industry_acbal['mean'],
+        'minimum_amounts_by_industry': industry_acbal['min'],
+        'industries_with_negative_balance': industry_negative_acbal['count'],
+        'inactive_accounts_by_industry': df[df['inactive']].groupby('industry')['inactive'].count().to_dict(),
+        # 'active_accounts_by_industry': df[df['active']].groupby('industry')['active'].count().to_dict()
     }
 
     # Category Analysis
+    category_acbal = df.groupby('category')['acbal'].agg(['mean', 'sum', 'min', 'max']).to_dict()
+    category_negative_acbal = df[df['acbal'] < 0].groupby('category')['acbal'].agg(['count', 'sum']).to_dict()
     category_analysis = {
-        'category_distribution': df['category'].value_counts().to_dict(),
-        'category_wise_balance': df.groupby('category')['acbal'].agg(['mean', 'sum']).to_dict(),
-        'category_wise_negative_balance': df[df['acbal'] < 0].groupby('category')['acbal'].agg(['count', 'sum']).to_dict(),
-        'category_wise_inactive_account': df[df['inactive']].groupby('category')['inactive'].count().to_dict()
-        # 'sector_distribution': df['sector'].value_counts().to_dict(),
-        # 'industry_sector_matrix': pd.crosstab(df['industry'], df['sector']).to_dict()
+        # 'category_by_numbers': df['category'].value_counts().to_dict(),
+        'total_amount_by_category': category_acbal['sum'],
+        'maximum_amounts_by_category': category_acbal['max'],
+        'average_amounts_by_category': category_acbal['mean'],
+        'minimum_amounts_by_category': category_acbal['min'],
+        'categories_with_negative_balance': category_negative_acbal['count'],
+        'inactive_accounts_by_category': df[df['inactive']].groupby('category')['inactive'].count().to_dict(),
+        # 'active_accounts_by_category': df[df['active']].groupby('category')['active'].count().to_dict()
     }
     
     # Branch and Account Type Analysis
@@ -259,7 +273,7 @@ def analyze_banking_data_a(df):
         'branch_wise_account_type': df.groupby('branch')['actype'].value_counts().unstack().to_dict(),
         'branch_wise_sector': df.groupby('branch')['sector'].value_counts().unstack().to_dict(),
         'branch_wise_category': df.groupby('branch')['category'].value_counts().unstack().to_dict(),
-        'branch_wise_national': df.groupby('branch')['national'].value_counts().unstack().to_dict(),
+        'branch_wise_nationalities': df.groupby('branch')['national'].value_counts().unstack().to_dict(),
         'branch_wise_mobile_banking': df.groupby('branch')['mbservice'].sum().to_dict(),
         'branch_wise_internet_banking': df.groupby('branch')['ibservice'].sum().to_dict(),
         'branch_wise_account_service': df.groupby('branch')['acservice'].sum().to_dict(),
@@ -292,20 +306,25 @@ def analyze_banking_data_a(df):
         'mobile_banking_adoption_rate': (df['mbservice'].sum() / len(df) * 100),
         'mobile_banking_by_account_type': df.groupby('actype')['mbservice'].mean().to_dict(),
         'mobile_banking_by_sector': df.groupby('sector')['mbservice'].mean().to_dict(),
-        'mobile_banking_by_national': df.groupby('national')['mbservice'].mean().to_dict(),
+        'mobile_banking_by_industry': df.groupby('industry')['mbservice'].mean().to_dict(),
+        'mobile_banking_by_nationals': df.groupby('national')['mbservice'].mean().to_dict(),
         'mobile_banking_by_category': df.groupby('category')['mbservice'].mean().to_dict(),
+
         'internet_banking_total_users': df['ibservice'].sum(),
         'internet_banking_adoption_rate': (df['ibservice'].sum() / len(df) * 100),
         'internet_banking_by_account_type': df.groupby('actype')['ibservice'].mean().to_dict(),
         'internet_banking_by_sector': df.groupby('sector')['ibservice'].mean().to_dict(),
-        'internet_banking_by_national': df.groupby('national')['ibservice'].mean().to_dict(),
+        'internet_banking_by_industry': df.groupby('industry')['mbservice'].mean().to_dict(),
+        'internet_banking_by_nationals': df.groupby('national')['ibservice'].mean().to_dict(),
         'internet_banking_by_category': df.groupby('category')['ibservice'].mean().to_dict(),
+
         'account_service_total_users': df['acservice'].sum(),
         'account_service_adoption_rate': (df['acservice'].sum() / len(df) * 100),
         'account_service_by_account_type': df.groupby('actype')['acservice'].mean().to_dict(),
         'account_service_by_sector': df.groupby('sector')['acservice'].mean().to_dict(),
-        'account_service_by_national': df.groupby('national')['acservice'].mean().to_dict(),
-        'account_service_by_category': df.groupby('category')['acservice'].mean().to_dict()
+        'account_service_by_industry': df.groupby('industry')['mbservice'].mean().to_dict(),
+        'account_service_by_nationals': df.groupby('national')['acservice'].mean().to_dict(),
+        'account_service_by_category': df.groupby('category')['acservice'].mean().to_dict(),
     }
                 
     # Balance Analysis
@@ -371,12 +390,13 @@ def analyze_banking_data_a(df):
         'account_metrics': account_metrics,
         'nationality_analysis': nationality_analysis,
         'sector_analysis': sector_analysis,
+        'industry_analysis': industry_analysis,
+        'category_analysis': category_analysis,
         'branch_analysis': branch_analysis,
         'service_adoption': service_adoption,
         'balance_analysis': balance_analysis,
         'compliance_analysis': compliance_analysis,
         'activity_metrics': activity_metrics,
-        'category_analysis': category_analysis
     }
 
 def generate_llm_prompt(analysis_results):
@@ -405,7 +425,7 @@ def generate_llm_prompt(analysis_results):
     Key Objectives:
     - Identify Trends: Examine patterns across JSON Keys. Highlight areas of growth or decline, supported by numerical evidence.
     - Comparing: Compare maximum entities provided. Use percentage and real numeric data.
-    - Analysis: Analyze the distribution with minimum top 5, highest, lowest, positive, negative, average, totals including numeric value or percentage.
+    - Analysis: Consider figures like total, minimum, maximum, positive, negative, average, and as available with their value or percentage.
     - Spot Anomalies: Detect outliers or irregularities in the data and explain in short about their potential impact on overall performance.
     - Evaluate Performance Metrics: Assess key indicators and Recommend practical strategies to address gaps or inefficiencies, improve service delivery, and capitalize on growth areas.
 
@@ -425,12 +445,23 @@ def generate_llm_prompt(analysis_results):
 
     prompt_footer ="Leverage your expertise to deliver insights with depth and clarity. Do not provide large sentences except for recommendation and fraud cases."
 
-    prompt_message = "Here is the financial data summary:"
+    prompt_message = "Data summary is provided below, Your answer should be based on the context provided only:"
 
     prompt = f"""
     {system_message}
     {prompt_message}
+    Banking Service Adoption:
+    {convert_to_json(analysis_results['service_adoption'])}
+
+    Sector Data:
     {convert_to_json(analysis_results['sector_analysis'])}
+    
+    Industry Data:
+    {convert_to_json(analysis_results['industry_analysis'])}
+    
+    Category Data:
+    {convert_to_json(analysis_results['category_analysis'])}
+
     {prompt_footer}
     """
 
@@ -452,13 +483,13 @@ def generate_llm_prompt(analysis_results):
     - Cross-Border Customers: {analysis_results['nationality_analysis']['cross_border_customers']}
 
     3. Industry and Sector Analysis:
-    - Industry Distribution: {analysis_results['sector_analysis']['industry_counts']}
+    - Industry Distribution: {analysis_results['sector_analysis']['industry_by_numbers']}
     - Inactive Accounts by Sector: {analysis_results['sector_analysis']['inactive_accounts_by_sector']}
     - Inactive Accounts by Industry: {analysis_results['sector_analysis']['inactive_accounts_by_industry']}
     - Sector Wise Average Balance: {analysis_results['sector_analysis']['sector_wise_account_average']}
     - Sector Wise Total Balance: {analysis_results['sector_analysis']['sector_wise_account_sum']}
     - Industry Wise Negative Balance: {analysis_results['sector_analysis']['industry_wise_negative_account_balance']}
-    - Sector Distribution: {analysis_results['sector_analysis']['sector_counts']}
+    - Sector Distribution: {analysis_results['sector_analysis']['sector_by_numbers']}
     - Category Distribution: {analysis_results['category_analysis']['category_distribution']}
 
     4. Branch Wise Analysis:
