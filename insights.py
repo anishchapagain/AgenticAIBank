@@ -220,18 +220,18 @@ def analyze_banking_data_a(df):
         'cross_border_customers': len(df[df['national'] != df['resident']])
     }
 
-    # sector_acbal = df.groupby('sector')['acbal'].agg(['mean', 'sum']).to_dict()
-    # sector_acbal.columns["Sector","Average Account","Total Account"]
-    # print(sector_acbal)
-    # exit()
+    sector_acbal = df.groupby('sector')['acbal'].agg(['mean', 'sum']).to_dict()
+    sector_negative_acbal = df[df['acbal'] < 0].groupby('sector')['acbal'].agg(['count', 'sum']).to_dict()
+    industry_negative_acbal = df[df['acbal'] < 0].groupby('industry')['acbal'].agg(['count', 'sum']).to_dict()
 
     # Industry and Sector Analysis
     sector_analysis = {
         'industry_distribution': df['industry'].value_counts().to_dict(),
         'sector_distribution': df['sector'].value_counts().to_dict(),
-        'sector_wise_account_balance': df.groupby('sector')['acbal'].agg(['mean', 'sum']).to_dict(),
-        'sector_wise_negative_balance': df[df['acbal'] < 0].groupby('sector')['acbal'].agg(['count', 'sum']).to_dict(),
-        'industry_wise_negative_balance': df[df['acbal'] < 0].groupby('industry')['acbal'].agg(['count', 'sum']).to_dict(),
+        'sector_wise_account_balance_sum': sector_acbal['sum'],
+        'sector_wise_account_balance_average': sector_acbal['mean'],
+        'sector_wise_negative_balance': sector_negative_acbal['count'],
+        'industry_wise_negative_balance': industry_negative_acbal['count'],
         'inactive_accounts_by_sector': df[df['inactive']].groupby('sector')['inactive'].count().to_dict(),
         'inactive_accounts_by_industry': df[df['inactive']].groupby('industry')['inactive'].count().to_dict()
     }
@@ -365,8 +365,6 @@ def analyze_banking_data_a(df):
         'total_amount_credited_last_30_days': df[df['days_since_last_credit'] <= 30]['lcyacbal'].sum(),
         'total_amount_debited_last_30_days': df[df['days_since_last_debit'] <= 30]['lcyacbal'].sum(),
         }
-    
-    # print(activity_metrics)
 
     return {
         'account_metrics': account_metrics,
@@ -385,18 +383,20 @@ def generate_llm_prompt(analysis_results):
     Generate a comprehensive prompt for LLM based on the analysis results
     """
     system_message = """
-    You're a banking analyst expert.
-    You have been asked to analyze the financial data of a bank in Nepal.
-    Currency of Nepal is Nepalese Rupee (NPR).
+    You are a professional financial analyst with expertise in data interpretation and insight generation.
+    Your task is to analyze financial data and provide meaningful insights in a structured and clear manner.
+    Focus on identifying trends, anomalies, and key performance metrics that can help the user make decisions.
     """
     
-    prompt_message = """
-    The data includes information about bank with branches, customer accounts, transactions, and services.
-    Your task is to provide key insights and recommendations based on the analysis.
+    prompt_footer = """
+    Please analyze above data and provide actionable insights focusing on accounts, nationality, branches, sectors, industries, 
+    categories, services, account type, and opportunities for improvement.
+
+    Try to provide as mush as numeric values with comparison.
     """
 
-    prompt_footer = """
-    Inculde most of the insights in your response.
+    prompt_message = """
+    Here is the financial data summary:
     """
 
     prompt = f"""
@@ -404,7 +404,7 @@ def generate_llm_prompt(analysis_results):
     {prompt_message}
     1. Account Overview: 
     - Total Accounts: {analysis_results['account_metrics']['total_accounts']}
-    - Total Personal Accounts: {analysis_results['account_metrics']['personal_accounts']}
+    - Total Personal Accounts: {analysis_results['account_metrics']['total_personal_accounts']}
     - Total Non-Personal Accounts: {analysis_results['account_metrics']['non_personal_accounts']}
     - Account Active/Inactive Ratio: {analysis_results['account_metrics']['active_accounts']}/{analysis_results['account_metrics']['inactive_accounts']}
     - Negative Balance Accounts: {analysis_results['account_metrics']['negative_balance_accounts']}
@@ -419,10 +419,10 @@ def generate_llm_prompt(analysis_results):
     - Industry Distribution: {analysis_results['sector_analysis']['industry_distribution']}
     - Inactive Accounts by Sector: {analysis_results['sector_analysis']['inactive_accounts_by_sector']}
     - Inactive Accounts by Industry: {analysis_results['sector_analysis']['inactive_accounts_by_industry']}
-    - Sector Wise Average Balance: {analysis_results['sector_analysis']['sector_wise_balance']['mean']}
-    - Sector Wise Highest Balance: {analysis_results['sector_analysis']['sector_wise_balance']['sum']}
-    - Industry Wise Negative Balance: {analysis_results['sector_analysis']['industry_wise_negative_balance']['count']}
-    - Industry Wise Total of Negative Balance: {analysis_results['sector_analysis']['industry_wise_negative_balance']['sum']}
+    - Sector Wise Average Balance: {analysis_results['sector_analysis']['sector_wise_account_balance_average']}
+    - Sector Wise Total Balance: {analysis_results['sector_analysis']['sector_wise_account_balance_sum']}
+    - Industry Wise Negative Balance: {analysis_results['sector_analysis']['industry_wise_negative_balance']}
+    - Industry Wise Total of Negative Balance: {analysis_results['sector_analysis']['industry_wise_negative_balance']}
     - Sector Distribution: {analysis_results['sector_analysis']['sector_distribution']}
     - Category Distribution: {analysis_results['category_analysis']['category_distribution']}
 
@@ -442,18 +442,21 @@ def generate_llm_prompt(analysis_results):
     - Branch Wise Account Service Users: {analysis_results['branch_analysis']['branch_wise_account_service']}
     
     5. Adoptation of Digital Service:
-    - Mobile Banking: {analysis_results['service_adoption']['mobile_banking']['mobile_banking_adoption_rate']:.2f}%
-    - Mobile Banking by Account Type: {analysis_results['service_adoption']['mobile_banking']['mobile_banking_by_account_type']}
-    - Mobile Banking by Sector: {analysis_results['service_adoption']['mobile_banking']['mobile_banking_by_sector']}
-    - Mobile Banking by National Origin: {analysis_results['service_adoption']['mobile_banking']['mobile_banking_by_national']}
-    - Internet Banking: {analysis_results['service_adoption']['internet_banking']['internet_banking_adoption_rate']:.2f}%
-    - Internet Banking by Account Type: {analysis_results['service_adoption']['internet_banking']['internet_banking_by_account_type']}
-    - Internet Banking by Sector: {analysis_results['service_adoption']['internet_banking']['internet_banking_by_sector']}  
-    - Internet Banking by National Origin: {analysis_results['service_adoption']['internet_banking']['internet_banking_by_national']}
-    - Account Service: {analysis_results['service_adoption']['account_service']['account_service_adoption_rate']:.2f}%
-    - Account Service by Account Type: {analysis_results['service_adoption']['account_service']['account_service_by_account_type']}
-    - Account Service by Sector: {analysis_results['service_adoption']['account_service']['account_service_by_sector']}
-    - Account Service by National Origin: {analysis_results['service_adoption']['account_service']['account_service_by_national']}
+    - Mobile Banking Total User: {analysis_results['service_adoption']['mobile_banking_total_users']}
+    - Mobile Banking Adoption Rate: {analysis_results['service_adoption']['mobile_banking_adoption_rate']:.2f}%
+    - Mobile Banking by Account Type: {analysis_results['service_adoption']['mobile_banking_by_account_type']}
+    - Mobile Banking by Sector: {analysis_results['service_adoption']['mobile_banking_by_sector']}
+    - Mobile Banking by National Origin: {analysis_results['service_adoption']['mobile_banking_by_national']}
+    - Internet Banking Total Users: {analysis_results['service_adoption']['internet_banking_total_users']}
+    - Internet Banking Adoption Rate: {analysis_results['service_adoption']['internet_banking_adoption_rate']:.2f}%
+    - Internet Banking by Account Type: {analysis_results['service_adoption']['internet_banking_by_account_type']}
+    - Internet Banking by Sector: {analysis_results['service_adoption']['internet_banking_by_sector']} 
+    - Internet Banking by Category: {analysis_results['service_adoption']['internet_banking_by_category']} 
+    - Internet Banking by National Origin: {analysis_results['service_adoption']['internet_banking_by_national']}
+    - Account Service: {analysis_results['service_adoption']['account_service_adoption_rate']:.2f}%
+    - Account Service by Account Type: {analysis_results['service_adoption']['account_service_by_account_type']}
+    - Account Service by Sector: {analysis_results['service_adoption']['account_service_by_sector']}
+    - Account Service by National Origin: {analysis_results['service_adoption']['account_service_by_national']}
 
     6. Financial Overview: 
     - Total Balance: NPR {analysis_results['balance_analysis']['total_balance']:,.2f}
@@ -555,9 +558,7 @@ def preprocess_data(df):
 
 # Example usage function
 def run_analysis(df):
-    analysis_results = analyze_banking_data_a(df)
-    # analysis_results = analyze_banking_data(df)
-    
+    analysis_results = analyze_banking_data_a(df)       # analysis_results = analyze_banking_data(df)
     prompt = generate_llm_prompt(analysis_results)
     return analysis_results, prompt.strip()
 

@@ -1,0 +1,47 @@
+## Insights from KYC Status and Recent Activity Report
+
+**KYC Completion Rate:** 92.71%
+
+This indicates that the vast majority of account types have completed KYC processes, demonstrating a high level of compliance.
+
+** KYC Completion By Account Type:**
+
+* **Individuals:** 1518 (80.7%) have completed KYC, while 15182 (80.5%) are still pending.
+* **Corporate:** 3 (0.1%) have completed KYC, while 32 (1.7%) are still pending.
+* **Others:** 38 (2.3%) have completed KYC, while 2288 (11.7%) are still pending.
+
+**KYC Completion By Sector:**
+
+* ** Corporaton:** 3 (1%) have completed KYC, while 32 (1.7%) are still pending.
+* **Foreign - Persons:** 3 (1%) have completed KYC, while 3 (1%) are still pending.
+* **Foreign - Private:** 3 (1%) have completed KYC, while 11 (4.5%) are still pending.
+
+**KYC Completion By National Origin:**
+
+* **B (Bangladesh):** 1 (0.05%) have completed KYC, while 1518 (80.7%) are still pending.
+* **D (India):** 0 (0%) have completed KYC.
+* **I (Indonesia):** 0 (0%) have completed KYC.
+* **T (Thailand):** 0 (0%) have completed KYC.
+* **AT (Afghanistan):** 0 (0%) have completed KYC.
+* **AU (Australia):** 0 (0%) have completed KYC.
+* **CO (Cambodia):** 0 (0%) have completed KYC.
+* **DE (Germany):** 0 (0%) have completed KYC.
+* **IN (India):** 4 (1.6%) have completed KYC, while 1518 (80.7%) are still pending.
+* **JO (Japan):** 0 (0%) have completed KYC.
+* **NP (Nepal):** 15182 (80.5%) have completed KYC, while 1518 (80.7%) are still pending.
+* **SA (Saudi Arabia):** 0 (0%) have completed KYC.
+* **TA (Thailand):** 0 (0%) have completed KYC.
+* **US (United States):** 0 (0%) have completed KYC.
+
+**Recent Activity:**
+
+* The average days since last credit is 1004.64, indicating a relatively stable payment pattern.
+* The average days since last debit are 2302.35, indicating a consistent inflow of funds into the accounts.
+* Total amount credited and debited within the last 30 days is NPR -2,512,855,808.00 and NPR -4,418,422,784.00 respectively, suggesting a healthy financial position.
+
+**Additional Insights:**
+
+* The report provides a comprehensive overview of KYC completion and national origin for all account types.
+* The average KYC completion rate across all account types is high, indicating effective compliance.
+* The average days since last credit and debit are relatively stable, suggesting a consistent financial flow.
+* The report offers valuable insights into the KYC status and recent activity of individual account types.
