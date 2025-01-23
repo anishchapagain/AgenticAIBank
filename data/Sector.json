@@ -1,0 +1,70 @@
+[
+    {
+        "Code": "1000",
+        "Desc": "PROPRIETORY CONCERN"
+    },
+    {
+        "Code": "1050",
+        "Desc": "PRIVATE LIMITED COMPANY"
+    },
+    {
+        "Code": "1100",
+        "Desc": "PUBLIC LIMITED COMPANY"
+    },
+    {
+        "Code": "1150",
+        "Desc": "PARTNERSHIP FIRM"
+    },
+    {
+        "Code": "1200",
+        "Desc": "JOINT VENTURE COMPANY"
+    },
+    {
+        "Code": "1250",
+        "Desc": "INTERNATIONAL CORPORATE"
+    },
+    {
+        "Code": "1300",
+        "Desc": "NON-GOVERNMENTAL ORGANISATION (NGO)"
+    },
+    {
+        "Code": "1350",
+        "Desc": "INT'L NON-GOVERNMENTAL ORGANISATION"
+    },
+    {
+        "Code": "1400",
+        "Desc": "LOCAL - PRIVATE"
+    },
+    {
+        "Code": "1450",
+        "Desc": "LOCAL - GOVERNMENT"
+    },
+    {
+        "Code": "1500",
+        "Desc": "LOCAL - PERSONS"
+    },
+    {
+        "Code": "1510",
+        "Desc": "NON RESIDENT NEPALESE"
+    },
+    {
+        "Code": "1550",
+        "Desc": "FOREIGN - PRIVATE"
+    },
+    {
+        "Code": "1560",
+        "Desc": "FOREIGN - GOVERNMENT"
+    },
+    {
+        "Code": "2000",
+        "Desc": "FOREIGN - PERSONS"
+    },
+    {
+        "Code": "2010",
+        "Desc": "CORPORATION"
+    },
+    {
+        "Code": "9010",
+        "Desc": "OTHERS"
+    }
+]

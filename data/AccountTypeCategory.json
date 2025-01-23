@@ -1,0 +1,294 @@
+[
+    {
+        "Code": "1001",
+        "Desc": "Current Account"
+    },
+    {
+        "Code": "1002",
+        "Desc": "Convertible FCY Current Account"
+    },
+    {
+        "Code": "1005",
+        "Desc": "Overdraft Account - Industry"
+    },
+    {
+        "Code": "1006",
+        "Desc": "Overdraft Account - Trading"
+    },
+    {
+        "Code": "1010",
+        "Desc": "Demand Loan - Industry"
+    },
+    {
+        "Code": "1011",
+        "Desc": "Demand Loan - Trading"
+    },
+    {
+        "Code": "1015",
+        "Desc": "Working Capital Account"
+    },
+    {
+        "Code": "1020",
+        "Desc": "Other Working Capital Account"
+    },
+    {
+        "Code": "1025",
+        "Desc": "Hypothecation"
+    },
+    {
+        "Code": "1004",
+        "Desc": "Current Account with 1000 Min Bal"
+    },
+    {
+        "Code": "1003",
+        "Desc": "Current Account with 0 Min Balance"
+    },
+    {
+        "Code": "1007",
+        "Desc": "Overdraft Account - Privelage Loan"
+    },
+    {
+        "Code": "1008",
+        "Desc": "Overdraft Account - Mortgage Loan"
+    },
+    {
+        "Code": "1012",
+        "Desc": "Sajilo Sana Udhami Karja"
+    },
+    {
+        "Code": "1016",
+        "Desc": "Yuva tatha sana byabasayi krishi ka"
+    },
+    {
+        "Code": "1009",
+        "Desc": "Overdraft Account - loan share bond"
+    },
+    {
+        "Code": "1031",
+        "Desc": "Call Account-0 % TAX RATE"
+    },
+    {
+        "Code": "1014",
+        "Desc": "Current Ac with 7500 Bal LAG CO"
+    },
+    {
+        "Code": "1013",
+        "Desc": "Current Ac with 100 Bal LAG IND"
+    },
+    {
+        "Code": "6016",
+        "Desc": "Saving Account(Salary Min 0)"
+    },
+    {
+        "Code": "6025",
+        "Desc": "SALARY ACCOUNT (MIN. BAL=200)"
+    },
+    {
+        "Code": "6010",
+        "Desc": "Savings Account (STAFF)"
+    },
+    {
+        "Code": "6003",
+        "Desc": "STAFF SAVING ACCOUNT"
+    },
+    {
+        "Code": "6001",
+        "Desc": "Savings Account"
+    },
+    {
+        "Code": "6002",
+        "Desc": "Convertible FCY Savings Account"
+    },
+    {
+        "Code": "6099",
+        "Desc": "'Not in Use'"
+    },
+    {
+        "Code": "6034",
+        "Desc": "Elder People Allowance"
+    },
+    {
+        "Code": "6035",
+        "Desc": "Elder People Allowance Dalit"
+    },
+    {
+        "Code": "6036",
+        "Desc": "Widow Allowance"
+    },
+    {
+        "Code": "6037",
+        "Desc": "Fully Disability Allowance"
+    },
+    {
+        "Code": "6038",
+        "Desc": "Partly Disability Allowance"
+    },
+    {
+        "Code": "6039",
+        "Desc": "Children Allowance Dalit"
+    },
+    {
+        "Code": "6040",
+        "Desc": "Ekal Nari"
+    },
+    {
+        "Code": "6022",
+        "Desc": "Pewa Bachat Account"
+    },
+    {
+        "Code": "6004",
+        "Desc": "Royal Savings Account"
+    },
+    {
+        "Code": "6005",
+        "Desc": "Savings Account(PF)"
+    },
+    {
+        "Code": "6006",
+        "Desc": "NRB Special Call A/C"
+    },
+    {
+        "Code": "6017",
+        "Desc": "\"Not in use'"
+    },
+    {
+        "Code": "6007",
+        "Desc": "Savings Account(DAM)"
+    },
+    {
+        "Code": "6008",
+        "Desc": "Savings Account(BHW)"
+    },
+    {
+        "Code": "6029",
+        "Desc": "Saving Account (CIAA)"
+    },
+    {
+        "Code": "6011",
+        "Desc": "Savings Account(MPL)"
+    },
+    {
+        "Code": "7003",
+        "Desc": "SUNDRY CREDITORS-STAFF VEHICLES"
+    },
+    {
+        "Code": "6012",
+        "Desc": "Savings Account-0% TAX RATE"
+    },
+    {
+        "Code": "6013",
+        "Desc": "Savings Account-15% TAX RATE"
+    },
+    {
+        "Code": "6014",
+        "Desc": "ROYAL SAVING Account-0 % TAX RATE"
+    },
+    {
+        "Code": "6015",
+        "Desc": "ROYAL SAVING Account-15% TAX RATE"
+    },
+    {
+        "Code": "6019",
+        "Desc": "Saving Account (Salary A/C)"
+    },
+    {
+        "Code": "6018",
+        "Desc": "Saving Account (Disable)"
+    },
+    {
+        "Code": "6021",
+        "Desc": "Saving Account (Salary A/C Min 100)"
+    },
+    {
+        "Code": "6020",
+        "Desc": "Saving Account (Share Holder)"
+    },
+    {
+        "Code": "6023",
+        "Desc": "YUBA BACHAT KHATA"
+    },
+    {
+        "Code": "2001",
+        "Desc": "Vostro Account"
+    },
+    {
+        "Code": "2801",
+        "Desc": "MONEY AT CALL AC"
+    },
+    {
+        "Code": "5001",
+        "Desc": "Nostro A/c - NRB"
+    },
+    {
+        "Code": "5002",
+        "Desc": "Nostro A/c - Local Banks"
+    },
+    {
+        "Code": "5003",
+        "Desc": "Nostro A/c - Foreign Banks"
+    },
+    {
+        "Code": "6024",
+        "Desc": "SAMMAN BACHAT"
+    },
+    {
+        "Code": "8500",
+        "Desc": "Inter Branch Account"
+    },
+    {
+        "Code": "8501",
+        "Desc": "Inter Branch Account - Damauli"
+    },
+    {
+        "Code": "8502",
+        "Desc": "Inter Branch Account - Bhairahawa"
+    },
+    {
+        "Code": "8503",
+        "Desc": "Inter Branch Account - Birgunj"
+    },
+    {
+        "Code": "6101",
+        "Desc": "Uchcha Siksha Bachat."
+    },
+    {
+        "Code": "6026",
+        "Desc": "SAVING ACCOUNT (MIN. BAL=0)"
+    },
+    {
+        "Code": "6027",
+        "Desc": "CALL DEPOSIT"
+    },
+    {
+        "Code": "6028",
+        "Desc": "MACH SAVING DEPOSIT"
+    },
+    {
+        "Code": "6030",
+        "Desc": "Saving Super Prem"
+    },
+    {
+        "Code": "6031",
+        "Desc": "BALBALIKA BACHAT"
+    },
+    {
+        "Code": "6032",
+        "Desc": "REMITTANCE BACHAT KHATA"
+    },
+    {
+        "Code": "6033",
+        "Desc": "MBL NRN SAVING DEPOSIT."
+    },
+    {
+        "Code": "3001",
+        "Desc": "CHEQUE PURCHASE"
+    },
+    {
+        "Code": "3099",
+        "Desc": "DOCUMENTRARY EXPORT BILL"
+    },
+    {
+        "Code": "7005",
+        "Desc": "Staff Insurance Premium Payable"
+    }
+]

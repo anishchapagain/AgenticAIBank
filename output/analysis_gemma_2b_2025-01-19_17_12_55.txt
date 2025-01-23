@@ -1,0 +1,27 @@
+## Insights from KYC Data:
+
+**Overall:**
+
+* 92.71% of the KYC completion rate suggests high compliance, with only 1195 instances of KYC not started.
+* 15188 instances of KYC were completed, with 759 coming from Account Type and 1169 from Sector.
+* The majority of KYC was completed by National Origin (87.26%), followed by Account Type (10.55%) and Branch (0.69%).
+* KYC was completed recently, with an average of 1000.64 days since the last credit and 2298.35 days since the last debit.
+* Total credit and debit amounts in the last 30 days are significant, indicating significant financial activity.
+
+**KYC Completion:**
+
+* KYC is largely completed by Account Type (75.9%), followed by Sector (10.55%) and Branch (0.69%).
+* KYC is not started for 11.95% of cases.
+* KYC is mostly completed by National Origin (87.26%), followed by Account Type (10.55%) and Sector (1.01%).
+* KYC is completed by Branch in 17.51% of cases.
+
+**Recent Activity:**
+
+* Average days since last credit and debit are relatively high, suggesting active credit and debit activities.
+* Total credit and debit amounts indicate significant financial activity in the recent past.
+* The recent activity suggests a possible increase in credit and debit activities in the future.
+
+**Additional Insights:**
+
+* The data does not provide details on the specific KYC procedures followed or the identity of the account holder.
+* Further analysis and insights can be derived by analyzing individual records, comparing with other datasets, and identifying trends over time.

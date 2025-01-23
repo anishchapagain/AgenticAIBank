@@ -1,0 +1,14 @@
+pyodbc
+tabulate
+openai
+langchain
+langchain-community
+langchain-core
+langchain-experimental
+langchain-openai
+pandas
+python-dotenv
+streamlit
+ollama
+chromadb
+langchain_text_splitters

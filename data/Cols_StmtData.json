@@ -1,0 +1,86 @@
+[
+  {
+    "columnname": "stmtid",
+    "description": "Unique identifier for the statement record."
+  },
+  {
+    "columnname": "accountno",
+    "description": "Account number involved in the transaction."
+  },
+  {
+    "columnname": "branch",
+    "description": "Branch where the transaction occurred."
+  },
+  {
+    "columnname": "custid",
+    "description": "Customer identifier associated with the transaction."
+  },
+  {
+    "columnname": "txncode",
+    "description": "Transaction code indicating the type of transaction (e.g., deposit, withdrawal)."
+  },
+  {
+    "columnname": "txnrefno",
+    "description": "Unique transaction reference number."
+  },
+  {
+    "columnname": "narration",
+    "description": "Description or details of the transaction."
+  },
+  {
+    "columnname": "txndate",
+    "description": "Date the transaction was processed."
+  },
+  {
+    "columnname": "valuedate",
+    "description": "Value date of the transaction (the date the funds are effectively available)."
+  },
+  {
+    "columnname": "ccy",
+    "description": "Currency of the transaction."
+  },
+  {
+    "columnname": "amount",
+    "description": "Transaction amount."
+  },
+  {
+    "columnname": "lcyamount",
+    "description": "Transaction amount in local currency."
+  },
+  {
+    "columnname": "excrate",
+    "description": "Exchange rate used for currency conversion (if applicable)."
+  },
+  {
+    "columnname": "ourref",
+    "description": "Internal reference number for the transaction."
+  },
+  {
+    "columnname": "systemid",
+    "description": "Identifier of the system that processed the transaction."
+  },
+  {
+    "columnname": "override",
+    "description": "Indicates if the transaction was overridden (e.g., by a supervisor)."
+  },
+  {
+    "columnname": "inuser",
+    "description": "User who initiated the transaction."
+  },
+  {
+    "columnname": "indatetime",
+    "description": "Date and time the transaction was initiated."
+  },
+  {
+    "columnname": "authuser",
+    "description": "User who authorized the transaction."
+  },
+  {
+    "columnname": "audatetime",
+    "description": "Date and time the transaction was authorized."
+  },
+  {
+    "columnname": "userbranch",
+    "description": "Branch of the user who performed the transaction."
+  }
+]

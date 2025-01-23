@@ -1,0 +1,402 @@
+[
+    {
+        "Code": "1000",
+        "Desc": "***MANUFACTURING INDUSTRIES***"
+    },
+    {
+        "Code": "1002",
+        "Desc": "GARMENT"
+    },
+    {
+        "Code": "1004",
+        "Desc": "TEXTILE"
+    },
+    {
+        "Code": "1006",
+        "Desc": "PHARMACEUTICAL"
+    },
+    {
+        "Code": "1010",
+        "Desc": "FUEL AND GAS"
+    },
+    {
+        "Code": "1012",
+        "Desc": "WOOD & FOREST"
+    },
+    {
+        "Code": "1014",
+        "Desc": "OIL & GHEE"
+    },
+    {
+        "Code": "1016",
+        "Desc": "RICE & PULSE"
+    },
+    {
+        "Code": "1018",
+        "Desc": "CONFECTIONARY AND BISCUITS"
+    },
+    {
+        "Code": "1020",
+        "Desc": "NOODLES & DRY FOODS"
+    },
+    {
+        "Code": "1022",
+        "Desc": "COTTAGE INDUSTRY"
+    },
+    {
+        "Code": "1024",
+        "Desc": "POULTRY AND FISHERY"
+    },
+    {
+        "Code": "1026",
+        "Desc": "TEA AND COFFEE GARDEN"
+    },
+    {
+        "Code": "1028",
+        "Desc": "DAIRY PRODUCTS"
+    },
+    {
+        "Code": "1030",
+        "Desc": "SUGAR CANE AND SUGAR INDUSTRY"
+    },
+    {
+        "Code": "1032",
+        "Desc": "TOBACCO INDUSTRY"
+    },
+    {
+        "Code": "1036",
+        "Desc": "AGRO-BASED OTHER INDUSTRY"
+    },
+    {
+        "Code": "1038",
+        "Desc": "MINERAL WATER AND SOFT DRINKS"
+    },
+    {
+        "Code": "1040",
+        "Desc": "PAPER MILLS"
+    },
+    {
+        "Code": "1042",
+        "Desc": "STATIONARY PRODUCER"
+    },
+    {
+        "Code": "1044",
+        "Desc": "RUBBER & NATURAL EXTRACTION INDUSTRY"
+    },
+    {
+        "Code": "1046",
+        "Desc": "LEATHER AND TANNING"
+    },
+    {
+        "Code": "1048",
+        "Desc": "COAL AND MINE"
+    },
+    {
+        "Code": "1050",
+        "Desc": "CEMENT, SOIL AND STONE"
+    },
+    {
+        "Code": "1052",
+        "Desc": "MACHINERY & EQUIPMENTS"
+    },
+    {
+        "Code": "1054",
+        "Desc": "ASSEMBLING & FABRICATING"
+    },
+    {
+        "Code": "1055",
+        "Desc": "OTHER MANUFACTURING CO."
+    },
+    {
+        "Code": "1056",
+        "Desc": "HOME APPLIANCES"
+    },
+    {
+        "Code": "1058",
+        "Desc": "PLASTIC GOODS"
+    },
+    {
+        "Code": "1200",
+        "Desc": "***SERVICE INDUSTRY***"
+    },
+    {
+        "Code": "1205",
+        "Desc": "HOTEL, RESORT & RESTAURANTS"
+    },
+    {
+        "Code": "1210",
+        "Desc": "TRAVEL & TREKING"
+    },
+    {
+        "Code": "1215",
+        "Desc": "AVIATION & AIRLINES"
+    },
+    {
+        "Code": "1220",
+        "Desc": "HOSPITAL, CLINIC & NUR. HOME"
+    },
+    {
+        "Code": "1225",
+        "Desc": "ADVERTISING AGENCY"
+    },
+    {
+        "Code": "1230",
+        "Desc": "ENTERTAINMENT"
+    },
+    {
+        "Code": "1235",
+        "Desc": "EDUCATIONAL INSTITUTE"
+    },
+    {
+        "Code": "1241",
+        "Desc": "STOCK BROKER"
+    },
+    {
+        "Code": "1242",
+        "Desc": "COMPANY"
+    },
+    {
+        "Code": "1245",
+        "Desc": "CONSULTANCY, ADVISORY & BROK.SERVICE"
+    },
+    {
+        "Code": "1250",
+        "Desc": "SECURITY STOCK EXCHANGE CENTRES"
+    },
+    {
+        "Code": "1255",
+        "Desc": "COURIER SERVICE"
+    },
+    {
+        "Code": "1256",
+        "Desc": "OTHER SERVICE INDUSTRY"
+    },
+    {
+        "Code": "1258",
+        "Desc": "POSTAL"
+    },
+    {
+        "Code": "1400",
+        "Desc": "***UTILITY SERVICES***"
+    },
+    {
+        "Code": "1405",
+        "Desc": "HYDROPOWER & ELECTRICITY"
+    },
+    {
+        "Code": "1410",
+        "Desc": "COMMUNICATION"
+    },
+    {
+        "Code": "1415",
+        "Desc": "NEPAL TELECOM"
+    },
+    {
+        "Code": "1420",
+        "Desc": "WATER & MINERALS"
+    },
+    {
+        "Code": "1425",
+        "Desc": "LOCOMOTIVES & TRANSPORTATION"
+    },
+    {
+        "Code": "2000",
+        "Desc": "***TRADE & COMMERCE***"
+    },
+    {
+        "Code": "2010",
+        "Desc": "RETAILER"
+    },
+    {
+        "Code": "2015",
+        "Desc": "AUTOMOTIVE DEALER/FRANCHISE"
+    },
+    {
+        "Code": "2017",
+        "Desc": "OTHER TRADING IND"
+    },
+    {
+        "Code": "2420",
+        "Desc": "WHOLESALE"
+    },
+    {
+        "Code": "2425",
+        "Desc": "INTERNATIONAL ORGANIZATION"
+    },
+    {
+        "Code": "2430",
+        "Desc": "GEMS & JEWELLERY"
+    },
+    {
+        "Code": "2440",
+        "Desc": "REAL ESTATE DEVELOPER/AGENT"
+    },
+    {
+        "Code": "2450",
+        "Desc": "ANTIQUE DEALERS"
+    },
+    {
+        "Code": "2460",
+        "Desc": "ART DEALERS"
+    },
+    {
+        "Code": "2470",
+        "Desc": "CASINO & GAMBLING GAME"
+    },
+    {
+        "Code": "2475",
+        "Desc": "SCRAP DEALERS"
+    },
+    {
+        "Code": "2480",
+        "Desc": "AUCTION HOUSE"
+    },
+    {
+        "Code": "4000",
+        "Desc": "***FINANCE & FIN. INST.***"
+    },
+    {
+        "Code": "4005",
+        "Desc": "COMMERCIAL BANKS A CLASS FI"
+    },
+    {
+        "Code": "4010",
+        "Desc": "DEVELOPMENT BANKS B CLASS FI"
+    },
+    {
+        "Code": "4015",
+        "Desc": "FINANCE COMPANIES C CLASS FI"
+    },
+    {
+        "Code": "4017",
+        "Desc": "AGRICULTURE DEV. BANK"
+    },
+    {
+        "Code": "4018",
+        "Desc": "EMPLOYEE PROVIDENT FUND"
+    },
+    {
+        "Code": "4019",
+        "Desc": "CITIZEN INVESTMENT TRUST"
+    },
+    {
+        "Code": "4020",
+        "Desc": "RURAL DEVELOPMENT BANKS-D CLASS FI"
+    },
+    {
+        "Code": "4024",
+        "Desc": "CO-OPERATIVES (NRB LICENSED)"
+    },
+    {
+        "Code": "4025",
+        "Desc": "CO-OPERATIVES (OTHERS)"
+    },
+    {
+        "Code": "4030",
+        "Desc": "PENSION FUNDS"
+    },
+    {
+        "Code": "4040",
+        "Desc": "INSURANCE COMPANIES"
+    },
+    {
+        "Code": "4045",
+        "Desc": "MONEY CHANGERS"
+    },
+    {
+        "Code": "4050",
+        "Desc": "CREDIT GUARANTEE CORPORATION"
+    },
+    {
+        "Code": "4052",
+        "Desc": "POSTAL SAVING BANK"
+    },
+    {
+        "Code": "4054",
+        "Desc": "REMITTANCE CO/AGENT"
+    },
+    {
+        "Code": "4055",
+        "Desc": "OTHER FINANCIAL INSTITUTIONS"
+    },
+    {
+        "Code": "4060",
+        "Desc": "FOREIGN BANK"
+    },
+    {
+        "Code": "4070",
+        "Desc": "NEPAL RASTRA BANK"
+    },
+    {
+        "Code": "4080",
+        "Desc": "OTHERS"
+    },
+    {
+        "Code": "9002",
+        "Desc": "MUNICIPALITIES AND VDCS"
+    },
+    {
+        "Code": "9003",
+        "Desc": "ZONAL AND DISTRICT DEV. COMMITTEE"
+    },
+    {
+        "Code": "9000",
+        "Desc": "DIPLOMATIC AGENCIES"
+    },
+    {
+        "Code": "9005",
+        "Desc": "SOCIAL COMMITTEES & ASSOCIATION"
+    },
+    {
+        "Code": "9006",
+        "Desc": "EMBASSY"
+    },
+    {
+        "Code": "9007",
+        "Desc": "TRUSTS"
+    },
+    {
+        "Code": "9008",
+        "Desc": "INDIVIDUALS"
+    },
+    {
+        "Code": "9009",
+        "Desc": "STAFF"
+    },
+    {
+        "Code": "9010",
+        "Desc": "OTHERS"
+    },
+    {
+        "Code": "9011",
+        "Desc": "INDIAN PENSION CAMP"
+    },
+    {
+        "Code": "9012",
+        "Desc": "BRITISH PENSION CAMP"
+    },
+    {
+        "Code": "9013",
+        "Desc": "FOREIGN PROJECTS"
+    },
+    {
+        "Code": "9014",
+        "Desc": "FOREIGN AIRLINES"
+    },
+    {
+        "Code": "9020",
+        "Desc": "NEPAL ARMY"
+    },
+    {
+        "Code": "9021",
+        "Desc": "NEPAL POLICE"
+    },
+    {
+        "Code": "9022",
+        "Desc": "ARMED POLICE"
+    },
+    {
+        "Code": "9030",
+        "Desc": "OTHER GOVERNMENTAL ORGANISATION"
+    }
+]

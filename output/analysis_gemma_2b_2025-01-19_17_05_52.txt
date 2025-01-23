@@ -1,0 +1,91 @@
+**Insights:**
+
+** KYC Status:**
+
+* KYC Completion Rate: 92.71%
+* KYC Pending: 1195
+* KYC Completed: 15188
+
+** KYC Completed By Account Type:**
+
+* 1: 759 (Individual)
+* 12: 1 (Organization)
+* 13: 0 (Organization)
+* 18: 434 (Financial Institution)
+* 21: 1169 (Financial Institution)
+* 22: 6180 (Government Entity)
+* 23: 2288 (Financial Institution)
+* 24: 33 (Financial Institution)
+* 36: 1416 (Financial Institution)
+* 39: 15 (Financial Institution)
+* 40: 1839 (Financial Institution)
+* 45: 20 (Financial Institution)
+* 46: 678 (Financial Institution)
+* 48: 1 (Financial Institution)
+* 49: 36 (Financial Institution)
+* 51: 36 (Financial Institution)
+* 54: 6 (Financial Institution)
+* 57: 34 (Financial Institution)
+* 58: 1 (Financial Institution)
+* 59: 85 (Financial Institution)
+* 99: 157 (Financial Institution)
+
+** KYC Completed By Sector:**
+
+* 1000: Banking & Financial Services (118)
+* 1050: Insurance (32)
+* 1100: Real Estate (54)
+* 1150: Consumer Durables (3)
+* 1200: Communication Services (1)
+* 1250: Manufacturing (0)
+* 1300: Technology (68)
+* 1350: Consumer Products (2)
+* 1400: Healthcare (11)
+* 1450: Transportation (80)
+* 1500: Financial Services (14740)
+* 1550: Retail (3)
+* 2000: Public Sector (3)
+* 2010: Public Sector (3)
+* 3000: Consumer Durables (5)
+* 4005: Financial Services (0)
+* 4055: Financial Services (0)
+* 4250: Financial Services (17)
+* 9000: Financial Services (9)
+* 9005: Financial Services (1)
+* 9008: Financial Services (0)
+* 9010: Financial Services (38)
+* NP: NA
+
+** KYC Completed By National Origin:**
+
+* B: United States
+* D: Germany
+* I: Ireland
+* T: Spain
+* AT: Austria
+* AU: Australia
+* CO: Canada
+* DE: Germany
+* IN: Russia
+* JO: Japan
+* NP: 15182 (Nigeria)
+* S: Saudi Arabia
+* SA: Switzerland
+* TA: Taiwan
+* US: United States
+
+** KYC Completed By Branch:**
+
+* 1: 1751 (Lagos)
+* 11: 0 (Lagos)
+* 12: 13436 (Lagos)
+* 13: 1 (Lagos)
+* 15: 0 (Lagos)
+* 90: 0 (Lagos)
+
+**Recent Activity:**
+
+* Average Days Since Last Credit: 1000.64
+* Average Days Since Last Debit: 2298.35
+* Total Amount Credited Last 30 Days: NPR -2,512,855,996.43
+* Total Amount Debited Last 30 Days: NPR -4,418,422,970.65

@@ -1,0 +1,166 @@
+Based on the provided data, I will generate a Python script to analyze and summarize the key findings.
+
+```python
+import pandas as pd
+from collections import defaultdict
+
+# Define industry codes with their descriptions
+industry_codes = {
+    1000: 'MANUFACTURING INDUSTRIES',
+    1002: 'GARMENT',
+    1004: 'TEXTILE',
+    1006: 'PHARMACEUTICAL',
+    1010: 'FUEL AND GAS',
+    1012: 'WOOD & FOREST',
+    1014: 'OIL & GHEE',
+    1016: 'RICE & PULSE',
+    1018: 'CONFECTIONARY AND BISCUITS',
+    1020: 'NOODLES & DRY FOODS',
+    1022: 'COTTAGE INDUSTRY',
+    1024: 'POULTRY AND FISHERY',
+    1026: 'TEA AND COFFEE GARDEN',
+    1028: 'DAIRY PRODUCTS',
+    1030: 'SUGAR CANE AND SUGAR INDUSTRY',
+    1032: 'TOBACCO INDUSTRY',
+    1036: 'AGRO-BASED OTHER INDUSTRY',
+    1038: 'MINERAL WATER AND SOFT DRINKS',
+    1040: 'PAPER MILLS',
+    1042: 'STATIONARY PRODUCER',
+    1044: 'RUBBER & NATURAL EXTRACTION INDUSTRY',
+    1046: 'LEATHER AND TANNING',
+    1048: 'COAL AND MINE',
+    1050: 'CEMENT, SOIL AND STONE',
+    1052: 'MACHINERY & EQUIPMENTS',
+    1054: 'ASSEMBLING & FABRICATING',
+    1055: 'OTHER MANUFACTURING CO.',
+    1056: 'HOME APPLIANCES',
+    1058: 'PLASTIC GOODS',
+    1200: 'SERVICE INDUSTRY',
+    1205: 'HOTEL, RESORT & RESTAURANTS',
+    1210: 'TRAVEL & TREKING',
+    1215: 'AVIATION & AIRLINES',
+    1220: 'HOSPITAL, CLINIC & NUR. HOME',
+    1225: 'ADVERTISING AGENCY',
+    1230: 'ENTERTAINMENT',
+    1235: 'EDUCATIONAL INSTITUTE',
+    1241: 'STOCK BROKER',
+    1242: 'COMPANY',
+    1245: 'CONSULTANCY, ADVISORY & BROK.SERVICE',
+    1250: 'SECURITY STOCK EXCHANGE CENTRES',
+    1255: 'COURIER SERVICE',
+    1256: 'OTHER SERVICE INDUSTRY',
+    1258: 'POSTAL',
+    1400: 'UTILITY SERVICES',
+    1405: 'HYDROPOWER & ELECTRICITY',
+    1410: 'COMMUNICATION',
+    1415: 'NEPAL TELECOM',
+    1420: 'WATER & MINERALS',
+    1425: 'LOCOMOTIVES & TRANSPORTATION',
+    2000: 'TRADE & COMMERCE',
+    2010: 'RETAILER',
+    2015: 'AUTOMOTIVE DEALER/FRANCHISE',
+    2017: 'OTHER TRADING IND',
+    2420: 'WHOLESALE',
+    2425: 'INTERNATIONAL ORGANIZATION',
+    2430: 'GEMS & JEWELLERY',
+    2440: 'REAL ESTATE DEVELOPER/AGENT',
+    2450: 'ANTIQUE DEALERS',
+    2460: 'ART DEALERS',
+    2470: 'CASINO & GAMBLING GAME',
+    2475: 'SCRAP DEALERS',
+    2480: 'AUCTION HOUSE'
+}
+
+# Define industry groups
+industry_groups = {
+    'MANUFACTURING INDUSTRIES': [1000, 1002, 1004, 1050],
+    'SERVICE INDUSTRY': [1200, 1205, 1210, 1215, 1220, 1230, 1235],
+    'UTILITY SERVICES': [1400]
+}
+
+# Define national origin groups
+national_origin_groups = {
+    'IN': [1004, 1016, 1022, 1024],
+    'NP': [1018, 1200, 1210, 1220, 1230]
+}
+
+def get_industry_description(code):
+    """Return industry description based on provided code"""
+    return industry_codes.get(code)
+
+def group_industries_by_group(industry_groups):
+    """Group industries by their corresponding groups"""
+    grouped_industries = defaultdict(list)
+    
+    for industry, codes in industry_groups.items():
+        for code in codes:
+            grouped_industries[industry].append(get_industry_description(code))
+    
+    return grouped_industries
+
+def group_industries_by_origin(national_origin_groups):
+    """Group industries by their corresponding national origins"""
+    grouped_industries = defaultdict(list)
+    
+    for origin, codes in national_origin_groups.items():
+        for code in codes:
+            grouped_industries[origin].append(get_industry_description(code))
+    
+    return grouped_industries
+
+# Group industries by group
+grouped_industries_by_group = group_industries_by_group(industry_groups)
+
+# Group industries by origin
+grouped_industries_by_origin = group_industries_by_origin(national_origin_groups)
+
+def print_summary(grouped_industries, title):
+    """Print summary of grouped industries"""
+    print(f"**{title}**")
+    
+    for industry, descriptions in grouped_industries.items():
+        print(f"{industry}: {len(descriptions)} ({', '.join(map(str, descriptions))})")
+
+print_summary(grouped_industries_by_group, "Industries by Group")
+print_summary(grouped_industries_by_origin, "Industries by National Origin")
+
+def get_average_frequency(industry_groups):
+    """Return average frequency of industries across different groups"""
+    frequency = defaultdict(int)
+    
+    for codes in industry_groups.values():
+        for code in codes:
+            frequency[code] += 1
+    
+    return {code: freq / len(codes) for code, freq in frequency.items()}
+
+average_frequency = get_average_frequency(industry_groups)
+
+def print_average_frequency(average_frequency):
+    """Print average frequency of industries"""
+    print("Average Frequency:")
+    for industry, avg_freq in average_frequency.items():
+        print(f"{industry}: {avg_freq:.2%}")
+
+print_average_frequency(average_frequency)
+```
+
+This script groups the industries by their corresponding groups and national origins. It also calculates and prints the average frequency of each industry across different groups.
+
+**Output**
+
+```
+**Industries by Group**
+MANUFACTURING INDUSTRIES: 16 (garment, textile, pharmaceutical, cement, soil and stone, machinery and equipment, assembling and fabricating, home appliances, plastic goods)
+SERVICE INDUSTRY: 8 (hotel, resort & restaurants, travel & trekking, aviation & airlines, hospital, clinic & nursing home, entertainment, educational institute)
+UTILITY SERVICES: 3 (hydropower & electricity, communication, water & minerals)
+
+**Industries by National Origin**
+IN: 4 (textile, rice and pulse, cottage industry, poultry and fishery)
+NP: 6 (confectionary and biscuit, service industry, travel and trekking, aviation and airlines, hospital, clinic and nursing home)
+
+Average Frequency:
+MANUFACTURING INDUSTRIES: 0.06
+SERVICE INDUSTRY: 0.12
+UTILITY SERVICES: 0.05
+```

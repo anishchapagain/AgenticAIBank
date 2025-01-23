@@ -1,0 +1,32 @@
+import pandas as pd
+
+# Original JSON data as a Python dictionary
+data = [
+    {"Branch Name": "JAHADA BRANCH", "Branch Code": "JHD", "Branch Code Num": "86"},
+    {"Branch Name": "MAIN BRANCH", "Branch Code": "MBH", "Branch Code Num": "01"},
+    {"Branch Name": "BIRATNAGAR BRANCH", "Branch Code": "BNR", "Branch Code Num": "02"}
+]
+
+# Convert the JSON data to a DataFrame
+df = pd.DataFrame(data)
+
+# Replace the 'Branch Code' column with the values from 'Branch Name'
+df['Branch Code'] = df['Branch Name']
+
+print("Updated DataFrame:")
+print(df)
+
+# Convert the JSON data to a DataFrame
+df = pd.DataFrame(data)
+
+# Filter rows where 'Branch Code Num' equals '86'
+branch_code_num = "86"
+filtered_df = df[df['Branch Code Num'] == branch_code_num]
+
+# Create a mapping dictionary from Branch Info DataFrame
+branch_code_to_name = dict(
+    zip(branch_info_df["Branch Code"], branch_info_df["Branch Name"])
+)
+
+# Replace 'Branch Code' in transactions_df with the corresponding 'Branch Name'
+transactions_df["Branch Code"] = transactions_df["Branch Code"].map(branch_code_to_name)

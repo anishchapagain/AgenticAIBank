@@ -1,0 +1,37 @@
+### Expert Analysis of Provided Financial Data  
+
+#### 1. **Account Overview**  
+- **Total Accounts**: The bank manages **16,383 accounts**, with a fairly balanced distribution between **personal (8,911)** and **non-personal (7,472)** accounts.  
+- **Active/Inactive Ratio**: A notable **active-to-inactive ratio of ~1.67 (10,248/6,135)** suggests a strong level of account activity. However, the **inactive accounts (6,135)** represent a potential area for customer re-engagement initiatives.  
+- **Negative Balances**: **1,282 accounts** have negative balances, which may indicate either overdrafts or operational issues. These accounts should be closely monitored for credit risk.  
+- **Zero Balances**: **732 accounts** with zero balance highlight opportunities for improved account utilization strategies.  
+
+#### 2. **Customer Distribution**  
+- **Nationality**: **99.73% of customers are Nepali nationals**, indicating a predominantly local customer base. However, the bank also serves **37 cross-border customers**, suggesting some international reach.  
+- **Residency**: **99.74% reside in Nepal**, emphasizing the local nature of operations. Cross-border residency distribution is minimal.  
+
+#### 3. **Know Your Customer (KYC) Status**  
+- **KYC Completion**: The bank has achieved a **92.71% KYC completion rate**, leaving **1,195 accounts pending verification**. Addressing pending cases can enhance compliance and operational transparency.  
+- **KYC by Sector**: Most KYC-completed accounts fall under sector **1500 (14,740 accounts)**, indicating concentrated activity in this sector. Other sectors show significant gaps in KYC completion, which should be prioritized for compliance.  
+
+#### 4. **Branch Analysis**  
+- **Branch Overview**: The bank operates through **6 branches**, with the majority of accounts centralized in **Branch 12 (14,414 accounts)**, followed by **Branch 1 (1,953 accounts)**. Smaller branches may need tailored growth strategies.  
+- **Average Balance**:  
+  - Branch 12 shows the highest **average balance (NPR 27,731)**, whereas Branch 1 reports a concerning **negative average balance (NPR -1,238,996)**.  
+  - Branch 1’s **maximum balance of NPR 686M** contrasts sharply with its **minimum balance of NPR -2.48B**, indicating substantial overdrafts or operational losses.  
+- **Active Accounts**: Branch 12 leads with **8,386 active accounts**, but it also has a significant number of inactive accounts (**6,028**), suggesting potential for activation campaigns.  
+- **Negative Balances**: Branch 1 has the highest **negative balance count (768 accounts)**, totaling **NPR -4.12B**, requiring focused recovery efforts.  
+
+#### 5. **Digital Services Adoption**  
+- **Mobile Banking (35.09%)**: Adoption is moderate but can be improved by targeting specific account types like **22 (16.68%)** and **23 (33.31%)**.  
+- **Internet Banking (7.13%)**: Adoption is relatively low, with key sectors and account types underutilized. Focused digital literacy programs and incentives may help increase uptake.  
+- **Account Services (32.11%)**: A promising adoption level, indicating room for deeper penetration across all account types and sectors.  
+
+#### Recommendations  
+1. **Account Re-engagement**: Launch campaigns to activate the **6,135 inactive accounts** and utilize **zero balance accounts**.  
+2. **Risk Management**: Address **negative balance accounts** through credit recovery programs and policy reviews.  
+3. **KYC Completion**: Prioritize pending KYC cases, particularly in underperforming sectors and branches.  
+4. **Branch Strategies**: Focus on improving performance in smaller branches and addressing high negative balances in Branch 1.  
+5. **Digital Services**: Enhance mobile and internet banking adoption through targeted promotions, particularly for high-value customers and sectors.  
+
+This analysis provides a strategic foundation for operational improvements and growth opportunities for the bank.

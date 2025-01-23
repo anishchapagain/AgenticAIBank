@@ -1,0 +1,11 @@
+
+# ignore the venv directory 'bank'
+bank/
+# ignore the .vscode directory
+.vscode/
+# ignore the .idea directory
+.idea/
+# ignore the .env file
+.env
+# Output
+.output/

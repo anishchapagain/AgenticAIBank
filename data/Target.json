@@ -1,0 +1,50 @@
+[
+    {
+        "Code": "1",
+        "Desc": "Private Client - Standard"
+    },
+    {
+        "Code": "2",
+        "Desc": "Private Client - High Networth"
+    },
+    {
+        "Code": "3",
+        "Desc": "Corporate - Small"
+    },
+    {
+        "Code": "4",
+        "Desc": "Corporate - Medium"
+    },
+    {
+        "Code": "5",
+        "Desc": "Corporate - Large"
+    },
+    {
+        "Code": "10",
+        "Desc": "Financial - Small"
+    },
+    {
+        "Code": "20",
+        "Desc": "Financial - Medium"
+    },
+    {
+        "Code": "100",
+        "Desc": "Financial - Large"
+    },
+    {
+        "Code": "200",
+        "Desc": "Portfolio Holder"
+    },
+    {
+        "Code": "500",
+        "Desc": "Government"
+    },
+    {
+        "Code": "999",
+        "Desc": "Others"
+    },
+    {
+        "Code": "9999",
+        "Desc": "T24 Updates"
+    }
+]

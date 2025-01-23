@@ -1,0 +1,3414 @@
+[
+    {
+        "Code": "1000",
+        "Desc": "***Current Accounts"
+    },
+    {
+        "Code": "1001",
+        "Desc": "Current Account"
+    },
+    {
+        "Code": "1002",
+        "Desc": "Convertible FCY Current Account"
+    },
+    {
+        "Code": "1003",
+        "Desc": "Current Account with 0 Min Balance"
+    },
+    {
+        "Code": "1004",
+        "Desc": "Current Account with 1000 Min Bal"
+    },
+    {
+        "Code": "1005",
+        "Desc": "Overdraft Account - Industry"
+    },
+    {
+        "Code": "1006",
+        "Desc": "Overdraft Account - Trading"
+    },
+    {
+        "Code": "1007",
+        "Desc": "Overdraft Account - Privelage Loan"
+    },
+    {
+        "Code": "1008",
+        "Desc": "Overdraft Account - Mortgage Loan"
+    },
+    {
+        "Code": "1009",
+        "Desc": "Overdraft Account - loan share bond"
+    },
+    {
+        "Code": "1010",
+        "Desc": "Demand Loan - Industry"
+    },
+    {
+        "Code": "1011",
+        "Desc": "Demand Loan - Trading"
+    },
+    {
+        "Code": "1012",
+        "Desc": "Sajilo Sana Udhami Karja"
+    },
+    {
+        "Code": "1013",
+        "Desc": "Current Ac with 100 Bal LAG IND"
+    },
+    {
+        "Code": "1014",
+        "Desc": "Current Ac with 7500 Bal LAG CO"
+    },
+    {
+        "Code": "1015",
+        "Desc": "Working Capital Account"
+    },
+    {
+        "Code": "1016",
+        "Desc": "Yuva tatha sana byabasayi krishi ka"
+    },
+    {
+        "Code": "1020",
+        "Desc": "Other Working Capital Account"
+    },
+    {
+        "Code": "1025",
+        "Desc": "Hypothecation"
+    },
+    {
+        "Code": "1030",
+        "Desc": "CALL DEPOSIT Tax 15 %"
+    },
+    {
+        "Code": "1031",
+        "Desc": "Call Account-0 % TAX RATE"
+    },
+    {
+        "Code": "1032",
+        "Desc": "Call Account-5 % TAX RATE"
+    },
+    {
+        "Code": "1033",
+        "Desc": "CALL DEPOSITS-EURO"
+    },
+    {
+        "Code": "1034",
+        "Desc": "MBL Individual Call Deposit"
+    },
+    {
+        "Code": "1098",
+        "Desc": "MIGRATION ACCOUNT-CR"
+    },
+    {
+        "Code": "1099",
+        "Desc": "MIGRATION ACCOUNT-DR INTEREST"
+    },
+    {
+        "Code": "1100",
+        "Desc": "VAULT GOLD STOCK"
+    },
+    {
+        "Code": "1999",
+        "Desc": "**Current Accounts"
+    },
+    {
+        "Code": "2000",
+        "Desc": "***Vostro Accounts"
+    },
+    {
+        "Code": "2001",
+        "Desc": "Vostro Account"
+    },
+    {
+        "Code": "2801",
+        "Desc": "MONEY AT CALL AC"
+    },
+    {
+        "Code": "2999",
+        "Desc": "**Vostro Accounts"
+    },
+    {
+        "Code": "3000",
+        "Desc": "***BILLS PURCHASES"
+    },
+    {
+        "Code": "3001",
+        "Desc": "CHEQUE PURCHASE"
+    },
+    {
+        "Code": "3010",
+        "Desc": "Atm Rec / Payable Accounts"
+    },
+    {
+        "Code": "3011",
+        "Desc": "Pos Rec / Paybale Accounts"
+    },
+    {
+        "Code": "3012",
+        "Desc": "visa Rec / Paybale Accounts"
+    },
+    {
+        "Code": "3090",
+        "Desc": "Mortgage Account"
+    },
+    {
+        "Code": "3099",
+        "Desc": "DOCUMENTRARY EXPORT BILLS PURCHASED"
+    },
+    {
+        "Code": "4000",
+        "Desc": "***Margin Accounts"
+    },
+    {
+        "Code": "4001",
+        "Desc": "Margin on Letter of Credit"
+    },
+    {
+        "Code": "4002",
+        "Desc": "Margin on Guarantee"
+    },
+    {
+        "Code": "4003",
+        "Desc": "Margin on Loans & Advances"
+    },
+    {
+        "Code": "4004",
+        "Desc": "Margin on Goods for Payments"
+    },
+    {
+        "Code": "4005",
+        "Desc": "Margin on Bills Neg./Disc."
+    },
+    {
+        "Code": "4006",
+        "Desc": "Margin on Cheques/Drafts Purchase"
+    },
+    {
+        "Code": "4007",
+        "Desc": "EDUCATION LOAN MARGIN"
+    },
+    {
+        "Code": "4008",
+        "Desc": "MARGIN ON GOLD"
+    },
+    {
+        "Code": "4010",
+        "Desc": "Margin on Locker Deposit"
+    },
+    {
+        "Code": "4011",
+        "Desc": "MARGIN OTHERS"
+    },
+    {
+        "Code": "4143",
+        "Desc": "1 YEAR'S & ABOVE FIXED DEPOSITS"
+    },
+    {
+        "Code": "4999",
+        "Desc": "**Margin Accounts"
+    },
+    {
+        "Code": "5000",
+        "Desc": "***Nostro Accounts"
+    },
+    {
+        "Code": "5001",
+        "Desc": "Nostro A/c - NRB"
+    },
+    {
+        "Code": "5002",
+        "Desc": "Nostro A/c - Local Banks"
+    },
+    {
+        "Code": "5003",
+        "Desc": "Nostro A/c - Foreign Banks"
+    },
+    {
+        "Code": "5004",
+        "Desc": "Nostro A/c - in Branch"
+    },
+    {
+        "Code": "5999",
+        "Desc": "**Nostro Accounts"
+    },
+    {
+        "Code": "6000",
+        "Desc": "***Savings Accounts"
+    },
+    {
+        "Code": "6001",
+        "Desc": "Savings Account"
+    },
+    {
+        "Code": "6002",
+        "Desc": "Convertible FCY Savings Account"
+    },
+    {
+        "Code": "6003",
+        "Desc": "STAFF SAVING ACCOUNT"
+    },
+    {
+        "Code": "6004",
+        "Desc": "Royal Savings Account"
+    },
+    {
+        "Code": "6005",
+        "Desc": "Savings Account(PF)"
+    },
+    {
+        "Code": "6006",
+        "Desc": "NRB Special Call A/C"
+    },
+    {
+        "Code": "6007",
+        "Desc": "Savings Account(DAM)"
+    },
+    {
+        "Code": "6008",
+        "Desc": "Savings Account(BHW)"
+    },
+    {
+        "Code": "6009",
+        "Desc": "Savings Account(BG)"
+    },
+    {
+        "Code": "6010",
+        "Desc": "Savings Account (STAFF)"
+    },
+    {
+        "Code": "6011",
+        "Desc": "Savings Account(MPL)"
+    },
+    {
+        "Code": "6012",
+        "Desc": "Savings Account-0% TAX RATE"
+    },
+    {
+        "Code": "6013",
+        "Desc": "Savings Account-15% TAX RATE"
+    },
+    {
+        "Code": "6014",
+        "Desc": "ROYAL SAVING Account-0 % TAX RATE"
+    },
+    {
+        "Code": "6015",
+        "Desc": "ROYAL SAVING Account-15% TAX RATE"
+    },
+    {
+        "Code": "6016",
+        "Desc": "Saving Account(Salary Min 0)"
+    },
+    {
+        "Code": "6018",
+        "Desc": "Saving Account (Disable)"
+    },
+    {
+        "Code": "6019",
+        "Desc": "Saving Account (Salary A/C)"
+    },
+    {
+        "Code": "6020",
+        "Desc": "Saving Account (Share Holder)"
+    },
+    {
+        "Code": "6021",
+        "Desc": "Saving Account (Salary A/C Min 100)"
+    },
+    {
+        "Code": "6022",
+        "Desc": "Pewa Bachat Account"
+    },
+    {
+        "Code": "6023",
+        "Desc": "YUBA BACHAT KHATA"
+    },
+    {
+        "Code": "6024",
+        "Desc": "SAMMAN BACHAT"
+    },
+    {
+        "Code": "6025",
+        "Desc": "SALARY ACCOUNT (MIN. BAL=200)"
+    },
+    {
+        "Code": "6026",
+        "Desc": "SAVING ACCOUNT (MIN. BAL=0)"
+    },
+    {
+        "Code": "6027",
+        "Desc": "CALL DEPOSIT"
+    },
+    {
+        "Code": "6028",
+        "Desc": "MACH SAVING DEPOSIT"
+    },
+    {
+        "Code": "6029",
+        "Desc": "Saving Account (CIAA)"
+    },
+    {
+        "Code": "6030",
+        "Desc": "Saving Super Prem"
+    },
+    {
+        "Code": "6031",
+        "Desc": "BALBALIKA BACHAT"
+    },
+    {
+        "Code": "6032",
+        "Desc": "REMITTANCE BACHAT KHATA"
+    },
+    {
+        "Code": "6033",
+        "Desc": "MBL NRN SAVING DEPOSIT."
+    },
+    {
+        "Code": "6034",
+        "Desc": "Elder People Allowance"
+    },
+    {
+        "Code": "6035",
+        "Desc": "Elder People Allowance Dalit"
+    },
+    {
+        "Code": "6036",
+        "Desc": "Widow Allowance"
+    },
+    {
+        "Code": "6037",
+        "Desc": "Fully Disability Allowance"
+    },
+    {
+        "Code": "6038",
+        "Desc": "Partly Disability Allowance"
+    },
+    {
+        "Code": "6039",
+        "Desc": "Children Allowance Dalit"
+    },
+    {
+        "Code": "6040",
+        "Desc": "Ekal Nari"
+    },
+    {
+        "Code": "6041",
+        "Desc": "MBL PREMIUM SAVING ACCOUNT"
+    },
+    {
+        "Code": "6100",
+        "Desc": "MG Deposit"
+    },
+    {
+        "Code": "6101",
+        "Desc": "Uchcha Siksha Bachat."
+    },
+    {
+        "Code": "6801",
+        "Desc": "HFD 3 MONTHS"
+    },
+    {
+        "Code": "6802",
+        "Desc": "HFD 6 MONTHS"
+    },
+    {
+        "Code": "6803",
+        "Desc": "HFD 1 YEAR"
+    },
+    {
+        "Code": "6804",
+        "Desc": "HFD 2 YEAR"
+    },
+    {
+        "Code": "6805",
+        "Desc": "HFD 3 YEAR"
+    },
+    {
+        "Code": "6806",
+        "Desc": "HFD 5 YEAR"
+    },
+    {
+        "Code": "6807",
+        "Desc": "SUPER PREMIUM FD"
+    },
+    {
+        "Code": "6808",
+        "Desc": "HFD 13 MONTHS FD"
+    },
+    {
+        "Code": "6809",
+        "Desc": "STANDAR FD"
+    },
+    {
+        "Code": "6810",
+        "Desc": "HFD 4 YEARs"
+    },
+    {
+        "Code": "6999",
+        "Desc": "**Savings Accounts"
+    },
+    {
+        "Code": "7001",
+        "Desc": "Sundry Creditors"
+    },
+    {
+        "Code": "7002",
+        "Desc": "Suspenses-account -Share"
+    },
+    {
+        "Code": "7003",
+        "Desc": "SUNDRY CREDITORS-STAFF VEHICLES"
+    },
+    {
+        "Code": "7004",
+        "Desc": "Pay Order"
+    },
+    {
+        "Code": "7005",
+        "Desc": "Staff Insurance Premium Payable"
+    },
+    {
+        "Code": "7006",
+        "Desc": "RASTRIYA BEEMA SANSTHAN INS.REC."
+    },
+    {
+        "Code": "7007",
+        "Desc": "TAX FOR BONUS SHARE"
+    },
+    {
+        "Code": "7008",
+        "Desc": "NATIONAL LIFE INSURANCE-INS.REC."
+    },
+    {
+        "Code": "7009",
+        "Desc": "TAX FOR BONUS SHARE"
+    },
+    {
+        "Code": "7010",
+        "Desc": "NEPAL LIFE INSURANCE LTD-INS. RECEI"
+    },
+    {
+        "Code": "7011",
+        "Desc": "LIFE INSURNCE CORPORATION"
+    },
+    {
+        "Code": "7012",
+        "Desc": "PRIME LIFE INSURANCE PRM"
+    },
+    {
+        "Code": "7029",
+        "Desc": "CALL IN ADVANCE RIGHT SHARE."
+    },
+    {
+        "Code": "7040",
+        "Desc": "INTEREST PAYABL"
+    },
+    {
+        "Code": "7060",
+        "Desc": "CASH IN TRANSIT"
+    },
+    {
+        "Code": "7100",
+        "Desc": "Advance Payments"
+    },
+    {
+        "Code": "7101",
+        "Desc": "Advance Income Tax"
+    },
+    {
+        "Code": "7102",
+        "Desc": "Sundry Debtors"
+    },
+    {
+        "Code": "7103",
+        "Desc": "Stationery in hand"
+    },
+    {
+        "Code": "7104",
+        "Desc": "Staff Housing Loan"
+    },
+    {
+        "Code": "7105",
+        "Desc": "Security Deposits"
+    },
+    {
+        "Code": "7106",
+        "Desc": "Prepaid Expenses"
+    },
+    {
+        "Code": "7107",
+        "Desc": "Account Receivables"
+    },
+    {
+        "Code": "7108",
+        "Desc": "Salary Advance - Staff"
+    },
+    {
+        "Code": "7109",
+        "Desc": "Other Receivables"
+    },
+    {
+        "Code": "7110",
+        "Desc": "DRAFT/CHEQUE IN TRANSIT"
+    },
+    {
+        "Code": "7111",
+        "Desc": "Gold Coin"
+    },
+    {
+        "Code": "7112",
+        "Desc": "NRB Bond"
+    },
+    {
+        "Code": "7113",
+        "Desc": "IME RECEIVABLE"
+    },
+    {
+        "Code": "7114",
+        "Desc": "MBL REMIT"
+    },
+    {
+        "Code": "7115",
+        "Desc": "UNPRESENTED DD/TT/ FAX TRANSFER AC"
+    },
+    {
+        "Code": "7116",
+        "Desc": "MBL REMIT RECEIVABLE ACCOUNT"
+    },
+    {
+        "Code": "7130",
+        "Desc": "ACCOUNT PAYABLE"
+    },
+    {
+        "Code": "8500",
+        "Desc": "Inter Branch Account"
+    },
+    {
+        "Code": "8501",
+        "Desc": "Inter Branch Account - Damauli"
+    },
+    {
+        "Code": "8502",
+        "Desc": "Inter Branch Account - Bhairahawa"
+    },
+    {
+        "Code": "8503",
+        "Desc": "Inter Branch Account - Birgunj"
+    },
+    {
+        "Code": "9000",
+        "Desc": "**Inter Branch Accounts"
+    },
+    {
+        "Code": "10000",
+        "Desc": "Teller Cash"
+    },
+    {
+        "Code": "10001",
+        "Desc": "GOLD STOCK"
+    },
+    {
+        "Code": "10010",
+        "Desc": "VAULT GOLD STOCK"
+    },
+    {
+        "Code": "10100",
+        "Desc": "Reserve Cash"
+    },
+    {
+        "Code": "10101",
+        "Desc": "Cash in Transit"
+    },
+    {
+        "Code": "10102",
+        "Desc": "Petty Cash"
+    },
+    {
+        "Code": "10103",
+        "Desc": "ATM Cash"
+    },
+    {
+        "Code": "10104",
+        "Desc": "CASH IN TRANSIT - WITHIN BRANCH"
+    },
+    {
+        "Code": "10105",
+        "Desc": "UNRECONCILE ATM CASH"
+    },
+    {
+        "Code": "10200",
+        "Desc": "Cash Surpluses"
+    },
+    {
+        "Code": "10300",
+        "Desc": "Cash Shortages"
+    },
+    {
+        "Code": "10400",
+        "Desc": "Deferred Clearing"
+    },
+    {
+        "Code": "10401",
+        "Desc": "CLEARING PARKING"
+    },
+    {
+        "Code": "10403",
+        "Desc": "Deferred Clearing - BWA"
+    },
+    {
+        "Code": "10404",
+        "Desc": "Deferred Clearing - BRG"
+    },
+    {
+        "Code": "10500",
+        "Desc": "CHEQUE PURCHASED"
+    },
+    {
+        "Code": "10501",
+        "Desc": "DOCUMENTARY BILLS PURCHASE A/C"
+    },
+    {
+        "Code": "10510",
+        "Desc": "Credit Cards Purchased"
+    },
+    {
+        "Code": "10520",
+        "Desc": "Travellers Cheqs. Purch.-Customer"
+    },
+    {
+        "Code": "10521",
+        "Desc": "TRAVELLER CHEQUE PURCHASE RETURN"
+    },
+    {
+        "Code": "10525",
+        "Desc": "Travellers Cheqs. Purch.-Non Cust."
+    },
+    {
+        "Code": "10526",
+        "Desc": "TRAVELLER CHEQUES IN TRANSIT"
+    },
+    {
+        "Code": "10530",
+        "Desc": "Money Order Purchased"
+    },
+    {
+        "Code": "11000",
+        "Desc": "Precious Metals"
+    },
+    {
+        "Code": "11040",
+        "Desc": "Sundry Credit Main (NRB)"
+    },
+    {
+        "Code": "11060",
+        "Desc": "Internal charge payable"
+    },
+    {
+        "Code": "11062",
+        "Desc": "Internal charge 1.5 % sct payable"
+    },
+    {
+        "Code": "11064",
+        "Desc": "Internal charge 2 % sct payable"
+    },
+    {
+        "Code": "11065",
+        "Desc": "MBL REMIT COMMISSION ACCOUNT"
+    },
+    {
+        "Code": "11400",
+        "Desc": "Intercompany"
+    },
+    {
+        "Code": "11500",
+        "Desc": "Accured Interest Receivable"
+    },
+    {
+        "Code": "11501",
+        "Desc": "ACRUED INTEREST RECEIVABLE- LOAN"
+    },
+    {
+        "Code": "11502",
+        "Desc": "MC ACCT LIQUIDATION"
+    },
+    {
+        "Code": "11503",
+        "Desc": "MC ACCT LIQUIDATION"
+    },
+    {
+        "Code": "11504",
+        "Desc": "AIR ON IBT ACCOUNT"
+    },
+    {
+        "Code": "12000",
+        "Desc": "Govt. Treasury Bills"
+    },
+    {
+        "Code": "12001",
+        "Desc": "Govt. Treasury Notes"
+    },
+    {
+        "Code": "12002",
+        "Desc": "Govt. Treasury Bonds"
+    },
+    {
+        "Code": "12003",
+        "Desc": "Development Bonds"
+    },
+    {
+        "Code": "12004",
+        "Desc": "National Savings Bonds"
+    },
+    {
+        "Code": "12005",
+        "Desc": "Municipal Bonds"
+    },
+    {
+        "Code": "12010",
+        "Desc": "Shares & Debs. of Govt. Enterprises"
+    },
+    {
+        "Code": "12015",
+        "Desc": "Shares & Debs. of Pvt. Sector Cos."
+    },
+    {
+        "Code": "12020",
+        "Desc": "Shares & Debs. (Subsidiary Cos.)"
+    },
+    {
+        "Code": "12025",
+        "Desc": "Debentures & Bonds"
+    },
+    {
+        "Code": "12030",
+        "Desc": "Commercial Papers"
+    },
+    {
+        "Code": "12035",
+        "Desc": "Certificate of Deposits"
+    },
+    {
+        "Code": "12300",
+        "Desc": "Land and Land Development"
+    },
+    {
+        "Code": "12301",
+        "Desc": "Buildings & Civil Construction"
+    },
+    {
+        "Code": "12302",
+        "Desc": "BUILDING UNDER CONSTRUCITON"
+    },
+    {
+        "Code": "12305",
+        "Desc": "Vehicles"
+    },
+    {
+        "Code": "12310",
+        "Desc": "Furniture & Fixtures - Wooden"
+    },
+    {
+        "Code": "12311",
+        "Desc": "Furniture & Fixtures - Metal"
+    },
+    {
+        "Code": "12315",
+        "Desc": "Flooring & Furnishing"
+    },
+    {
+        "Code": "12320",
+        "Desc": "Computers & Accessories"
+    },
+    {
+        "Code": "12325",
+        "Desc": "Office Equipments"
+    },
+    {
+        "Code": "12330",
+        "Desc": "Generator"
+    },
+    {
+        "Code": "12335",
+        "Desc": "MISCELLANOIUS ASSETS"
+    },
+    {
+        "Code": "12350",
+        "Desc": "ELECTRICAL FITTINGS"
+    },
+    {
+        "Code": "12500",
+        "Desc": "Leasehold prop.&exps.-Land"
+    },
+    {
+        "Code": "12501",
+        "Desc": "Leasehold prop.&exps.-Building"
+    },
+    {
+        "Code": "12502",
+        "Desc": "Leasehold prop.& exps.-Furn.&Fitt."
+    },
+    {
+        "Code": "12503",
+        "Desc": "Leasehold prop.&exps.-Mach.&Equip."
+    },
+    {
+        "Code": "12504",
+        "Desc": "Leasehold prop.& exps.-Others"
+    },
+    {
+        "Code": "12600",
+        "Desc": "Lease Financed Assets -Land"
+    },
+    {
+        "Code": "12601",
+        "Desc": "Lease Financed Assets -Buildings"
+    },
+    {
+        "Code": "12602",
+        "Desc": "Lease Financed Assets -Machines"
+    },
+    {
+        "Code": "12603",
+        "Desc": "Lease Financed Assets -Equipments"
+    },
+    {
+        "Code": "12604",
+        "Desc": "Lease Financed Assets -Vehicles"
+    },
+    {
+        "Code": "12605",
+        "Desc": "Lease Financed Assets -Others"
+    },
+    {
+        "Code": "12800",
+        "Desc": "***Deferred Expenses"
+    },
+    {
+        "Code": "12801",
+        "Desc": "Preliminary Expenses"
+    },
+    {
+        "Code": "12802",
+        "Desc": "Pre-operating Expenses"
+    },
+    {
+        "Code": "12803",
+        "Desc": "Deffer Exp - Signboard"
+    },
+    {
+        "Code": "12804",
+        "Desc": "Deffer Exp - Furnishing & Fix."
+    },
+    {
+        "Code": "12805",
+        "Desc": "Deffer Exp - EPABX"
+    },
+    {
+        "Code": "12806",
+        "Desc": "Deffer Exp - Software"
+    },
+    {
+        "Code": "12807",
+        "Desc": "DEFERRED EXP.- COMMUNICATION"
+    },
+    {
+        "Code": "12808",
+        "Desc": "DEFERRED EXP. - SHARE"
+    },
+    {
+        "Code": "12810",
+        "Desc": "Deffer Exp - Others"
+    },
+    {
+        "Code": "12850",
+        "Desc": "Profit & Loss - B/f"
+    },
+    {
+        "Code": "12900",
+        "Desc": "***Non Banking Assets"
+    },
+    {
+        "Code": "12901",
+        "Desc": "Land"
+    },
+    {
+        "Code": "12902",
+        "Desc": "Buildings"
+    },
+    {
+        "Code": "12903",
+        "Desc": "Machinery & Equipments"
+    },
+    {
+        "Code": "12904",
+        "Desc": "Non Bkg. Assets - Others"
+    },
+    {
+        "Code": "13100",
+        "Desc": "Fx Exchange Adjustment"
+    },
+    {
+        "Code": "13200",
+        "Desc": "Exchange Asset/Liability Forward"
+    },
+    {
+        "Code": "13300",
+        "Desc": "Profit & Loss Year End Close"
+    },
+    {
+        "Code": "13400",
+        "Desc": "Reserve Forward Credit"
+    },
+    {
+        "Code": "13500",
+        "Desc": "Reserve Forward Debit"
+    },
+    {
+        "Code": "13600",
+        "Desc": "Reserve Fx Swap Cr"
+    },
+    {
+        "Code": "13700",
+        "Desc": "Reserve Fx Swap Dr"
+    },
+    {
+        "Code": "13800",
+        "Desc": "Fx Swap Revaluation"
+    },
+    {
+        "Code": "13900",
+        "Desc": "FX Marketing Spread"
+    },
+    {
+        "Code": "14003",
+        "Desc": "Sc Unrealised Loss"
+    },
+    {
+        "Code": "14150",
+        "Desc": "Suspense Credit Fx"
+    },
+    {
+        "Code": "14156",
+        "Desc": "Syndicated LC Part account Category"
+    },
+    {
+        "Code": "14250",
+        "Desc": "Suspense Credit Sec"
+    },
+    {
+        "Code": "14301",
+        "Desc": "Daily Diff On Data Capture"
+    },
+    {
+        "Code": "14400",
+        "Desc": "Suspense Credit Accounting"
+    },
+    {
+        "Code": "14500",
+        "Desc": "Suspense General - Credit"
+    },
+    {
+        "Code": "14501",
+        "Desc": "Suspense Data Capture - Credit"
+    },
+    {
+        "Code": "14502",
+        "Desc": "Suspense General - Credit (BG)"
+    },
+    {
+        "Code": "14503",
+        "Desc": "Suspense General - Credit(BHW)"
+    },
+    {
+        "Code": "14504",
+        "Desc": "Suspense Loans/Money Mkt - Credit"
+    },
+    {
+        "Code": "14550",
+        "Desc": "SUSPENSE CONTRACT/CRB REC"
+    },
+    {
+        "Code": "14560",
+        "Desc": "LC ROUNDING DIFFERENCE"
+    },
+    {
+        "Code": "14561",
+        "Desc": "LC AMORTISATION"
+    },
+    {
+        "Code": "14562",
+        "Desc": "LC SUSPENSE"
+    },
+    {
+        "Code": "14563",
+        "Desc": "TRADE FINANCE LC"
+    },
+    {
+        "Code": "14600",
+        "Desc": "Suspense General - Debit"
+    },
+    {
+        "Code": "14601",
+        "Desc": "Suspense Data Capture - Debit"
+    },
+    {
+        "Code": "14604",
+        "Desc": "Suspense Loans/Money Mkt - Debit"
+    },
+    {
+        "Code": "14650",
+        "Desc": "Suspense Debit Fx"
+    },
+    {
+        "Code": "14700",
+        "Desc": "ACCOUNT CLOSURE SUSPENSE"
+    },
+    {
+        "Code": "14750",
+        "Desc": "Suspense Debit Sec"
+    },
+    {
+        "Code": "14800",
+        "Desc": "Suspense Debit Accounting"
+    },
+    {
+        "Code": "14850",
+        "Desc": "Liquid Trades - Suspense"
+    },
+    {
+        "Code": "14900",
+        "Desc": "Suspense"
+    },
+    {
+        "Code": "14950",
+        "Desc": "Suspense Bulk Ft"
+    },
+    {
+        "Code": "14955",
+        "Desc": "Payment Netting Suspense"
+    },
+    {
+        "Code": "14960",
+        "Desc": "Suspense Past Due"
+    },
+    {
+        "Code": "14970",
+        "Desc": "LD Cancelled Deals"
+    },
+    {
+        "Code": "14980",
+        "Desc": "Mm Merge Contracts"
+    },
+    {
+        "Code": "14981",
+        "Desc": "Temporary Loan Suspense"
+    },
+    {
+        "Code": "14982",
+        "Desc": "Temporary Deposit Suspense"
+    },
+    {
+        "Code": "14990",
+        "Desc": "Draft Suspense"
+    },
+    {
+        "Code": "14991",
+        "Desc": "Account Closure Suspense"
+    },
+    {
+        "Code": "14992",
+        "Desc": "Draft Cancelled A/c"
+    },
+    {
+        "Code": "14995",
+        "Desc": "Takeover A/c"
+    },
+    {
+        "Code": "14999",
+        "Desc": "Takeover - Suspense"
+    },
+    {
+        "Code": "15000",
+        "Desc": "Valuation fee Payable"
+    },
+    {
+        "Code": "16001",
+        "Desc": "Pay Orders"
+    },
+    {
+        "Code": "16002",
+        "Desc": "Cashiers' Cheque"
+    },
+    {
+        "Code": "16003",
+        "Desc": "Managers' Cheque"
+    },
+    {
+        "Code": "16005",
+        "Desc": "DD / TT Payable"
+    },
+    {
+        "Code": "16010",
+        "Desc": "Unpresented Draft / TTs issued"
+    },
+    {
+        "Code": "16015",
+        "Desc": "TC Sales"
+    },
+    {
+        "Code": "16100",
+        "Desc": "***Tax Payables"
+    },
+    {
+        "Code": "16101",
+        "Desc": "5% Interest Tax on Deposits"
+    },
+    {
+        "Code": "16102",
+        "Desc": "Remuneration Tax"
+    },
+    {
+        "Code": "16103",
+        "Desc": "House Rent Tax"
+    },
+    {
+        "Code": "16104",
+        "Desc": "Tax Payable - Others"
+    },
+    {
+        "Code": "16105",
+        "Desc": "SPECIAL TAX"
+    },
+    {
+        "Code": "16106",
+        "Desc": "Interest Tax on Deposits - Damauli"
+    },
+    {
+        "Code": "16107",
+        "Desc": "Interest Tax on Deposits-Bhairahawa"
+    },
+    {
+        "Code": "16108",
+        "Desc": "Interest Tax on Deposts- Birgunj"
+    },
+    {
+        "Code": "16109",
+        "Desc": "15% Interest Tax on Deposits"
+    },
+    {
+        "Code": "16110",
+        "Desc": "5% Interest Tax on Deposits"
+    },
+    {
+        "Code": "16115",
+        "Desc": "Reverse VAT Payable"
+    },
+    {
+        "Code": "16199",
+        "Desc": "Reserved"
+    },
+    {
+        "Code": "16200",
+        "Desc": "Matured Fixed Deposits"
+    },
+    {
+        "Code": "16250",
+        "Desc": "Dividend Payable"
+    },
+    {
+        "Code": "16251",
+        "Desc": "Proposed Bonus Share"
+    },
+    {
+        "Code": "16260",
+        "Desc": "Citizen Investment Trust Payable"
+    },
+    {
+        "Code": "16270",
+        "Desc": "Salary Payable"
+    },
+    {
+        "Code": "16275",
+        "Desc": "NTC PAYABLE"
+    },
+    {
+        "Code": "16280",
+        "Desc": "Expenses Payable"
+    },
+    {
+        "Code": "16285",
+        "Desc": "Accrued Interest Payable"
+    },
+    {
+        "Code": "16286",
+        "Desc": "MC ACCT LIQUIDATION"
+    },
+    {
+        "Code": "16287",
+        "Desc": "MC ACCT LIQUIDATION"
+    },
+    {
+        "Code": "16288",
+        "Desc": "MC ACCT LIQUIDATION"
+    },
+    {
+        "Code": "16289",
+        "Desc": "MC ACCT LIQUIDATION"
+    },
+    {
+        "Code": "16290",
+        "Desc": "SUNDRY CREDITORS SHARE CAPITAL"
+    },
+    {
+        "Code": "16291",
+        "Desc": "COMM. RECEIVED BUT NOT EARNED- LC"
+    },
+    {
+        "Code": "16292",
+        "Desc": "COMM. RECD. BUT NOT EARNED-GUARANTE"
+    },
+    {
+        "Code": "16293",
+        "Desc": "AIP ON IBT ACCOUNT"
+    },
+    {
+        "Code": "16294",
+        "Desc": "NDF INCOME BUT NOT EARNED"
+    },
+    {
+        "Code": "16300",
+        "Desc": "Employees Provident Fund"
+    },
+    {
+        "Code": "16350",
+        "Desc": "Stamp Duty Payable"
+    },
+    {
+        "Code": "16400",
+        "Desc": "Provision for Staff Bonus"
+    },
+    {
+        "Code": "16401",
+        "Desc": "Provision for Staff Gratuity"
+    },
+    {
+        "Code": "16402",
+        "Desc": "Provision for Income Tax"
+    },
+    {
+        "Code": "16403",
+        "Desc": "DEFERRED TAX"
+    },
+    {
+        "Code": "16408",
+        "Desc": "Provision for Leave Encashment"
+    },
+    {
+        "Code": "16500",
+        "Desc": "NRB MARGIN"
+    },
+    {
+        "Code": "16501",
+        "Desc": "MARGIN ADVANCE PAYMENT DD/TT"
+    },
+    {
+        "Code": "16502",
+        "Desc": "Margin of TT/ Remittance"
+    },
+    {
+        "Code": "16800",
+        "Desc": "Brokerage Payable"
+    },
+    {
+        "Code": "17000",
+        "Desc": "Depreciation Fund"
+    },
+    {
+        "Code": "17050",
+        "Desc": "Amortisation Fund"
+    },
+    {
+        "Code": "17100",
+        "Desc": "Provision for Loan Loss"
+    },
+    {
+        "Code": "17101",
+        "Desc": "Provision for non banking assets"
+    },
+    {
+        "Code": "17102",
+        "Desc": "Pass Loan Provision"
+    },
+    {
+        "Code": "17103",
+        "Desc": "Substandard Loan Loss Provision"
+    },
+    {
+        "Code": "17104",
+        "Desc": "Doubtful Loan Loss Provision"
+    },
+    {
+        "Code": "17105",
+        "Desc": "Bad Loan Loss Provision"
+    },
+    {
+        "Code": "17106",
+        "Desc": "Provision for investment"
+    },
+    {
+        "Code": "17107",
+        "Desc": "RESTRUCTURE LOAN LOSS PROVISION"
+    },
+    {
+        "Code": "17108",
+        "Desc": "WATCH LIST LOAN LOSS PROVISION"
+    },
+    {
+        "Code": "17120",
+        "Desc": "INTEREST SUSPENSE-ASHAD"
+    },
+    {
+        "Code": "17121",
+        "Desc": "INTEREST SUSPENSE-ASWIN"
+    },
+    {
+        "Code": "17122",
+        "Desc": "INTEREST SUSPENSE-POUSH"
+    },
+    {
+        "Code": "17123",
+        "Desc": "INTEREST SUSPENSE-CHAITRA"
+    },
+    {
+        "Code": "17124",
+        "Desc": "INTEREST SUSPENSE-ASHAD2060"
+    },
+    {
+        "Code": "17125",
+        "Desc": "INTEREST SUSPENSE- 2060"
+    },
+    {
+        "Code": "17126",
+        "Desc": "INTEREST SUS-2061"
+    },
+    {
+        "Code": "17127",
+        "Desc": "INTEREST SUS-2062"
+    },
+    {
+        "Code": "17128",
+        "Desc": "INTEREST SUS-2063"
+    },
+    {
+        "Code": "17129",
+        "Desc": "INTEREST SUS-2064"
+    },
+    {
+        "Code": "17130",
+        "Desc": "INTEREST SUS-2065"
+    },
+    {
+        "Code": "17131",
+        "Desc": "INTEREST SUSPENSE 2066"
+    },
+    {
+        "Code": "17132",
+        "Desc": "INTEREST SUSPENSE 2067 068"
+    },
+    {
+        "Code": "17133",
+        "Desc": "INTEREST SUSPENSE ASWIN 2068 069"
+    },
+    {
+        "Code": "17134",
+        "Desc": "INTEREST SUSPENSE 69-70"
+    },
+    {
+        "Code": "17135",
+        "Desc": "INTEREST SUSPENSE ASWIN 70-71"
+    },
+    {
+        "Code": "17136",
+        "Desc": "INTEREST SUSPENSE ASWIN 71-72"
+    },
+    {
+        "Code": "17137",
+        "Desc": "INTEREST SUSPENSE ASWIN 72-73"
+    },
+    {
+        "Code": "17200",
+        "Desc": "Provision for Bank's portfolio"
+    },
+    {
+        "Code": "17400",
+        "Desc": "FRA PROV UNREALISED PROFIT"
+    },
+    {
+        "Code": "17600",
+        "Desc": "FRA PROV REALISED LOSS"
+    },
+    {
+        "Code": "17700",
+        "Desc": "FRA PROV FOR REAL PROFIT"
+    },
+    {
+        "Code": "18001",
+        "Desc": "Share Capital - Authorised"
+    },
+    {
+        "Code": "18002",
+        "Desc": "Share Capital - Paid up"
+    },
+    {
+        "Code": "18005",
+        "Desc": "Cash In Transit"
+    },
+    {
+        "Code": "18101",
+        "Desc": "General Reserve"
+    },
+    {
+        "Code": "18102",
+        "Desc": "Share Premium"
+    },
+    {
+        "Code": "18103",
+        "Desc": "Retained Earnings"
+    },
+    {
+        "Code": "18104",
+        "Desc": "Capital adjustment fund"
+    },
+    {
+        "Code": "18105",
+        "Desc": "Dividend Equilization Fund"
+    },
+    {
+        "Code": "18106",
+        "Desc": "Exchange Fluctuation Reserve"
+    },
+    {
+        "Code": "18107",
+        "Desc": "Dividend Payable"
+    },
+    {
+        "Code": "18108",
+        "Desc": "Repo"
+    },
+    {
+        "Code": "18109",
+        "Desc": "2% INVESTMENT ADJUSTMENT FUND"
+    },
+    {
+        "Code": "18110",
+        "Desc": "For. Exch. Fluctuation Res."
+    },
+    {
+        "Code": "18115",
+        "Desc": "Staff Welfare Fund"
+    },
+    {
+        "Code": "18120",
+        "Desc": "Other Contingent Reserves"
+    },
+    {
+        "Code": "18125",
+        "Desc": "Bank Development Fund"
+    },
+    {
+        "Code": "18130",
+        "Desc": "DEFERRED TAX RESERVED"
+    },
+    {
+        "Code": "18140",
+        "Desc": "INVESTEMENT ADJUSTEMENT RESERVE"
+    },
+    {
+        "Code": "18700",
+        "Desc": "Rediscounting with NRB"
+    },
+    {
+        "Code": "18701",
+        "Desc": "Loan againt Govt. Sec.-NRB"
+    },
+    {
+        "Code": "18900",
+        "Desc": "Inter Departmental Transactions"
+    },
+    {
+        "Code": "18901",
+        "Desc": "INTER DEPT. TRANSACTIONS-CONTRA"
+    },
+    {
+        "Code": "18902",
+        "Desc": "INTER BRANCH TRANSACTIONS - CONTRA"
+    },
+    {
+        "Code": "19001",
+        "Desc": "Bills for Collection Contra"
+    },
+    {
+        "Code": "19002",
+        "Desc": "Docs. Negotiated Under Res.-Contra"
+    },
+    {
+        "Code": "19003",
+        "Desc": "LC Contigent Assts"
+    },
+    {
+        "Code": "19004",
+        "Desc": "GUARANTEE CONTINGENT ASSETS"
+    },
+    {
+        "Code": "19005",
+        "Desc": "CLAIMS ON BANK BUT NOT ACCEPTED"
+    },
+    {
+        "Code": "19006",
+        "Desc": "CONTINGENT INCOME TAX -ASS"
+    },
+    {
+        "Code": "19007",
+        "Desc": "UNPAID SHARES IN INVESTMENT"
+    },
+    {
+        "Code": "19008",
+        "Desc": "UNDERWRITING COMMITMENTS"
+    },
+    {
+        "Code": "19009",
+        "Desc": "OTHERS (SOFTWARE)"
+    },
+    {
+        "Code": "19010",
+        "Desc": "ACCEPTANCE AND ENDORSEMENTS"
+    },
+    {
+        "Code": "19011",
+        "Desc": "Export Bills for Collection -Ctr-A"
+    },
+    {
+        "Code": "19012",
+        "Desc": "STATIONARY STOCK ACCOUNT"
+    },
+    {
+        "Code": "19050",
+        "Desc": "WRITE-OFF"
+    },
+    {
+        "Code": "19501",
+        "Desc": "Bills for Collection Contra"
+    },
+    {
+        "Code": "19502",
+        "Desc": "Docs. Negotiated Under Res.-Contra"
+    },
+    {
+        "Code": "19503",
+        "Desc": "LC Contingent Liability"
+    },
+    {
+        "Code": "19504",
+        "Desc": "GUARANTEE CONTINGENT LAIBILITY"
+    },
+    {
+        "Code": "19505",
+        "Desc": "CLAIMS ON BANK BUT NOT ACCEPTED"
+    },
+    {
+        "Code": "19506",
+        "Desc": "CONTINGENT INCOME TAX-LIA"
+    },
+    {
+        "Code": "19507",
+        "Desc": "UNPAID SHARES IN INVESTMENT"
+    },
+    {
+        "Code": "19508",
+        "Desc": "UNDERWRITING COMMITMENTS"
+    },
+    {
+        "Code": "19509",
+        "Desc": "OTHERS (SOFTWARE)"
+    },
+    {
+        "Code": "19510",
+        "Desc": "ACCEPTANCE AND ENDORSEMENTS"
+    },
+    {
+        "Code": "19511",
+        "Desc": "Export Bills for Collection Ctr-L"
+    },
+    {
+        "Code": "19512",
+        "Desc": "STATIONARY CONTRA ACCOUNT"
+    },
+    {
+        "Code": "19550",
+        "Desc": "WRITE-OFF CONTRA"
+    },
+    {
+        "Code": "19990",
+        "Desc": "MULTICOMPANY MIGRATION"
+    },
+    {
+        "Code": "19991",
+        "Desc": "MIGRATION ACCOUNT"
+    },
+    {
+        "Code": "20000",
+        "Desc": "Foreign Exchange"
+    },
+    {
+        "Code": "20001",
+        "Desc": "Forex Rebate Revaluation"
+    },
+    {
+        "Code": "20010",
+        "Desc": "Spot deal"
+    },
+    {
+        "Code": "20020",
+        "Desc": "Forward deal"
+    },
+    {
+        "Code": "20030",
+        "Desc": "FX swap deal"
+    },
+    {
+        "Code": "20050",
+        "Desc": "NON-DELIVERY FORWARD"
+    },
+    {
+        "Code": "21001",
+        "Desc": "Money at Call"
+    },
+    {
+        "Code": "21002",
+        "Desc": "Money at Short Notice"
+    },
+    {
+        "Code": "21005",
+        "Desc": "Fixed Deposit account tax 5 %"
+    },
+    {
+        "Code": "21006",
+        "Desc": "Fixed Deposit account tax 0%"
+    },
+    {
+        "Code": "21007",
+        "Desc": "Fixed Deposit Account Tax 15 %"
+    },
+    {
+        "Code": "21008",
+        "Desc": "150 Days Fixed Deposit"
+    },
+    {
+        "Code": "21009",
+        "Desc": "1 YEAR FD WITH MONTHLY INT"
+    },
+    {
+        "Code": "21010",
+        "Desc": "60 DAYS FD"
+    },
+    {
+        "Code": "21011",
+        "Desc": "1 YR SPECIAL FD"
+    },
+    {
+        "Code": "21012",
+        "Desc": "1 YEAR'S & ABOVE FIXED DEPOSIT"
+    },
+    {
+        "Code": "21013",
+        "Desc": "MBL INDIVIDUAL PREMIUM FD"
+    },
+    {
+        "Code": "21030",
+        "Desc": "Loans from other Banks"
+    },
+    {
+        "Code": "21031",
+        "Desc": "Refinance Loan from NRB"
+    },
+    {
+        "Code": "21033",
+        "Desc": "MBL NRN FIXED DEPOSIT."
+    },
+    {
+        "Code": "21045",
+        "Desc": "Int. Free Loans from NRB"
+    },
+    {
+        "Code": "21050",
+        "Desc": "Instalment Loans"
+    },
+    {
+        "Code": "21051",
+        "Desc": "Secured Loans"
+    },
+    {
+        "Code": "21052",
+        "Desc": "HP Loans - Consumer"
+    },
+    {
+        "Code": "21053",
+        "Desc": "HP Loans-Vehicle"
+    },
+    {
+        "Code": "21054",
+        "Desc": "Loan Under Refinance"
+    },
+    {
+        "Code": "21055",
+        "Desc": "PDPD Overdraft Loan"
+    },
+    {
+        "Code": "21057",
+        "Desc": "LOAN AGAINST SHARE & BONDS"
+    },
+    {
+        "Code": "21058",
+        "Desc": "MBL MORTGAGE LOAN"
+    },
+    {
+        "Code": "21060",
+        "Desc": "Documentary Bills Purchased"
+    },
+    {
+        "Code": "21061",
+        "Desc": "Collection Bills Purchased"
+    },
+    {
+        "Code": "21062",
+        "Desc": "MBL Easy Car Loan."
+    },
+    {
+        "Code": "21063",
+        "Desc": "MBL Easy Home Loan"
+    },
+    {
+        "Code": "21064",
+        "Desc": "BLC"
+    },
+    {
+        "Code": "21065",
+        "Desc": "LOAN AGAINST GOLD"
+    },
+    {
+        "Code": "21066",
+        "Desc": "Sajilo Sana Udhyami Karja"
+    },
+    {
+        "Code": "21067",
+        "Desc": "Yuva tatha sana byabasayi krishi ka"
+    },
+    {
+        "Code": "21070",
+        "Desc": "Import Finance"
+    },
+    {
+        "Code": "21071",
+        "Desc": "Import Finance 2 % Spread Rate"
+    },
+    {
+        "Code": "21072",
+        "Desc": "Short Term Loan"
+    },
+    {
+        "Code": "21073",
+        "Desc": "Export Finance"
+    },
+    {
+        "Code": "21074",
+        "Desc": "**End of Loans & Advances"
+    },
+    {
+        "Code": "21075",
+        "Desc": "Mm Placement"
+    },
+    {
+        "Code": "21084",
+        "Desc": "Mm Placement"
+    },
+    {
+        "Code": "21090",
+        "Desc": "CHEQUES PURCHASED"
+    },
+    {
+        "Code": "21091",
+        "Desc": "LOAN RESCHEDULE AS PERNRB DIRECTIVE"
+    },
+    {
+        "Code": "21095",
+        "Desc": "Revolving Commitment"
+    },
+    {
+        "Code": "21200",
+        "Desc": "***Repo"
+    },
+    {
+        "Code": "21250",
+        "Desc": "Reverse Repo"
+    },
+    {
+        "Code": "22000",
+        "Desc": "***Securities"
+    },
+    {
+        "Code": "22999",
+        "Desc": "Tbills/Tbonds"
+    },
+    {
+        "Code": "23000",
+        "Desc": "LC'S EXPORT DEFFERED UNCONFIRMED"
+    },
+    {
+        "Code": "23001",
+        "Desc": "LC'S EXPORT DEFFERED CONFIRMED"
+    },
+    {
+        "Code": "23002",
+        "Desc": "LC EXPORT ACCEPTANCE UNCONFIRMED"
+    },
+    {
+        "Code": "23003",
+        "Desc": "LC EXPORT ACCEPTANCE CONFIRMED"
+    },
+    {
+        "Code": "23004",
+        "Desc": "LC EXPORT MIXED UNCONFIRMED"
+    },
+    {
+        "Code": "23005",
+        "Desc": "LC EXPORT MIXED CONFIRMED"
+    },
+    {
+        "Code": "23006",
+        "Desc": "LC EXPORT SIGHT UNCONFIRMED"
+    },
+    {
+        "Code": "23007",
+        "Desc": "LC EXPORT SIGHT CONFIRMED"
+    },
+    {
+        "Code": "23008",
+        "Desc": "LC IMPORT DEFFERED CONFIRMED"
+    },
+    {
+        "Code": "23009",
+        "Desc": "LC IMPORT DEFERRED UNCONFIRMED"
+    },
+    {
+        "Code": "23010",
+        "Desc": "LC IMPORT ACCEPTANCE UNCONFIRMED"
+    },
+    {
+        "Code": "23011",
+        "Desc": "LC IMPORT ACCEPTANCE CONFIRMED"
+    },
+    {
+        "Code": "23012",
+        "Desc": "LC IMPORT SIGHT UNCONFIRMED"
+    },
+    {
+        "Code": "23013",
+        "Desc": "LC IMPORT SIGHT CONFIRMED"
+    },
+    {
+        "Code": "23014",
+        "Desc": "LC IMPORT SIGHT UNCONFIRM-TRFBLE"
+    },
+    {
+        "Code": "23015",
+        "Desc": "LC IMPORT MIXED CONFIRMED"
+    },
+    {
+        "Code": "23016",
+        "Desc": "LC IMPORT MIXED UNCONFIRMED"
+    },
+    {
+        "Code": "23017",
+        "Desc": "OUTWARD BILL COLLECTION-SIGHT"
+    },
+    {
+        "Code": "23018",
+        "Desc": "OUTWARD BILL COLLECTION-ACCEPTANCE"
+    },
+    {
+        "Code": "23019",
+        "Desc": "OUTWARD BILL COLLECTION-CLEAN"
+    },
+    {
+        "Code": "23020",
+        "Desc": "INWARD BILL COLLECTION-SIGHT"
+    },
+    {
+        "Code": "23021",
+        "Desc": "INWARD BILL COLLECTION-ACCEPTANCE"
+    },
+    {
+        "Code": "23022",
+        "Desc": "INWARD BILL COLLECTION-CLEAN"
+    },
+    {
+        "Code": "23025",
+        "Desc": "PRE-ADVICE LETTER OF CREDIT"
+    },
+    {
+        "Code": "23026",
+        "Desc": "MUSHARAKA SIGHT CONFIRMED"
+    },
+    {
+        "Code": "23027",
+        "Desc": "MUSHARAKA SIGHT UNCONFIRMED"
+    },
+    {
+        "Code": "23028",
+        "Desc": "MUSHARAKA ACCEPTANCE CONFIRMED"
+    },
+    {
+        "Code": "23029",
+        "Desc": "MUSHARAKA ACCEPTANCE CONFIRMED"
+    },
+    {
+        "Code": "23030",
+        "Desc": "MUSHARAKA DEFFERED CONFIRMED"
+    },
+    {
+        "Code": "23031",
+        "Desc": "MUSHARAKA DEFFERED UNCONFIRMED"
+    },
+    {
+        "Code": "23032",
+        "Desc": "MUSHARAKA MIXED CONFIRMED"
+    },
+    {
+        "Code": "23033",
+        "Desc": "MUSHARAKA MIXED UNCONFIRMED"
+    },
+    {
+        "Code": "23034",
+        "Desc": "MURABAHA SIGHT CONFIRMED"
+    },
+    {
+        "Code": "23035",
+        "Desc": "MURABAHA SIGHT UNCONFIRMED"
+    },
+    {
+        "Code": "23036",
+        "Desc": "MURABAHA ACCEPTANCE CONFIRMED"
+    },
+    {
+        "Code": "23037",
+        "Desc": "MURABAHA ACCEPTANCE UNCONFIRMED"
+    },
+    {
+        "Code": "23038",
+        "Desc": "MURABAHA DEFFERED CONFIRMED"
+    },
+    {
+        "Code": "23039",
+        "Desc": "MURABAHA DEFFERED UNCONFIRMED"
+    },
+    {
+        "Code": "23040",
+        "Desc": "MURABAHA MIXED CONFIRMED"
+    },
+    {
+        "Code": "23041",
+        "Desc": "MURABAHA MIXED UNCONFIRMED"
+    },
+    {
+        "Code": "23042",
+        "Desc": "MUSHARAKA SIGHT CONFIRMED BY NEG"
+    },
+    {
+        "Code": "23043",
+        "Desc": "MUSHARAKA SIGHT UNCONFIRMED BY NEG"
+    },
+    {
+        "Code": "23044",
+        "Desc": "MURABAHA SIGHT CONFIRMED BY NEG"
+    },
+    {
+        "Code": "23045",
+        "Desc": "MURABAHA SIGHT UNCONFIRMED BY NEG"
+    },
+    {
+        "Code": "23999",
+        "Desc": "**TF Products"
+    },
+    {
+        "Code": "25010",
+        "Desc": "Mortgage Type Annuity"
+    },
+    {
+        "Code": "25019",
+        "Desc": "Mortgage Type Annuity"
+    },
+    {
+        "Code": "25020",
+        "Desc": "Mortgage Type Linear"
+    },
+    {
+        "Code": "25029",
+        "Desc": "Mortgage Type Linear"
+    },
+    {
+        "Code": "25030",
+        "Desc": "Mortgage Type Saving"
+    },
+    {
+        "Code": "25039",
+        "Desc": "Mortgage Type Saving"
+    },
+    {
+        "Code": "25040",
+        "Desc": "Mortgage Type Non Redemption"
+    },
+    {
+        "Code": "25049",
+        "Desc": "Mortgage Type Non Redemption"
+    },
+    {
+        "Code": "28000",
+        "Desc": "***MD Start of Guarantees Issued"
+    },
+    {
+        "Code": "28010",
+        "Desc": "LGs Issued"
+    },
+    {
+        "Code": "28014",
+        "Desc": "LG - Bid Bond"
+    },
+    {
+        "Code": "28016",
+        "Desc": "LG - Performance"
+    },
+    {
+        "Code": "28017",
+        "Desc": "LG - Advance Mobilization"
+    },
+    {
+        "Code": "28018",
+        "Desc": "LG-Retention Money garantee"
+    },
+    {
+        "Code": "28019",
+        "Desc": "LG-Shipping guarantee"
+    },
+    {
+        "Code": "28020",
+        "Desc": "LG-Miscellaneous Guarantee"
+    },
+    {
+        "Code": "28022",
+        "Desc": "LG - Customs"
+    },
+    {
+        "Code": "28028",
+        "Desc": "LG - Rental"
+    },
+    {
+        "Code": "28030",
+        "Desc": "LG - Multi Party Guarantee"
+    },
+    {
+        "Code": "28032",
+        "Desc": "LG - Single Party Guarantee"
+    },
+    {
+        "Code": "28035",
+        "Desc": "Financial Guarantee"
+    },
+    {
+        "Code": "28037",
+        "Desc": "Counter Guarantee"
+    },
+    {
+        "Code": "28099",
+        "Desc": "**MD End of Guarantees Issued"
+    },
+    {
+        "Code": "28100",
+        "Desc": "***MD Start of Guarantees Received"
+    },
+    {
+        "Code": "28102",
+        "Desc": "guarantee rcd"
+    },
+    {
+        "Code": "28110",
+        "Desc": "Guarantees given - LC"
+    },
+    {
+        "Code": "28112",
+        "Desc": "Guarantee received - facilities"
+    },
+    {
+        "Code": "28114",
+        "Desc": "Guarantee Received - Overdraft"
+    },
+    {
+        "Code": "28118",
+        "Desc": "LG Multi Party Participant Given"
+    },
+    {
+        "Code": "28199",
+        "Desc": "**MD End of Guarantees Received"
+    },
+    {
+        "Code": "29010",
+        "Desc": "CIRS"
+    },
+    {
+        "Code": "29020",
+        "Desc": "IRS"
+    },
+    {
+        "Code": "50000",
+        "Desc": "Int. Paid-Ld/Mm"
+    },
+    {
+        "Code": "50001",
+        "Desc": "Interest Expense (1)"
+    },
+    {
+        "Code": "50010",
+        "Desc": "Int Exp (1) - Adjust Cur Mth"
+    },
+    {
+        "Code": "50015",
+        "Desc": "FRA REALISED LOSS"
+    },
+    {
+        "Code": "50020",
+        "Desc": "Int Exp (1) - Adjst Prv Mth"
+    },
+    {
+        "Code": "50030",
+        "Desc": "Int Exp (1) - Adjust Prv Year"
+    },
+    {
+        "Code": "50101",
+        "Desc": "Adjustments Interest Paid 2"
+    },
+    {
+        "Code": "50110",
+        "Desc": "Int Exp (2) - Adjust Cur Mth"
+    },
+    {
+        "Code": "50120",
+        "Desc": "Int Exp (2) - Adjust Prv Mth"
+    },
+    {
+        "Code": "50130",
+        "Desc": "Int Exp (2) - Adjust Prv Year"
+    },
+    {
+        "Code": "50200",
+        "Desc": "NDF Income Amortisation"
+    },
+    {
+        "Code": "50500",
+        "Desc": "Interest Paid in Advance"
+    },
+    {
+        "Code": "50510",
+        "Desc": "Int Paid In Adv - Adjust Cur Mth"
+    },
+    {
+        "Code": "50520",
+        "Desc": "Int Paid In Adv -Adjust Prv Year"
+    },
+    {
+        "Code": "50530",
+        "Desc": "Int Paid In Adv - Adjust Prv Year"
+    },
+    {
+        "Code": "50600",
+        "Desc": "Interest Paid In Advance Adjustmnts"
+    },
+    {
+        "Code": "50820",
+        "Desc": "Premium on Forward Contracts"
+    },
+    {
+        "Code": "50830",
+        "Desc": "Premium on Bonds and Shares"
+    },
+    {
+        "Code": "51000",
+        "Desc": "Int. Recd.-Ld/Mm/Ac"
+    },
+    {
+        "Code": "51001",
+        "Desc": "Int Income (1)"
+    },
+    {
+        "Code": "51005",
+        "Desc": "Pd Spread Income"
+    },
+    {
+        "Code": "51006",
+        "Desc": "Pd Spread Income - Adjustments"
+    },
+    {
+        "Code": "51007",
+        "Desc": "Int Income Penalties"
+    },
+    {
+        "Code": "51008",
+        "Desc": "Interest income others"
+    },
+    {
+        "Code": "51009",
+        "Desc": "DIVIDEND INCOME"
+    },
+    {
+        "Code": "51010",
+        "Desc": "Int Inc (1) - Adjust Current Month"
+    },
+    {
+        "Code": "51015",
+        "Desc": "FRA REALISED PROFIT"
+    },
+    {
+        "Code": "51020",
+        "Desc": "Int Inc (1) - Adjust Previous Month"
+    },
+    {
+        "Code": "51030",
+        "Desc": "Int Inc (1) - Adjust Previous Year"
+    },
+    {
+        "Code": "51100",
+        "Desc": "ATM COMMISSION"
+    },
+    {
+        "Code": "51101",
+        "Desc": "Int Income (2)"
+    },
+    {
+        "Code": "51102",
+        "Desc": "POS COMMISSION"
+    },
+    {
+        "Code": "51103",
+        "Desc": "VISA COMMISSION"
+    },
+    {
+        "Code": "51110",
+        "Desc": "Int Inc (2) - Adjust Current Month"
+    },
+    {
+        "Code": "51120",
+        "Desc": "Int Inc (2) - Adjust Previous Month"
+    },
+    {
+        "Code": "51130",
+        "Desc": "Int Inc (2) - Adjust Previous Year"
+    },
+    {
+        "Code": "51150",
+        "Desc": "MBL REMIT COMMISSION INCOME"
+    },
+    {
+        "Code": "51200",
+        "Desc": "NDF Expense Amortisation"
+    },
+    {
+        "Code": "51500",
+        "Desc": "Interest Received In Advance"
+    },
+    {
+        "Code": "51510",
+        "Desc": "Int Rcvd In Adv - Adjust Cur Month"
+    },
+    {
+        "Code": "51511",
+        "Desc": "Interest Received Discount Loans"
+    },
+    {
+        "Code": "51520",
+        "Desc": "Int Rcvd In Adv - Adjust Prv Month"
+    },
+    {
+        "Code": "51530",
+        "Desc": "Int Rcvd In Adv - Adjust Prv Year"
+    },
+    {
+        "Code": "51600",
+        "Desc": "Interest Received In Advance Adjmnt"
+    },
+    {
+        "Code": "51650",
+        "Desc": "SECS DISC PL"
+    },
+    {
+        "Code": "51800",
+        "Desc": "Fra Interest Income"
+    },
+    {
+        "Code": "51810",
+        "Desc": "Forex Forward Int. Cover Profit"
+    },
+    {
+        "Code": "51820",
+        "Desc": "Option Premium Pl"
+    },
+    {
+        "Code": "51900",
+        "Desc": "Sc Interest Received"
+    },
+    {
+        "Code": "51901",
+        "Desc": "Fra Realised Profit"
+    },
+    {
+        "Code": "52000",
+        "Desc": "***Start of Commissions & Fees"
+    },
+    {
+        "Code": "52001",
+        "Desc": "Commission from Letters of Credit"
+    },
+    {
+        "Code": "52002",
+        "Desc": "Commission from Guarantees"
+    },
+    {
+        "Code": "52003",
+        "Desc": "Collection Fees"
+    },
+    {
+        "Code": "52004",
+        "Desc": "Remittance Fees"
+    },
+    {
+        "Code": "52005",
+        "Desc": "Commitment Fees"
+    },
+    {
+        "Code": "52006",
+        "Desc": "TC Purchase Commission"
+    },
+    {
+        "Code": "52007",
+        "Desc": "TC Sales Commission"
+    },
+    {
+        "Code": "52008",
+        "Desc": "Insurance Agency Commission"
+    },
+    {
+        "Code": "52009",
+        "Desc": "Foreign Cash Purchase Commission"
+    },
+    {
+        "Code": "52010",
+        "Desc": "Cheque Return Fee"
+    },
+    {
+        "Code": "52011",
+        "Desc": "Ledger Fee"
+    },
+    {
+        "Code": "52012",
+        "Desc": "Loan Processing Fee"
+    },
+    {
+        "Code": "52013",
+        "Desc": "Credit Commitment Fee"
+    },
+    {
+        "Code": "52014",
+        "Desc": "Cheque Issue charges"
+    },
+    {
+        "Code": "52015",
+        "Desc": "Bills Purchase Commission"
+    },
+    {
+        "Code": "52016",
+        "Desc": "CHEQUES PURCHASE COMMISSION"
+    },
+    {
+        "Code": "52017",
+        "Desc": "FOREIGN CASH SALES COMMISSION"
+    },
+    {
+        "Code": "52018",
+        "Desc": "INC. FROM MONEY TRANSFER BUSINESS"
+    },
+    {
+        "Code": "52019",
+        "Desc": "SHARE DHAKHIL KHAREJ SULKA"
+    },
+    {
+        "Code": "52020",
+        "Desc": "Brokerage on Security Transactions"
+    },
+    {
+        "Code": "52021",
+        "Desc": "ATM COMMISSION"
+    },
+    {
+        "Code": "52022",
+        "Desc": "LC Issuing Commission"
+    },
+    {
+        "Code": "52023",
+        "Desc": "LC Amendment Fee"
+    },
+    {
+        "Code": "52024",
+        "Desc": "Discrepancies Charge"
+    },
+    {
+        "Code": "52025",
+        "Desc": "LC Acceptance Commission"
+    },
+    {
+        "Code": "52026",
+        "Desc": "LC Cancellation Fee"
+    },
+    {
+        "Code": "52027",
+        "Desc": "LC Commission -Other"
+    },
+    {
+        "Code": "52028",
+        "Desc": "Guarantee Issuing Charge"
+    },
+    {
+        "Code": "52029",
+        "Desc": "Guarantee Amendment Fee"
+    },
+    {
+        "Code": "52030",
+        "Desc": "Other Bank Commission"
+    },
+    {
+        "Code": "52031",
+        "Desc": "Guarantee Commission-Other"
+    },
+    {
+        "Code": "52032",
+        "Desc": "Loan Documentation Fee"
+    },
+    {
+        "Code": "52033",
+        "Desc": "Loan Renewal Charge"
+    },
+    {
+        "Code": "52034",
+        "Desc": "Pre Payment Charge"
+    },
+    {
+        "Code": "52035",
+        "Desc": "Loan Commission-Other"
+    },
+    {
+        "Code": "52040",
+        "Desc": "Administration Charge"
+    },
+    {
+        "Code": "52045",
+        "Desc": "INCOME FROM GOLD TRANSACTION"
+    },
+    {
+        "Code": "52050",
+        "Desc": "Other Fee & Commission"
+    },
+    {
+        "Code": "52051",
+        "Desc": "IBT COMMISSION"
+    },
+    {
+        "Code": "52052",
+        "Desc": "INR EPRA COMMISSION"
+    },
+    {
+        "Code": "52053",
+        "Desc": "LOCKER COMMISSION"
+    },
+    {
+        "Code": "52054",
+        "Desc": "INCOME FROM PRE-MATURED F/D"
+    },
+    {
+        "Code": "52055",
+        "Desc": "ATM CARD FEE"
+    },
+    {
+        "Code": "52056",
+        "Desc": "MBL Mobile Money Subscription"
+    },
+    {
+        "Code": "52060",
+        "Desc": "Cheque Issue"
+    },
+    {
+        "Code": "52065",
+        "Desc": "Cheque Deposit Charge"
+    },
+    {
+        "Code": "52070",
+        "Desc": "Reallowance Made"
+    },
+    {
+        "Code": "52310",
+        "Desc": "Extns Export"
+    },
+    {
+        "Code": "52320",
+        "Desc": "Reservation"
+    },
+    {
+        "Code": "52335",
+        "Desc": "Reallowance"
+    },
+    {
+        "Code": "52360",
+        "Desc": "BOND INTEREST-PROFIT"
+    },
+    {
+        "Code": "52361",
+        "Desc": "National Saving Certificates"
+    },
+    {
+        "Code": "52362",
+        "Desc": "Interest on Deb.& Bonds"
+    },
+    {
+        "Code": "52370",
+        "Desc": "BOND INTEREST-LOSS"
+    },
+    {
+        "Code": "52430",
+        "Desc": "COMM RCD 1"
+    },
+    {
+        "Code": "52431",
+        "Desc": "COMM RCD ADJ 1"
+    },
+    {
+        "Code": "52440",
+        "Desc": "COMM RCD ADV"
+    },
+    {
+        "Code": "52540",
+        "Desc": "New Issue Reallowance"
+    },
+    {
+        "Code": "52630",
+        "Desc": "MD Commission Current Month"
+    },
+    {
+        "Code": "52631",
+        "Desc": "MD Commission Previous Month"
+    },
+    {
+        "Code": "52632",
+        "Desc": "MD Commission Previous Years"
+    },
+    {
+        "Code": "52640",
+        "Desc": "MD Commission Current Month"
+    },
+    {
+        "Code": "52641",
+        "Desc": "MD Commission Previous Month"
+    },
+    {
+        "Code": "52642",
+        "Desc": "MD Commission Previous Years"
+    },
+    {
+        "Code": "52700",
+        "Desc": "Commissions from Fiduciary Deposits"
+    },
+    {
+        "Code": "52710",
+        "Desc": "Adj Prev Mth Fid Dep Commission"
+    },
+    {
+        "Code": "52720",
+        "Desc": "Adj Prev Years Fid Dep Commissions"
+    },
+    {
+        "Code": "52875",
+        "Desc": "Com Paid On Bills For Collection"
+    },
+    {
+        "Code": "52880",
+        "Desc": "Com Paid On Brokerage"
+    },
+    {
+        "Code": "52881",
+        "Desc": "Com Paid On Securities"
+    },
+    {
+        "Code": "53000",
+        "Desc": "Revaluation Asset/Liability"
+    },
+    {
+        "Code": "53001",
+        "Desc": "Revaluation Fx Spot"
+    },
+    {
+        "Code": "53003",
+        "Desc": "Fx Fwd Reval-Unreal Fx Fwd Pr/Loss"
+    },
+    {
+        "Code": "53004",
+        "Desc": "Swap Revaluation"
+    },
+    {
+        "Code": "53005",
+        "Desc": "Fra Brokerage"
+    },
+    {
+        "Code": "53006",
+        "Desc": "Fx Rate Spread P&L"
+    },
+    {
+        "Code": "53009",
+        "Desc": "Fra Unrealised Loss"
+    },
+    {
+        "Code": "53105",
+        "Desc": "Sc Realised Profit (Trading Portf)"
+    },
+    {
+        "Code": "53110",
+        "Desc": "Sc Realised Loss (Trading Portf)"
+    },
+    {
+        "Code": "53115",
+        "Desc": "Sc Unrealised Profit (Trading Port)"
+    },
+    {
+        "Code": "53120",
+        "Desc": "Sc Unrealised Loss (Trading Port)"
+    },
+    {
+        "Code": "53305",
+        "Desc": "Reval Profit On Tangible Fix Assets"
+    },
+    {
+        "Code": "53320",
+        "Desc": "Reval Loss On Intangible Fix"
+    },
+    {
+        "Code": "54000",
+        "Desc": "Exceptional P & L Related"
+    },
+    {
+        "Code": "54161",
+        "Desc": "Write-Off Loss"
+    },
+    {
+        "Code": "54500",
+        "Desc": "Loan Loss Provision"
+    },
+    {
+        "Code": "54501",
+        "Desc": "RE-STRUCTURING LOAN LOSS PROVISION"
+    },
+    {
+        "Code": "59999",
+        "Desc": "Reserved"
+    },
+    {
+        "Code": "60001",
+        "Desc": "Salary Costs"
+    },
+    {
+        "Code": "60002",
+        "Desc": "Staff -Allowances"
+    },
+    {
+        "Code": "60003",
+        "Desc": "Provident Fund Contribution"
+    },
+    {
+        "Code": "60004",
+        "Desc": "Staff Gratuity Expenses"
+    },
+    {
+        "Code": "60005",
+        "Desc": "Staff Business Promotion Exp."
+    },
+    {
+        "Code": "60006",
+        "Desc": "Dashain Allowances"
+    },
+    {
+        "Code": "60007",
+        "Desc": "Overtime Allowances"
+    },
+    {
+        "Code": "60008",
+        "Desc": "Staff Amenities"
+    },
+    {
+        "Code": "60009",
+        "Desc": "Staff Uniform"
+    },
+    {
+        "Code": "60010",
+        "Desc": "Staff Training"
+    },
+    {
+        "Code": "60011",
+        "Desc": "Staff Insurance"
+    },
+    {
+        "Code": "60012",
+        "Desc": "Staff Welfare"
+    },
+    {
+        "Code": "60013",
+        "Desc": "Daily Allowance"
+    },
+    {
+        "Code": "60014",
+        "Desc": "LEAVE FARE CONCESSION"
+    },
+    {
+        "Code": "60015",
+        "Desc": "TELLER ALLOWANCE"
+    },
+    {
+        "Code": "60016",
+        "Desc": "OUTSTATION ALLOWANCE"
+    },
+    {
+        "Code": "60017",
+        "Desc": "ACTING ALLOWANCE"
+    },
+    {
+        "Code": "60018",
+        "Desc": "WAGES"
+    },
+    {
+        "Code": "60019",
+        "Desc": "HOUSE RENT ALLOWANCE"
+    },
+    {
+        "Code": "60020",
+        "Desc": "ADJUSTMENT ALLOWANCE"
+    },
+    {
+        "Code": "60021",
+        "Desc": "REPAIR AND MAINT ALLOWANCE"
+    },
+    {
+        "Code": "60022",
+        "Desc": "BM ALLOWANCE"
+    },
+    {
+        "Code": "60023",
+        "Desc": "INTERNSHIP PAY"
+    },
+    {
+        "Code": "60030",
+        "Desc": "SPECIAL ALLOWANCE"
+    },
+    {
+        "Code": "60500",
+        "Desc": "Rental Expenses"
+    },
+    {
+        "Code": "60501",
+        "Desc": "Bank Premises Rent Expenses"
+    },
+    {
+        "Code": "60502",
+        "Desc": "Staff Residence Rent Expenses"
+    },
+    {
+        "Code": "60503",
+        "Desc": "ATM Premises Rental Expenses"
+    },
+    {
+        "Code": "60504",
+        "Desc": "OTHER RENTAL EXPENSES"
+    },
+    {
+        "Code": "61000",
+        "Desc": "Repairs & Maint.-Vehicles"
+    },
+    {
+        "Code": "61001",
+        "Desc": "Repairs & Maint.-Buildings"
+    },
+    {
+        "Code": "61002",
+        "Desc": "Repairs & Maint.-Comp.& Acc."
+    },
+    {
+        "Code": "61003",
+        "Desc": "Repairs & Maint.-Fur. & Fix."
+    },
+    {
+        "Code": "61004",
+        "Desc": "Repairs & Maint.-Others"
+    },
+    {
+        "Code": "61005",
+        "Desc": "OFFICE EQUIPMENT"
+    },
+    {
+        "Code": "61006",
+        "Desc": "REPAIR VEHICLE-MOTORCYCLE"
+    },
+    {
+        "Code": "61007",
+        "Desc": "Repair Vehicle-Four Wheeler"
+    },
+    {
+        "Code": "61008",
+        "Desc": "REPAIR & MAINTENANCE-ATM"
+    },
+    {
+        "Code": "61009",
+        "Desc": "ANNUAL MAINTENANCE-ATM/SWITCH"
+    },
+    {
+        "Code": "61010",
+        "Desc": "ANNUAL MAINTENANCE-GENERATORS"
+    },
+    {
+        "Code": "61011",
+        "Desc": "ANNUAL MAINTENANCE-ELECTRICITY"
+    },
+    {
+        "Code": "61012",
+        "Desc": "ANNUAL MAINTENANCE-COMPUTERS & ACC"
+    },
+    {
+        "Code": "61013",
+        "Desc": "ANNUAL MAINTENANCE-OTHER"
+    },
+    {
+        "Code": "61014",
+        "Desc": "REPAIR AND MAINTENANCE-GENERATOR"
+    },
+    {
+        "Code": "61150",
+        "Desc": "MBL REMIT COMMISSION PAID"
+    },
+    {
+        "Code": "61400",
+        "Desc": "Utilities - Water"
+    },
+    {
+        "Code": "61401",
+        "Desc": "Utilities - Electricity"
+    },
+    {
+        "Code": "61402",
+        "Desc": "Utilities - Fuel"
+    },
+    {
+        "Code": "61403",
+        "Desc": "Fuel & other-Generator"
+    },
+    {
+        "Code": "61404",
+        "Desc": "FUEL-OYVS"
+    },
+    {
+        "Code": "61500",
+        "Desc": "Telephone Expenses"
+    },
+    {
+        "Code": "61501",
+        "Desc": "Fascimile Expenses"
+    },
+    {
+        "Code": "61502",
+        "Desc": "Telex Expenses"
+    },
+    {
+        "Code": "61503",
+        "Desc": "Postage & Handling Expenses"
+    },
+    {
+        "Code": "61504",
+        "Desc": "Other Communication Expenses"
+    },
+    {
+        "Code": "61505",
+        "Desc": "COMMUNICATION-SWIFT EXP."
+    },
+    {
+        "Code": "61506",
+        "Desc": "MOBILE EXPENSES"
+    },
+    {
+        "Code": "61510",
+        "Desc": "Office Cleaning Exp."
+    },
+    {
+        "Code": "61550",
+        "Desc": "Office Equipment & Furniture"
+    },
+    {
+        "Code": "61551",
+        "Desc": "COMPUTER & ACCSSORIES"
+    },
+    {
+        "Code": "61552",
+        "Desc": "FURNITURE & FIXTURES"
+    },
+    {
+        "Code": "61553",
+        "Desc": "ELECTRICAL EQUIPMENT"
+    },
+    {
+        "Code": "61554",
+        "Desc": "OTHER OFFICE EQUIPMENT"
+    },
+    {
+        "Code": "61600",
+        "Desc": "Insurance Premium"
+    },
+    {
+        "Code": "61601",
+        "Desc": "FIXED ASSETS INSURANCE PRM.EXP"
+    },
+    {
+        "Code": "61602",
+        "Desc": "CASH INSURANCE EXPENSES"
+    },
+    {
+        "Code": "61603",
+        "Desc": "DEPOSITORS INSURANCE EXPENSES"
+    },
+    {
+        "Code": "61604",
+        "Desc": "VEHICLE INSURANCE"
+    },
+    {
+        "Code": "61650",
+        "Desc": "Travelling Expenses"
+    },
+    {
+        "Code": "61700",
+        "Desc": "Printing & Stationery"
+    },
+    {
+        "Code": "61701",
+        "Desc": "SECURITY PRINTING EXPENSES"
+    },
+    {
+        "Code": "61702",
+        "Desc": "OFFICE MATERIALS PRINTING EXPENSES"
+    },
+    {
+        "Code": "61703",
+        "Desc": "STATIONERY EXPENSES"
+    },
+    {
+        "Code": "61704",
+        "Desc": "PRINTING CARTRIDGE N TONNER EXPENSE"
+    },
+    {
+        "Code": "61750",
+        "Desc": "Donation & Contribution"
+    },
+    {
+        "Code": "61751",
+        "Desc": "DONATION EXP-TAX FREE"
+    },
+    {
+        "Code": "61752",
+        "Desc": "DONATION EXPENSES-OTHERS"
+    },
+    {
+        "Code": "61800",
+        "Desc": "Legal Services"
+    },
+    {
+        "Code": "61801",
+        "Desc": "Audit Related Services"
+    },
+    {
+        "Code": "61802",
+        "Desc": "Security Services"
+    },
+    {
+        "Code": "61803",
+        "Desc": "PROFESSIONAL SERVICES"
+    },
+    {
+        "Code": "61804",
+        "Desc": "LEGAL SERVICE FEE"
+    },
+    {
+        "Code": "61805",
+        "Desc": "LEGAL SERVICE EXPENSES"
+    },
+    {
+        "Code": "61806",
+        "Desc": "PROFESSIONAL SERVICE-GLOBUS"
+    },
+    {
+        "Code": "61807",
+        "Desc": "PROFESSIONAL SERVICE-OTHERS"
+    },
+    {
+        "Code": "61808",
+        "Desc": "STATUTORY AUDIT FEE"
+    },
+    {
+        "Code": "61809",
+        "Desc": "STATUTORY AUDIT EXPENSES"
+    },
+    {
+        "Code": "61810",
+        "Desc": "INTERNAL AUDIT FEE"
+    },
+    {
+        "Code": "61811",
+        "Desc": "INTERNAL AUDIT EXPENSES"
+    },
+    {
+        "Code": "61812",
+        "Desc": "OTHER SPECIAL AUDIT FEE"
+    },
+    {
+        "Code": "61813",
+        "Desc": "OTHER SPECIAL AUDIT EXPENSES"
+    },
+    {
+        "Code": "61900",
+        "Desc": "Books & Periodicals"
+    },
+    {
+        "Code": "61901",
+        "Desc": "PERIODICALS & BOOKS"
+    },
+    {
+        "Code": "61902",
+        "Desc": "NEWS PAPERS"
+    },
+    {
+        "Code": "61910",
+        "Desc": "Advertisement"
+    },
+    {
+        "Code": "61911",
+        "Desc": "TV COMMERCIALS EXPENSES"
+    },
+    {
+        "Code": "61912",
+        "Desc": "NEWSPAPER MEDIA EXPENSES"
+    },
+    {
+        "Code": "61913",
+        "Desc": "CALENDER/BROCHURES PRINTING EXPENSE"
+    },
+    {
+        "Code": "61914",
+        "Desc": "HOARDING BOARD EXPENSES"
+    },
+    {
+        "Code": "61915",
+        "Desc": "RADIO JINGLES ADVERTISEMENT EXPENSE"
+    },
+    {
+        "Code": "61920",
+        "Desc": "Boarding Meeting Fees"
+    },
+    {
+        "Code": "61925",
+        "Desc": "Boarding Meeting Expenses"
+    },
+    {
+        "Code": "61926",
+        "Desc": "COMMITTEE MEETING FEE"
+    },
+    {
+        "Code": "61927",
+        "Desc": "COMMITTEE MEETING EXPENSES"
+    },
+    {
+        "Code": "61930",
+        "Desc": "AGM Expenses"
+    },
+    {
+        "Code": "61931",
+        "Desc": "ANNUAL REPORT PRINTING EXPENSES"
+    },
+    {
+        "Code": "61935",
+        "Desc": "ANNIVERSARY EXPENSES"
+    },
+    {
+        "Code": "61937",
+        "Desc": "ANNUAL FUNCTION EXPENSES"
+    },
+    {
+        "Code": "61940",
+        "Desc": "Business Promotion"
+    },
+    {
+        "Code": "61941",
+        "Desc": "SPONSORSHIP EXPENSES"
+    },
+    {
+        "Code": "61950",
+        "Desc": "Guest Entertainment"
+    },
+    {
+        "Code": "62000",
+        "Desc": "Depreciation Vehicles"
+    },
+    {
+        "Code": "62001",
+        "Desc": "Depreciation Building"
+    },
+    {
+        "Code": "62002",
+        "Desc": "Depreciation Furnitures & Fixtures"
+    },
+    {
+        "Code": "62003",
+        "Desc": "Depreciation Computer & Accessories"
+    },
+    {
+        "Code": "62004",
+        "Desc": "Depreciation Office Equipments"
+    },
+    {
+        "Code": "62005",
+        "Desc": "Depreciation Others"
+    },
+    {
+        "Code": "62200",
+        "Desc": "Pre-op. Exps. - Amortised"
+    },
+    {
+        "Code": "62201",
+        "Desc": "Preliminary Exps. - Amortised"
+    },
+    {
+        "Code": "62202",
+        "Desc": "Deferred Exps. - Amortised"
+    },
+    {
+        "Code": "62203",
+        "Desc": "LEASEHOLD EXPENSES"
+    },
+    {
+        "Code": "62204",
+        "Desc": "SHARE ISSUE EXPENSES"
+    },
+    {
+        "Code": "62205",
+        "Desc": "DEFFERED EXPENSE SOFTWARE"
+    },
+    {
+        "Code": "62210",
+        "Desc": "**Reserved for Amortisation"
+    },
+    {
+        "Code": "62250",
+        "Desc": "Penalty Charges"
+    },
+    {
+        "Code": "62260",
+        "Desc": "Rates & Taxes"
+    },
+    {
+        "Code": "62270",
+        "Desc": "Audit Fees"
+    },
+    {
+        "Code": "62271",
+        "Desc": "Internal Audit Fees"
+    },
+    {
+        "Code": "62300",
+        "Desc": "Charges on FCY"
+    },
+    {
+        "Code": "62301",
+        "Desc": "Other Bank Charges"
+    },
+    {
+        "Code": "62302",
+        "Desc": "Membership Fees"
+    },
+    {
+        "Code": "62303",
+        "Desc": "RENEWAL FEES"
+    },
+    {
+        "Code": "62304",
+        "Desc": "CIC CHARGE"
+    },
+    {
+        "Code": "62305",
+        "Desc": "CHEQUE CLEARING FEE"
+    },
+    {
+        "Code": "62350",
+        "Desc": "Miscellaneous Expenses"
+    },
+    {
+        "Code": "62351",
+        "Desc": "Loan Write Off Expense"
+    },
+    {
+        "Code": "62352",
+        "Desc": "Atm card related exp."
+    },
+    {
+        "Code": "62353",
+        "Desc": "Credit Guarantee Premium"
+    },
+    {
+        "Code": "62354",
+        "Desc": "ASSETS WRITE OFF EXP."
+    },
+    {
+        "Code": "62355",
+        "Desc": "BRANCH OPENING EXPENSES"
+    },
+    {
+        "Code": "62356",
+        "Desc": "Visa Interchange Fee Paid"
+    },
+    {
+        "Code": "62357",
+        "Desc": "Visa Misc"
+    },
+    {
+        "Code": "62358",
+        "Desc": "CARD PRINTING EXPENSES"
+    },
+    {
+        "Code": "62359",
+        "Desc": "CORPORATE SOCIAL RESPOSBILITY"
+    },
+    {
+        "Code": "62400",
+        "Desc": "Net Loss on Save of Invs.& Assets"
+    },
+    {
+        "Code": "62410",
+        "Desc": "Net Loss on Sale of Non-bnkg Assets"
+    },
+    {
+        "Code": "62415",
+        "Desc": "Other Non-Operating Expenses"
+    },
+    {
+        "Code": "62450",
+        "Desc": "Provision for Staff Bonus"
+    },
+    {
+        "Code": "62600",
+        "Desc": "Provision for Income Tax"
+    },
+    {
+        "Code": "62601",
+        "Desc": "Provision for non banking assets"
+    },
+    {
+        "Code": "62602",
+        "Desc": "Provision for investment"
+    },
+    {
+        "Code": "62603",
+        "Desc": "PROVISION FOR INVESTMENT ADJUSTMENT"
+    },
+    {
+        "Code": "63000",
+        "Desc": "Telex Charge Recovery"
+    },
+    {
+        "Code": "63001",
+        "Desc": "Mail/Courier Recovery"
+    },
+    {
+        "Code": "63002",
+        "Desc": "Miscellaneous Sources"
+    },
+    {
+        "Code": "63003",
+        "Desc": "Share Transfer Fees"
+    },
+    {
+        "Code": "63004",
+        "Desc": "Underwritings"
+    },
+    {
+        "Code": "63005",
+        "Desc": "Lease Rental Income"
+    },
+    {
+        "Code": "63006",
+        "Desc": "OTHER BANK CHARGES-RECOVERY"
+    },
+    {
+        "Code": "63007",
+        "Desc": "INTERNET SERVICE CHARGE"
+    },
+    {
+        "Code": "63008",
+        "Desc": "ATM CARD FEE"
+    },
+    {
+        "Code": "63009",
+        "Desc": "CIC CHARGE RECOVERY"
+    },
+    {
+        "Code": "63010",
+        "Desc": "VISA INTERCHANGE FEE RECEIVED"
+    },
+    {
+        "Code": "63011",
+        "Desc": "Annual Fee - Visa Card"
+    },
+    {
+        "Code": "63050",
+        "Desc": "1% INSURANCE RECOVERY-GOLD LOAN"
+    },
+    {
+        "Code": "63100",
+        "Desc": "Share Transfer Fees Non-operational"
+    },
+    {
+        "Code": "64000",
+        "Desc": "Gain on Sale of Invs./Assets"
+    },
+    {
+        "Code": "64001",
+        "Desc": "Gain on Sale of Nonbanking Assets"
+    },
+    {
+        "Code": "64002",
+        "Desc": "LOAN RECOVERAY INCOME"
+    },
+    {
+        "Code": "64100",
+        "Desc": "Subsidy Received from NRB"
+    },
+    {
+        "Code": "64150",
+        "Desc": "Exceptional Loss"
+    },
+    {
+        "Code": "64200",
+        "Desc": "Other Non-banking Incomes"
+    }
+]

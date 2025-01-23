@@ -1,0 +1,218 @@
+[
+    {
+        "Code": "1",
+        "Desc": "Current Account"
+    },
+    {
+        "Code": "2",
+        "Desc": "Overdraft - Industry"
+    },
+    {
+        "Code": "3",
+        "Desc": "Overdraft - Trading"
+    },
+    {
+        "Code": "4",
+        "Desc": "Demand loan - Industry"
+    },
+    {
+        "Code": "5",
+        "Desc": "Demand loan - Trading"
+    },
+    {
+        "Code": "6",
+        "Desc": "Working capital"
+    },
+    {
+        "Code": "7",
+        "Desc": "Other working capital"
+    },
+    {
+        "Code": "8",
+        "Desc": "Hypothication"
+    },
+    {
+        "Code": "9",
+        "Desc": "Current Account with 1000 Min Bal"
+    },
+    {
+        "Code": "10",
+        "Desc": "Current Account with 0 Balance"
+    },
+    {
+        "Code": "11",
+        "Desc": "Overdraft - Loans"
+    },
+    {
+        "Code": "12",
+        "Desc": "Overdraft - Loan Share & Bond"
+    },
+    {
+        "Code": "13",
+        "Desc": "Call Account"
+    },
+    {
+        "Code": "14",
+        "Desc": "CURRENT ACC WITH 7500 BAL GAL"
+    },
+    {
+        "Code": "15",
+        "Desc": "CURRENT ACC WITH 100 BAL GAL"
+    },
+    {
+        "Code": "19",
+        "Desc": "Saving Account(Salary)"
+    },
+    {
+        "Code": "20",
+        "Desc": "SALARY ACCOUNT, MINIMUM BALANCE=200"
+    },
+    {
+        "Code": "21",
+        "Desc": "Savings account - staff"
+    },
+    {
+        "Code": "22",
+        "Desc": "Savings regular & convertible"
+    },
+    {
+        "Code": "23",
+        "Desc": "Pewa Bachat Account"
+    },
+    {
+        "Code": "24",
+        "Desc": "Royal savings"
+    },
+    {
+        "Code": "25",
+        "Desc": "Savings Account(PF)"
+    },
+    {
+        "Code": "26",
+        "Desc": "Saving Account (NRB Staff)"
+    },
+    {
+        "Code": "27",
+        "Desc": "Normal Saving of Damauli"
+    },
+    {
+        "Code": "28",
+        "Desc": "Normal Saving of Bhairahawa"
+    },
+    {
+        "Code": "29",
+        "Desc": "Saving Account(CIAA)"
+    },
+    {
+        "Code": "30",
+        "Desc": "Normal Saving of Mahendrapool"
+    },
+    {
+        "Code": "31",
+        "Desc": "SUNDRY CREDITORS-STAFF VEHICLES"
+    },
+    {
+        "Code": "32",
+        "Desc": "Normal Savings 0% Tax"
+    },
+    {
+        "Code": "33",
+        "Desc": "Normal Savings 15% Tax"
+    },
+    {
+        "Code": "34",
+        "Desc": "Royal Savings 0% Tax"
+    },
+    {
+        "Code": "35",
+        "Desc": "Royal Savings 15% Tax"
+    },
+    {
+        "Code": "36",
+        "Desc": "Savings Account(Salary A/C)"
+    },
+    {
+        "Code": "37",
+        "Desc": "Savings Account(Disable)"
+    },
+    {
+        "Code": "38",
+        "Desc": "Saving Account (Salary A/C Min100)"
+    },
+    {
+        "Code": "39",
+        "Desc": "Savings Account(Share Holder)"
+    },
+    {
+        "Code": "40",
+        "Desc": "Yuba Bachat Khata"
+    },
+    {
+        "Code": "41",
+        "Desc": "Vostro"
+    },
+    {
+        "Code": "43",
+        "Desc": "MONEY AT CALL AC"
+    },
+    {
+        "Code": "45",
+        "Desc": "Nostro"
+    },
+    {
+        "Code": "46",
+        "Desc": "SAMMAN BACHAT KHATA"
+    },
+    {
+        "Code": "50",
+        "Desc": "Internal Office Accounts"
+    },
+    {
+        "Code": "51",
+        "Desc": "UCHCHA SICHYA BACHAT ACCOUNT"
+    },
+    {
+        "Code": "52",
+        "Desc": "SAVING ACCOUNT WITH MIN 0"
+    },
+    {
+        "Code": "53",
+        "Desc": "CALL DEPOSIT"
+    },
+    {
+        "Code": "54",
+        "Desc": "MACH 7 SAVING DEPOSIT"
+    },
+    {
+        "Code": "55",
+        "Desc": "Saving Super Prem"
+    },
+    {
+        "Code": "56",
+        "Desc": "BALBALIKA BACHAT"
+    },
+    {
+        "Code": "57",
+        "Desc": "REMITTANCE BACHAT KHATA"
+    },
+    {
+        "Code": "58",
+        "Desc": "MBL NRN SAVING DEPOSIT"
+    },
+    {
+        "Code": "87",
+        "Desc": "CHEQUE PURCHASE"
+    },
+    {
+        "Code": "88",
+        "Desc": "EXPORT BILLS PURCHASE"
+    },
+    {
+        "Code": "98",
+        "Desc": "Staff Insurance Policy Account"
+    },
+    {
+        "Code": "99",
+        "Desc": "All Other Types"
+    }
+]

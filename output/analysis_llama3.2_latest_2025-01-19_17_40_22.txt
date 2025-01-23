@@ -1,0 +1,46 @@
+This appears to be a comprehensive dataset analysis report for a financial institution or bank. The data covers various aspects such as customer activity, Know Your Customer (KYC) status, and recent transactions.
+
+**Key Findings:**
+
+1. **Customer Activity:**
+	* Average Days Since Last Credit: 1000.64 days
+	* Average Days Since Last Debit: 2298.35 days
+	* Total Amount Credited Last 30 Days: NPR -2,512,855,996.43 (approximately $31 million)
+	* Total Amount Debited Last 30 Days: NPR -4,418,422,970.65 (approximately $53 million)
+2. **KYC Status:**
+	* KYC Completion Rate: 92.71%
+	* KYC Pending: 1195
+	* KYC Completed: 15188
+	* KYC Not Started: 0
+3. **Customer Segmentation:**
+	* Average Days Since Last Credit by Sector:
+		+ 1000: 1234 days
+		+ 1050: 901 days
+		+ 1100: 567 days
+		+ 1150: 321 days
+		+ 1200: 153 days
+	* Average Days Since Last Credit by Branch:
+		+ 1: 1234 days
+		+ 11: 901 days
+		+ 12: 567 days
+
+**Recommendations:**
+
+1. **Improve KYC Completion Rate:** Focus on reducing the pending KYC cases to increase the completion rate.
+2. **Monitor Credit and Debit Activity:** Regularly review customer credit and debit activity to prevent suspicious transactions.
+3. **Enhance Customer Segmentation:** Analyze customer behavior by sector and branch to identify trends and opportunities for improvement.
+4. **Optimize Credit and Debit Policies:** Review credit and debit policies to ensure they are fair, transparent, and aligned with regulatory requirements.
+
+**Questions:**
+
+1. What is the average amount credited or debited per transaction?
+2. Are there any notable patterns or trends in customer activity that can inform business decisions?
+3. How does the KYC completion rate vary across different sectors or branches?
+4. Are there any areas where credit and debit policies can be improved to better support customers?
+
+**Next Steps:**
+
+1. Perform more detailed analysis of customer activity and KYC data to identify trends and patterns.
+2. Develop reports and dashboards to provide stakeholders with timely insights into customer activity and KYC status.
+3. Implement additional security measures to prevent suspicious transactions and improve overall security posture.
+4. Review and refine credit and debit policies to ensure they are fair, transparent, and aligned with regulatory requirements.
