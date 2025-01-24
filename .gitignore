@@ -7,8 +7,16 @@ bank/
 .idea/
 # ignore the .env file
 .env
+
+# ignore the .log file
+.log
+
+# ignore the .db file
+.db
+
 # Output
 output/
+
 # Cache
 cache/
 db/
