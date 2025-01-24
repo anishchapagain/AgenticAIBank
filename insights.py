@@ -6,10 +6,28 @@ import re
 import json
 import os
 
-PROMPT_PATH = 'input/prompt.txt'
-ANALYSIS_PATH = 'input/analysis.json'
-INPUT_PATH = 'data/AccountData.csv'
-STMT_PATH = 'data/StmtData.csv'
+INPUT = 'input/'
+OUTPUT = 'output/'
+DATA ='data/'
+FILE_TXT = '.txt'
+FILE_JSON = '.json'
+FILE_CSV = '.csv'
+
+PROMPT_PATH = INPUT+'prompt'+FILE_TXT
+ANALYSIS_PATH = INPUT+'analysis'+FILE_TXT
+
+ACCOUNT_PATH = DATA+'AccountData'+FILE_CSV
+STATEMENT_PATH = DATA+'StmtData'+FILE_CSV
+
+ACCOUNT_COLUMNS = DATA+'account_column_names'+FILE_JSON
+STATEMENT_COLUMNS = DATA+'statement_column_names'+FILE_JSON
+
+BRANCH = DATA+'branch'+FILE_JSON
+INDUSTRY = INPUT+'Industry'+FILE_JSON
+CATEGORY = INPUT+'Category'+FILE_JSON
+SECTOR = INPUT+'Sector'+FILE_JSON
+ACCOUNT_TYPE = INPUT+'AccountType'+FILE_JSON
+TXN_TYPE = INPUT+'TxnType'+FILE_JSON
 
 def prepare_for_json(obj):
         """Prepare Python objects for JSON serialization"""
@@ -569,41 +587,105 @@ def generate_llm_prompt(analysis_results):
 # """
     return prompt
 
+def column_mapping(file_path, old_column, new_column):
+    cols = pd.read_json(file_path)
+    mapping = dict(
+        zip(cols[old_column], cols[new_column])
+    )
+    return mapping
 
-def preprocess_data(df):
-    df_branch = pd.read_json('data/Branch.json')
-    df_industry = pd.read_json('data/Industry.json') # NP
-    df_sector = pd.read_json('data/Sector.json') # NP
-    df_accountype = pd.read_json('data/AccountType.json')
-    df_category = pd.read_json('data/Category.json') # Float value
+def preprocess_raw_dataframe(df_account, df_statement):
+    """
+    Preprocesses raw account and statement DataFrames by renaming columns and merging them.
+    
+    This function takes two DataFrames, `df_account` and `df_statement`, renames their columns
+    based on predefined mappings, and merges them on the 'customer_id' column.
+    
+    Parameters:
+    df_account (pd.DataFrame): The raw account DataFrame.
+    df_statement (pd.DataFrame): The raw statement DataFrame.
+    
+    Returns:
+    pd.DataFrame: A merged DataFrame with renamed columns.
+    """
+    
+    account_columns = pd.read_json(ACCOUNT_COLUMNS)
+    statement_columns = pd.read_json(STATEMENT_COLUMNS)
+    
+    # Convert DataFrame rows to a dictionary for mapping
+    rename_account_mapping = dict(zip(account_columns["column"], account_columns["column_name"]))
+    rename_statement_mapping = dict(zip(statement_columns["column"], statement_columns["column_name"]))
+
+    # Rename the columns in the DataFrame
+    df_account.rename(columns=rename_account_mapping, inplace=True)
+    df_statement.rename(columns=rename_statement_mapping, inplace=True)
+
+    # df_final = df_account.merge(df_statement, on="customer_id")
+    df_final = pd.merge(df_account, df_statement, how='inner', on="customer_id")
+    return df_final
+
+def preprocess_data(df_account, df_statement):
+    """
+    Preprocesses the account and statement dataframes by performing several operations such as
+    mapping codes to descriptive names, converting data types, and handling missing values.
+    
+    Args:
+        df_account (pd.DataFrame): DataFrame containing account data.
+        df_statement (pd.DataFrame): DataFrame containing statement data.
+    
+    Returns:
+        pd.DataFrame: The preprocessed DataFrame with mapped codes, converted data types, and handled missing values.
+    
+    Steps:
+        1. Preprocess raw dataframes.
+        2. Print the first 10 rows and columns of the preprocessed dataframe for debugging.
+        3. Map branch, industry, sector, account type, and category codes to descriptive names.
+        4. Replace non-numeric values in specific columns with NaN.
+        5. Convert float64 columns to float32 and int64 columns to int32.
+        6. Map numeric codes to descriptive strings and fill missing values with default strings.
+    """
+
+    df = preprocess_raw_dataframe(df_account, df_statement)
+    print(df.head(10))
+    print(df.columns)
+    # print(df['bank_branch_x'].value_counts())
+    # print(df['bank_branch_y'].value_counts())
+    # print(df['account_number_x'].value_counts())
+    # print(df['account_number_y'].value_counts())
+    # print(df['currency_code_x'].value_counts())
+    # print(df['currency_code_y'].value_counts())
+    
+    grouped_df = df.groupby('customer_name').agg({
+        'bank_branch_x': lambda x: x.mode()[0] if not x.mode().empty else 'Unknown',
+        'kyc_status': 'first',
+        'transaction_date': lambda x: x.max(),
+        'account_balance': ['mean', 'sum', 'min', 'max'],
+        'currency_code_x': lambda x: x.max(),
+        'economic_sector': lambda x: x.max(),
+        'transaction_amount': ['mean', 'sum', 'min', 'max']
+    }).reset_index()
+
+    print(grouped_df)
+
+    exit()
+
+    
+    # Save the updated CSV
+    print(df.columns)
 
     # mapping to be done: Branch, Industry, Sector, Account_type, Category
-    branch_code_to_name = dict(
-        zip(df_branch["Code"], df_branch["Name"])
-    )    
-    
-    account_code_to_name = dict(
-        zip(df_accountype["Code"], df_accountype["Desc"])
-    ) 
+    branch_code_to_name = column_mapping(BRANCH,'Code','Desc')
+    account_code_to_name = column_mapping(ACCOUNT_TYPE,'Code','Desc')
+    industry_code_to_name = column_mapping(INDUSTRY,'Code','Desc')
+    sector_code_to_name = column_mapping(SECTOR,'Code','Desc')
+    category_code_to_name = column_mapping(CATEGORY,'Code','Desc')
 
-    industry_code_to_name = dict(
-        zip(df_industry["Code"], df_industry["Desc"])
-    )    
-
-    sector_code_to_name = dict(
-        zip(df_sector["Code"], df_sector["Desc"])
-    )  
-
-    category_code_to_name = dict(
-        zip(df_category["Code"], df_category["Desc"])
-    )
-    
     # Replace unwanted values other than numeric with 0000
-    df['branch'] = pd.to_numeric(df['branch'], errors='coerce')
-    df['actype'] = pd.to_numeric(df['actype'], errors='coerce')
-    df['industry'] = pd.to_numeric(df['industry'], errors='coerce')
-    df['sector'] = pd.to_numeric(df['sector'], errors='coerce')
-    df['category'] = pd.to_numeric(df['category'], errors='coerce')
+    df['bank_branch'] = pd.to_numeric(df['bank_branch'], errors='coerce')
+    df['account_type'] = pd.to_numeric(df['account_type'], errors='coerce')
+    df['customer_industry'] = pd.to_numeric(df['customer_industry'], errors='coerce')
+    df['economic_sector'] = pd.to_numeric(df['economic_sector'], errors='coerce')
+    df['account_category'] = pd.to_numeric(df['account_category'], errors='coerce')
 
     # convert all data of column to some specific type
     float_cols = df.select_dtypes(include=['float64']).columns
@@ -612,15 +694,13 @@ def preprocess_data(df):
     df[int_cols] = df[int_cols].astype('int32')
 
     # Map numeric codes with strings
-    df["branch"] = df["branch"].map(branch_code_to_name).fillna('BBRANCH')
-    df["actype"] = df["actype"].map(account_code_to_name).fillna('AACCOUNT')
-    df["industry"] = df["industry"].map(industry_code_to_name).fillna('IINDUSTRY')
-    df["sector"] = df["sector"].map(sector_code_to_name).fillna('SSECTOR')
-    df["category"] = df["category"].map(category_code_to_name).fillna('CCATEGORY')
-
-    # print(df[['name','branch','industry','actype','sector','category','dob']].iloc[:3])
+    df["bank_branch"] = df["bank_branch"].map(branch_code_to_name).fillna('BBRANCH')
+    df["account_type"] = df["account_type"].map(account_code_to_name).fillna('AACCOUNT')
+    df["customer_industry"] = df["customer_industry"].map(industry_code_to_name).fillna('IINDUSTRY')
+    df["economic_sector"] = df["economic_sector"].map(sector_code_to_name).fillna('SSECTOR')
+    df["account_category"] = df["account_category"].map(category_code_to_name).fillna('CCATEGORY')
+    
     return df
-
 
 # Example usage function
 def run_analysis(df):
@@ -660,8 +740,30 @@ if __name__ == "__main__":
     
     # >> TEST
     # Load the data
-    df = pd.read_csv(INPUT_PATH)  # AccountData
+    df_account = pd.read_csv(ACCOUNT_PATH)  # AccountData
+    df_statement = pd.read_csv(STATEMENT_PATH)
+    df = preprocess_data(df_account, df_statement)
+    df = set_column_names(df)
+    print(df.info())
+    print(df.describe())
+    exit()
     # df = pd.read_csv(STMT_PATH) # Statements
+    # Here is the context to you to answer the question
+    # Provide an answer to this question using the above context.
+    response = query_ai_llm(
+        model_name, 
+        f"""
+        You're expert in Python programming using Pandas for data analysis.
+        Use dataframe name as 'df'. Use columns available on {str(df.columns)} only.
+        Create a python code relevant to the column named 'sector'and provide the appropriate groupby methods that makes sense.
+        Use agg() with ['mean', 'sum', 'min', 'max'].
+        Code should contain only the lines including groupby method.
+        Provide only the lines of code with method groupby().
+        No explanation is necessary.
+        """
+        )
+    print(response)
+    exit()
     
     # TODO: Link Merge StmtData with AccountData
     # TODO: Rename column

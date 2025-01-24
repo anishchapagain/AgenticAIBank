@@ -1,391 +1,391 @@
 [
     {
-        "Name": "CORPORATE OFFICE",
+        "Desc": "CORPORATE OFFICE",
         "CodeDigit": "BNK",
         "Code": "01"
     },
     {
-        "Name": "DAMAULI BRANCH",
+        "Desc": "DAMAULI BRANCH",
         "CodeDigit": "DML",
         "Code": "12"
     },
     {
-        "Name": "BHAIRAHAWA BRANCH",
+        "Desc": "BHAIRAHAWA BRANCH",
         "CodeDigit": "BHW",
         "Code": "13"
     },
     {
-        "Name": "BIRGUNJ BRANCH",
+        "Desc": "BIRGUNJ BRANCH",
         "CodeDigit": "BRG",
         "Code": "14"
     },
     {
-        "Name": "MAHENDRAPUL BRANCH",
+        "Desc": "MAHENDRAPUL BRANCH",
         "CodeDigit": "MPL",
         "Code": "15"
     },
     {
-        "Name": "POKHARA BRANCH",
+        "Desc": "POKHARA BRANCH",
         "CodeDigit": "PKR",
         "Code": "11"
     },
     {
-        "Name": "KATHMANDU BRANCH",
+        "Desc": "KATHMANDU BRANCH",
         "CodeDigit": "KTM",
         "Code": "16"
     },
     {
-        "Name": "RAM BAZAR BRANCH",
+        "Desc": "RAM BAZAR BRANCH",
         "CodeDigit": "RAM",
         "Code": "17"
     },
     {
-        "Name": "BAGAR BRANCH",
+        "Desc": "BAGAR BRANCH",
         "CodeDigit": "BGR",
         "Code": "18"
     },
     {
-        "Name": "JOMSOM BRANCH",
+        "Desc": "JOMSOM BRANCH",
         "CodeDigit": "JOM",
         "Code": "19"
     },
     {
-        "Name": "BANEPA BRANCH",
+        "Desc": "BANEPA BRANCH",
         "CodeDigit": "BNP",
         "Code": "20"
     },
     {
-        "Name": "NEW ROAD BRANCH",
+        "Desc": "NEW ROAD BRANCH",
         "CodeDigit": "NRD",
         "Code": "21"
     },
     {
-        "Name": "LALITPUR BRANCH",
+        "Desc": "LALITPUR BRANCH",
         "CodeDigit": "LTP",
         "Code": "23"
     },
     {
-        "Name": "BALUWATAR BRANCH",
+        "Desc": "BALUWATAR BRANCH",
         "CodeDigit": "BLT",
         "Code": "24"
     },
     {
-        "Name": "THAPATHALI BRANCH",
+        "Desc": "THAPATHALI BRANCH",
         "CodeDigit": "THP",
         "Code": "25"
     },
     {
-        "Name": "ITAHARI BRANCH",
+        "Desc": "ITAHARI BRANCH",
         "CodeDigit": "ITH",
         "Code": "26"
     },
     {
-        "Name": "ABU KHAIRENI",
+        "Desc": "ABU KHAIRENI",
         "CodeDigit": "KRN",
         "Code": "27"
     },
     {
-        "Name": "WALING BRANCH",
+        "Desc": "WALING BRANCH",
         "CodeDigit": "WAL",
         "Code": "28"
     },
     {
-        "Name": "BENI BRANCH",
+        "Desc": "BENI BRANCH",
         "CodeDigit": "BEN",
         "Code": "29"
     },
     {
-        "Name": "DHANKUTA BRANCH",
+        "Desc": "DHANKUTA BRANCH",
         "CodeDigit": "DKT",
         "Code": "30"
     },
     {
-        "Name": "DULEGAUDA BRANCH",
+        "Desc": "DULEGAUDA BRANCH",
         "CodeDigit": "DLG",
         "Code": "31"
     },
     {
-        "Name": "LAKESIDE BRANCH",
+        "Desc": "LAKESIDE BRANCH",
         "CodeDigit": "LKS",
         "Code": "32"
     },
     {
-        "Name": "ILAM BRANCH",
+        "Desc": "ILAM BRANCH",
         "CodeDigit": "ILM",
         "Code": "33"
     },
     {
-        "Name": "BUTWAL BRANCH",
+        "Desc": "BUTWAL BRANCH",
         "CodeDigit": "BTL",
         "Code": "34"
     },
     {
-        "Name": "NARAYANGHAT BRANCH",
+        "Desc": "NARAYANGHAT BRANCH",
         "CodeDigit": "NGT",
         "Code": "36"
     },
     {
-        "Name": "BHAKTAPUR BRANCH",
+        "Desc": "BHAKTAPUR BRANCH",
         "CodeDigit": "BKT",
         "Code": "37"
     },
     {
-        "Name": "SWYAMBHU BRANCH",
+        "Desc": "SWYAMBHU BRANCH",
         "CodeDigit": "SMB",
         "Code": "38"
     },
     {
-        "Name": "BIRATNAGAR BRANCH",
+        "Desc": "BIRATNAGAR BRANCH",
         "CodeDigit": "BRT",
         "Code": "39"
     },
     {
-        "Name": "THIMI BRANCH",
+        "Desc": "THIMI BRANCH",
         "CodeDigit": "THM",
         "Code": "40"
     },
     {
-        "Name": "GAJURI BRANCH",
+        "Desc": "GAJURI BRANCH",
         "CodeDigit": "GJR",
         "Code": "41"
     },
     {
-        "Name": "LEKHANATH BRANCH",
+        "Desc": "LEKHANATH BRANCH",
         "CodeDigit": "LKH",
         "Code": "42"
     },
     {
-        "Name": "BAUDHA BRANCH",
+        "Desc": "BAUDHA BRANCH",
         "CodeDigit": "BDH",
         "Code": "43"
     },
     {
-        "Name": "BAGLUNG",
+        "Desc": "BAGLUNG",
         "CodeDigit": "BGL",
         "Code": "44"
     },
     {
-        "Name": "CHAPAGAUN",
+        "Desc": "CHAPAGAUN",
         "CodeDigit": "CPG",
         "Code": "45"
     },
     {
-        "Name": "PEPSICOLA",
+        "Desc": "PEPSICOLA",
         "CodeDigit": "PEP",
         "Code": "46"
     },
     {
-        "Name": "NEPALGUNJ BRANCH",
+        "Desc": "NEPALGUNJ BRANCH",
         "CodeDigit": "NPG",
         "Code": "47"
     },
     {
-        "Name": "DHANGADHI",
+        "Desc": "DHANGADHI",
         "CodeDigit": "DHG",
         "Code": "48"
     },
     {
-        "Name": "BIRTAMOD BRANCH",
+        "Desc": "BIRTAMOD BRANCH",
         "CodeDigit": "BTM",
         "Code": "49"
     },
     {
-        "Name": "PHIDIM BRANCH",
+        "Desc": "PHIDIM BRANCH",
         "CodeDigit": "PDM",
         "Code": "50"
     },
     {
-        "Name": "PUTALISADAK BRANCH",
+        "Desc": "PUTALISADAK BRANCH",
         "CodeDigit": "PTL",
         "Code": "51"
     },
     {
-        "Name": "NAXAL BRANCH",
+        "Desc": "NAXAL BRANCH",
         "CodeDigit": "NXI",
         "Code": "52"
     },
     {
-        "Name": "PATAN BRANCH",
+        "Desc": "PATAN BRANCH",
         "CodeDigit": "PTN",
         "Code": "53"
     },
     {
-        "Name": "NEW BANESHWOR BRANCH",
+        "Desc": "NEW BANESHWOR BRANCH",
         "CodeDigit": "NRO",
         "Code": "54"
     },
     {
-        "Name": "PALPA BRANCH",
+        "Desc": "PALPA BRANCH",
         "CodeDigit": "PLP",
         "Code": "55"
     },
     {
-        "Name": "CHABAHIL BRANCH",
+        "Desc": "CHABAHIL BRANCH",
         "CodeDigit": "CHB",
         "Code": "56"
     },
     {
-        "Name": "GONGABU BRANCH",
+        "Desc": "GONGABU BRANCH",
         "CodeDigit": "GNB",
         "Code": "57"
     },
     {
-        "Name": "BIRATCHOWK BRANCH",
+        "Desc": "BIRATCHOWK BRANCH",
         "CodeDigit": "BRC",
         "Code": "58"
     },
     {
-        "Name": "HILE BRANCH",
+        "Desc": "HILE BRANCH",
         "CodeDigit": "HLE",
         "Code": "59"
     },
     {
-        "Name": "PARASI BRANCH",
+        "Desc": "PARASI BRANCH",
         "CodeDigit": "PRS",
         "Code": "60"
     },
     {
-        "Name": "RAJBIRAJ BRANCH",
+        "Desc": "RAJBIRAJ BRANCH",
         "CodeDigit": "RJB",
         "Code": "61"
     },
     {
-        "Name": "SALYAN BRANCH",
+        "Desc": "SALYAN BRANCH",
         "CodeDigit": "SLN",
         "Code": "62"
     },
     {
-        "Name": "MIRCHAIYA BRANCH",
+        "Desc": "MIRCHAIYA BRANCH",
         "CodeDigit": "MRC",
         "Code": "63"
     },
     {
-        "Name": "JANAKPUR BRANCH",
+        "Desc": "JANAKPUR BRANCH",
         "CodeDigit": "JKP",
         "Code": "64"
     },
     {
-        "Name": "DANG BRANCH",
+        "Desc": "DANG BRANCH",
         "CodeDigit": "DNG",
         "Code": "65"
     },
     {
-        "Name": "SYANGJA BRANCH",
+        "Desc": "SYANGJA BRANCH",
         "CodeDigit": "SNJ",
         "Code": "66"
     },
     {
-        "Name": "MAHENDRANAGAR BRANCH",
+        "Desc": "MAHENDRANAGAR BRANCH",
         "CodeDigit": "MNR",
         "Code": "67"
     },
     {
-        "Name": "MATIHANI BRANCH",
+        "Desc": "MATIHANI BRANCH",
         "CodeDigit": "MTH",
         "Code": "68"
     },
     {
-        "Name": "DAMAK BRANCH",
+        "Desc": "DAMAK BRANCH",
         "CodeDigit": "DMK",
         "Code": "69"
     },
     {
-        "Name": "LAHAN BRANCH",
+        "Desc": "LAHAN BRANCH",
         "CodeDigit": "LHN",
         "Code": "70"
     },
     {
-        "Name": "BARDIBAS BRANCH",
+        "Desc": "BARDIBAS BRANCH",
         "CodeDigit": "BDS",
         "Code": "71"
     },
     {
-        "Name": "KOHALPUR BRANCH",
+        "Desc": "KOHALPUR BRANCH",
         "CodeDigit": "KHP",
         "Code": "72"
     },
     {
-        "Name": "BIRENDRA NAGAR BRANCH",
+        "Desc": "BIRENDRA NAGAR BRANCH",
         "CodeDigit": "BRN",
         "Code": "73"
     },
     {
-        "Name": "KANCHANPUR MHN BRANCH",
+        "Desc": "KANCHANPUR MHN BRANCH",
         "CodeDigit": "MHN",
         "Code": "74"
     },
     {
-        "Name": "KARIANHA BRANCH",
+        "Desc": "KARIANHA BRANCH",
         "CodeDigit": "KRJ",
         "Code": "75"
     },
     {
-        "Name": "KALYANPUR BRANCH",
+        "Desc": "KALYANPUR BRANCH",
         "CodeDigit": "KLY",
         "Code": "76"
     },
     {
-        "Name": "HALESI BRANCH",
+        "Desc": "HALESI BRANCH",
         "CodeDigit": "HLS",
         "Code": "77"
     },
     {
-        "Name": "GANESHMAN CHARNATH",
+        "Desc": "GANESHMAN CHARNATH",
         "CodeDigit": "GMC",
         "Code": "78"
     },
     {
-        "Name": "KHATYAD BRANCH",
+        "Desc": "KHATYAD BRANCH",
         "CodeDigit": "KYD",
         "Code": "79"
     },
     {
-        "Name": "BRINDABAN BRANCH",
+        "Desc": "BRINDABAN BRANCH",
         "CodeDigit": "BON",
         "Code": "80"
     },
     {
-        "Name": "ICHHAKAMANA BRANCH",
+        "Desc": "ICHHAKAMANA BRANCH",
         "CodeDigit": "IKM",
         "Code": "81"
     },
     {
-        "Name": "KALIKA BRANCH",
+        "Desc": "KALIKA BRANCH",
         "CodeDigit": "KLK",
         "Code": "82"
     },
     {
-        "Name": "MADI BRANCH",
+        "Desc": "MADI BRANCH",
         "CodeDigit": "MDI",
         "Code": "83"
     },
     {
-        "Name": "PANCHADEWAL BINAYAK",
+        "Desc": "PANCHADEWAL BINAYAK",
         "CodeDigit": "BNY",
         "Code": "84"
     },
     {
-        "Name": "BARADASHI BRANCH",
+        "Desc": "BARADASHI BRANCH",
         "CodeDigit": "BRD",
         "Code": "85"
     },
     {
-        "Name": "JAHADA BRANCH",
+        "Desc": "JAHADA BRANCH",
         "CodeDigit": "JHD",
         "Code": "86"
     },
     {
-        "Name": "JUMLA Branch",
+        "Desc": "JUMLA Branch",
         "CodeDigit": "JML",
         "Code": "87"
     },
     {
-        "Name": "DHARAN Branch",
+        "Desc": "DHARAN Branch",
         "CodeDigit": "DRN",
         "Code": "88"
     },
     {
-        "Name": "BHOJPUR Branch",
+        "Desc": "BHOJPUR Branch",
         "CodeDigit": "BJP",
         "Code": "89"
     }
