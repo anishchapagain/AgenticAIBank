@@ -23,11 +23,11 @@ ACCOUNT_COLUMNS = DATA+'account_column_names'+FILE_JSON
 STATEMENT_COLUMNS = DATA+'statement_column_names'+FILE_JSON
 
 BRANCH = DATA+'branch'+FILE_JSON
-INDUSTRY = INPUT+'Industry'+FILE_JSON
-CATEGORY = INPUT+'Category'+FILE_JSON
-SECTOR = INPUT+'Sector'+FILE_JSON
-ACCOUNT_TYPE = INPUT+'AccountType'+FILE_JSON
-TXN_TYPE = INPUT+'TxnType'+FILE_JSON
+INDUSTRY = DATA+'Industry'+FILE_JSON
+CATEGORY = DATA+'Category'+FILE_JSON
+SECTOR = DATA+'Sector'+FILE_JSON
+ACCOUNT_TYPE = DATA+'AccountType'+FILE_JSON
+TXN_TYPE = DATA+'TxnType'+FILE_JSON
 
 def prepare_for_json(obj):
         """Prepare Python objects for JSON serialization"""
@@ -72,37 +72,37 @@ def analyze_banking_data(df):
     Comprehensive analysis of banking transaction data
     """
     # Convert date columns to datetime
-    date_columns = ['opendate', 'ldrdate', 'lcrdate', 'dob']
+    date_columns = ['account_open_date', 'last_debit_date', 'last_credit_date', 'date_of_birth']
     for col in date_columns:
         df[col] = pd.to_datetime(df[col], format='%d-%b-%y', errors='coerce')
     
     # Separate personal and non-personal accounts
-    personal_accounts = df[df['dob'].notna()]
-    non_personal_accounts = df[df['dob'].isna()]
+    personal_accounts = df[df['date_of_birth'].notna()]
+    non_personal_accounts = df[df['date_of_birth'].isna()]
     
     # Calculate age for personal accounts
-    personal_accounts['age'] = (pd.Timestamp.now() - personal_accounts['dob']).dt.total_seconds() / (365.25 * 24 * 60 * 60)
+    personal_accounts['age'] = (pd.Timestamp.now() - personal_accounts['date_of_birth']).dt.total_seconds() / (365.25 * 24 * 60 * 60)
     
     # Account status analysis
     account_status = {
         'total_accounts': len(df),
         'personal_accounts': len(personal_accounts),
         'non_personal_accounts': len(non_personal_accounts),
-        'active_accounts': len(df[~df['inactive']]),
-        'inactive_accounts': len(df[df['inactive']]),
-        'negative_balance_accounts': len(df[df['acbal'] < 0]),
-        'zero_balance_accounts': len(df[df['acbal'] == 0]),
+        'active_accounts': len(df[~df['account_inactive']]),
+        'inactive_accounts': len(df[df['account_inactive']]),
+        'negative_balance_accounts': len(df[df['account_balance'] < 0]),
+        'zero_balance_accounts': len(df[df['account_balance'] == 0]),
     }
     
     # Service adoption analysis
     service_adoption = {
-        'mobile_banking': len(df[df['mbservice']]) / len(df) * 100,
-        'internet_banking': len(df[df['ibservice']]) / len(df) * 100,
-        'ac_service': len(df[df['acservice']]) / len(df) * 100,
+        'mobile_banking': len(df[df['mobile_banking']]) / len(df) * 100,
+        'internet_banking': len(df[df['internet_banking']]) / len(df) * 100,
+        'ac_service': len(df[df['account_service']]) / len(df) * 100,
     }
     
     # Account age analysis for personal accounts
-    personal_accounts['account_age_years'] = (pd.Timestamp.now() - personal_accounts['opendate']).dt.total_seconds() / (365.25 * 24 * 60 * 60)
+    personal_accounts['account_age_years'] = (pd.Timestamp.now() - personal_accounts['account_open_date']).dt.total_seconds() / (365.25 * 24 * 60 * 60)
     
     age_demographics = {
         'avg_customer_age': personal_accounts['age'].mean(),
@@ -113,16 +113,16 @@ def analyze_banking_data(df):
     
     # Balance analysis
     balance_metrics = {
-        'total_balance': df['acbal'].sum(),
-        'avg_balance': df['acbal'].mean(),
-        'max_balance': df['acbal'].max(),
-        'min_balance': df['acbal'].min(),
-        'total_negative_balance': df[df['acbal'] < 0]['acbal'].sum(),
+        'total_balance': df['account_balance'].sum(),
+        'avg_balance': df['account_balance'].mean(),
+        'max_balance': df['account_balance'].max(),
+        'min_balance': df['account_balance'].min(),
+        'total_negative_balance': df[df['account_balance'] < 0]['account_balance'].sum(),
     }
     
     # Recent activity analysis
-    df['days_since_last_credit'] = (pd.Timestamp.now() - df['lcrdate']).dt.total_seconds() / (24 * 60 * 60)
-    df['days_since_last_debit'] = (pd.Timestamp.now() - df['ldrdate']).dt.total_seconds() / (24 * 60 * 60)
+    df['days_since_last_credit'] = (pd.Timestamp.now() - df['last_credit_date']).dt.total_seconds() / (24 * 60 * 60)
+    df['days_since_last_debit'] = (pd.Timestamp.now() - df['last_debit_date']).dt.total_seconds() / (24 * 60 * 60)
     
     activity_metrics = {
         'avg_days_since_last_credit': df['days_since_last_credit'].mean(),
@@ -206,183 +206,429 @@ def get_spending_summary(df):
     summary.columns = ['Customer ID', 'Total Spending', 'Average Transaction', 'Transaction Count']
     return summary
 
+def analyze_economic_sector(df):
+    """
+    Comprehensive analysis of economic sectors with extended metrics
+    
+    Parameters:
+    df (pandas.DataFrame): Input dataframe with economic sector information
+    
+    Returns:
+    dict: Comprehensive multi-dimensional sector analysis
+    """
+    # Prepare numeric columns for analysis
+    df['is_negative_balance'] = df['account_balance'] < 0
+    df['is_positive_balance'] = df['account_balance'] > 0
+    
+    # Sector Distribution and Basic Metrics
+    sector_analysis = {}
+    
+    # Comprehensive Sector Breakdown
+    sector_analysis['sector_distribution'] = {
+        'count': df['economic_sector'].value_counts().to_dict(),
+        'percentage': (df['economic_sector'].value_counts(normalize=True) * 100).to_dict()
+    }
+    
+    # Balance Analysis
+    balance_metrics = df.groupby('economic_sector').agg({
+        'account_balance': [
+            'count', 
+            'sum', 
+            'mean', 
+            'median', 
+            'min', 
+            'max'
+        ],
+        'is_negative_balance': 'mean',
+        'is_positive_balance': 'mean'
+    })
+    balance_metrics.columns = [
+        'total_accounts', 
+        'total_balance', 
+        'mean_balance', 
+        'median_balance', 
+        'min_balance', 
+        'max_balance', 
+        'negative_balance_ratio', 
+        'positive_balance_ratio'
+    ]
+    sector_analysis['balance_metrics'] = balance_metrics.to_dict()
+    
+    # Branch and Service Analysis
+    branch_service_analysis = df.groupby(['economic_sector', 'user_branch', 'account_service']).size().unstack(fill_value=0)
+    sector_analysis['branch_service_breakdown'] = branch_service_analysis.to_dict()
+    
+    # Inactivity Analysis
+    inactivity_analysis = df.groupby('economic_sector')['account_inactive'].agg([
+        ('inactive_accounts', 'sum'),
+        ('inactive_ratio', 'mean')
+    ])
+    sector_analysis['inactivity_metrics'] = inactivity_analysis.to_dict()
+    
+    # Transaction Analysis
+    transaction_metrics = df.groupby('economic_sector').agg({
+        'transaction_amount': [
+            'count', 
+            'sum', 
+            'mean', 
+            'median'
+        ],
+        'last_debit_date': 'max',
+        'last_credit_date': 'max'
+    })
+    transaction_metrics.columns = [
+        'total_transactions', 
+        'total_transaction_value', 
+        'mean_transaction', 
+        'median_transaction', 
+        'latest_debit_date', 
+        'latest_credit_date'
+    ]
+    sector_analysis['transaction_metrics'] = transaction_metrics.to_dict()
+    
+    # Banking Service Penetration
+    banking_services = df.groupby('economic_sector').agg({
+        'mobile_banking': 'mean',
+        'internet_banking': 'mean'
+    }) * 100
+    sector_analysis['banking_service_penetration'] = banking_services.to_dict()
+    
+    # KYC Status Analysis
+    kyc_analysis = df.groupby('economic_sector')['kyc_status'].value_counts(normalize=True).unstack() * 100
+    sector_analysis['kyc_status_distribution'] = kyc_analysis.to_dict()
+    
+    return sector_analysis
+
+    # Example usage
+    # analysis_results = analyze_economic_sector(df)
+
+def generate_sector_analysis_prompt1(sector_analysis):
+    """
+    Generate a comprehensive LLM prompt with detailed sector-wise insights
+    
+    :param sector_analysis: Dictionary containing sector analysis data
+    :return: Formatted detailed prompt string
+    """
+    # Calculate total accounts
+    total_accounts = sum(sector_analysis['total_accounts'].values())
+    
+    # Sort sectors by total accounts
+    sorted_sectors = sorted(
+        sector_analysis['total_accounts'].items(), 
+        key=lambda x: x[1], 
+        reverse=True
+    )
+
+    # Prepare prompt sections
+    prompt = f"""COMPREHENSIVE ECONOMIC SECTOR PERFORMANCE ANALYSIS
+
+1. SECTOR COMPOSITION
+- Total Unique Economic Sectors: {len(sector_analysis['total_accounts'])}
+- Total Accounts: {total_accounts:,}
+
+DETAILED SECTOR BREAKDOWN:
+{chr(10).join([
+    f"  {sector}: "
+    f"{count:,} accounts "
+    f"({count/total_accounts*100:.2f}% of total), "
+    f"Total Balance: ${sector_analysis['total_balance'][sector]:,.2f}"
+    for sector, count in sorted_sectors
+])}
+
+2. FINANCIAL HEALTH METRICS
+BALANCE CHARACTERISTICS:
+{chr(10).join([
+    f"  {sector}:"
+    f"    Mean Balance: ${sector_analysis['mean_balance'][sector]:,.2f}"
+    f"    Median Balance: ${sector_analysis['median_balance'][sector]:,.2f}"
+    f"    Min Balance: ${sector_analysis['min_balance'][sector]:,.2f}"
+    f"    Max Balance: ${sector_analysis['max_balance'][sector]:,.2f}"
+    f"    Negative Balance Ratio: {sector_analysis['negative_balance_ratio'][sector]*100:.2f}%"
+    f"    Positive Balance Ratio: {sector_analysis['positive_balance_ratio'][sector]*100:.2f}%"
+    for sector, _ in sorted_sectors[:10]  
+])}
+
+3. RISK AND STABILITY INDICATORS
+BALANCE DISTRIBUTION INSIGHTS:
+{chr(10).join([
+    f"  {sector}:"
+    f"    Negative Balance Risk: {sector_analysis['negative_balance_ratio'][sector]*100:.2f}%"
+    f"    Financial Stability Score: {(1 - sector_analysis['negative_balance_ratio'][sector]) * 100:.2f}"
+    for sector, _ in sorted_sectors[:10]
+])}
+
+4. SECTOR FINANCIAL VULNERABILITY RANKING
+{chr(10).join([
+    f"  {sector}: Vulnerability Index = {sector_analysis['negative_balance_ratio'][sector]*100:.2f}"
+    for sector, _ in sorted(
+        sorted_sectors, 
+        key=lambda x: sector_analysis['negative_balance_ratio'][x[0]], 
+        reverse=True
+    )[:10]
+])}
+
+5. STRATEGIC SECTORAL INSIGHTS
+- Highest Total Balance Sector: {max(sector_analysis['total_balance'], key=sector_analysis['total_balance'].get)}
+- Lowest Total Balance Sector: {min(sector_analysis['total_balance'], key=sector_analysis['total_balance'].get)}
+- Most Stable Sector (Lowest Negative Balance Ratio): {
+    min(sector_analysis['negative_balance_ratio'], 
+        key=sector_analysis['negative_balance_ratio'].get)
+}
+
+ANALYSIS GENERATED: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}
+TOTAL SECTORS ANALYZED: {len(sector_analysis['total_accounts'])}
+"""
+    return prompt
+
+def generate_sector_analysis_prompt(sector_analysis):
+    """
+    Generate a comprehensive LLM prompt using f-string with sector analysis data
+    
+    :param sector_analysis: Dictionary containing sector-wise analysis
+    :return: Formatted prompt string
+    """
+    # Extract top 3 sectors by account count
+    sorted_sectors = sorted(
+        sector_analysis['sector_distribution']['count'].items(), 
+        key=lambda x: x[1], 
+        reverse=True
+    )[:3]
+
+    prompt = f"""COMPREHENSIVE BANKING SECTOR PERFORMANCE ANALYSIS
+
+1. SECTOR DISTRIBUTION
+- Total Unique Economic Sectors: {len(sector_analysis['sector_distribution']['count'])}
+- Top 3 Sectors by Account Volume:
+{chr(10).join([f"  {i+1}. {sector}: {count} accounts ({percentage:.2f}%)" 
+    for i, ((sector, count), (_, percentage)) in enumerate(zip(
+        sorted_sectors, 
+        sector_analysis['sector_distribution']['percentage'].items()
+    ))])}
+
+2. FINANCIAL HEALTH METRICS
+Balance Overview:
+{chr(10).join([f"  {sector}: "
+    f"Total Balance: ${balance_metrics['total_balance'][sector]:,.2f}, "
+    f"Mean Balance: ${balance_metrics['mean_balance'][sector]:,.2f}, "
+    f"Negative Balance Ratio: {balance_metrics['negative_balance_ratio'][sector]*100:.2f}%, "
+    f"Positive Balance Ratio: {balance_metrics['positive_balance_ratio'][sector]*100:.2f}%"
+    for sector, balance_metrics in sector_analysis['balance_metrics'].items()])}
+
+3. TRANSACTION DYNAMICS
+{chr(10).join([f"  {sector}: "
+    f"Total Transactions: {transaction_metrics['total_transactions'][sector]}, "
+    f"Total Transaction Value: ${transaction_metrics['total_transaction_value'][sector]:,.2f}, "
+    f"Mean Transaction: ${transaction_metrics['mean_transaction'][sector]:,.2f}"
+    for sector, transaction_metrics in sector_analysis['transaction_metrics'].items()])}
+
+4. DIGITAL BANKING ADOPTION
+Mobile Banking Penetration:
+{chr(10).join([f"  {sector}: {penetration:.2f}%" 
+    for sector, penetration in sector_analysis['banking_service_penetration']['mobile_banking'].items()])}
+
+Internet Banking Penetration:
+{chr(10).join([f"  {sector}: {penetration:.2f}%" 
+    for sector, penetration in sector_analysis['banking_service_penetration']['internet_banking'].items()])}
+
+5. ACCOUNT INACTIVITY
+{chr(10).join([f"  {sector}: "
+    f"Inactive Accounts: {inactivity['inactive_accounts'][sector]}, "
+    f"Inactivity Ratio: {inactivity['inactive_ratio'][sector]*100:.2f}%"
+    for sector, inactivity in sector_analysis['inactivity_metrics'].items()])}
+
+6. KYC COMPLIANCE
+{chr(10).join([f"  {sector}:" + 
+    chr(10).join([f"    {status}: {percentage:.2f}%" 
+    for status, percentage in kyc_status.items()])
+    for sector, kyc_status in sector_analysis['kyc_status_distribution'].items()])}
+
+STRATEGIC INSIGHTS GENERATED: {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}
+"""
+    return prompt
+
+    # Example usage
+    # prompt_text = generate_sector_analysis_prompt(sector_analysis)
+    # print(prompt_text)
+
 def analyze_banking_data_a(df):
     """
     Comprehensive analysis of banking data using all available columns
     """
-    df = preprocess_data(df)
+    # df = preprocess_data(df)
     print('Analyzing data...')
-    df['lcrdate'] = pd.to_datetime(df['lcrdate'], format='%d-%b-%y', errors='coerce')
-    df['ldrdate'] = pd.to_datetime(df['ldrdate'], format='%d-%b-%y', errors='coerce')
+    df['last_credit_date'] = pd.to_datetime(df['last_credit_date'], format='%d-%b-%y', errors='coerce')
+    df['last_debit_date'] = pd.to_datetime(df['last_debit_date'], format='%d-%b-%y', errors='coerce')
     # Create a copy to avoid modifying original data
     analysis_df = df.copy()
     
     # Classify accounts
-    analysis_df['is_personal'] = analysis_df['dob'].apply(classify_account_type)
+    analysis_df['is_personal'] = analysis_df['date_of_birth'].apply(classify_account_type)
     
     # Basic account metrics
     account_metrics = {
         'total_accounts': len(df),
         'total_personal_accounts': analysis_df['is_personal'].sum(),
         'non_personal_accounts': len(df) - analysis_df['is_personal'].sum(),
-        'active_accounts': len(df[~df['inactive']]),
-        'inactive_accounts': len(df[df['inactive']]),
-        'negative_balance_accounts': len(df[df['acbal'] < 0]),
-        'zero_balance_accounts': len(df[df['acbal'] == 0])
+        'active_accounts': len(df[~df['account_inactive']]),
+        'inactive_accounts': len(df[df['account_inactive']]),
+        'negative_balance_accounts': len(df[df['account_balance'] < 0]),
+        'zero_balance_accounts': len(df[df['account_balance'] == 0])
     }
     
     # Nationality and Residency Analysis
     nationality_analysis = {
-        'nationality_distribution': df['national'].value_counts().to_dict(),
-        'residency_distribution': df['resident'].value_counts().to_dict(),
-        'cross_border_customers': len(df[df['national'] != df['resident']])
+        'nationality_distribution': df['nationality'].value_counts().to_dict(),
+        'residency_distribution': df['residency_status'].value_counts().to_dict(),
+        'cross_border_customers': len(df[df['nationality'] != df['residency_status']])
     }
 
     # Sector Analysis
-    sector_acbal = df.groupby('sector')['acbal'].agg(['mean', 'sum', 'min', 'max']).to_dict()
-    sector_negative_acbal = df[df['acbal'] < 0].groupby('sector')['acbal'].agg(['count', 'sum']).to_dict()
-    sector_analysis = {
-        # 'sector_by_numbers': df['sector'].value_counts().to_dict(),
+    sector_acbal = df.groupby('economic_sector')['account_balance'].agg(['mean', 'sum', 'min', 'max']).to_dict()
+    sector_negative_acbal = df[df['account_balance'] < 0].groupby('economic_sector')['account_balance'].agg(['count', 'sum']).to_dict()
+    sector_customers = df.groupby('economic_sector')['transaction_amount'].nunique().to_dict()
+    sector_analysis1 = {
+        # 'sector_by_numbers': df['economic_sector'].value_counts().to_dict(),
         'total_amount_by_sector': sector_acbal['sum'],
         'average_amounts_by_sector': sector_acbal['mean'],
         'minimum_amounts_by_sector': sector_acbal['min'],
         'maximum_amounts_by_sector': sector_acbal['max'],
         'sectors_with_negative_balance': sector_negative_acbal['count'],
-        'inactive_accounts_by_sector': df[df['inactive']].groupby('sector')['inactive'].count().to_dict(),
-        # 'active_accounts_by_sector': df[df['active']].groupby('sector')['active'].count().to_dict()
+        'inactive_accounts_by_sector': df[df['account_inactive']].groupby('economic_sector')['account_inactive'].count().to_dict(),
+        # 'active_accounts_by_sector': df[df['active']].groupby('economic_sector')['active'].count().to_dict()
         }
+    sector_analysis = analyze_economic_sector(df)
 
     # Industry Analysis
-    industry_acbal = df.groupby('industry')['acbal'].agg(['mean', 'sum', 'min', 'max']).to_dict()
-    industry_negative_acbal = df[df['acbal'] < 0].groupby('industry')['acbal'].agg(['count', 'sum']).to_dict()
+    industry_acbal = df.groupby('customer_industry')['account_balance'].agg(['mean', 'sum', 'min', 'max']).to_dict()
+    industry_negative_acbal = df[df['account_balance'] < 0].groupby('customer_industry')['account_balance'].agg(['count', 'sum']).to_dict()
     industry_analysis = {
-        # 'industry_by_numbers': df['industry'].value_counts().to_dict(),
+        # 'industry_by_numbers': df['customer_industry'].value_counts().to_dict(),
         'total_amount_by_industry': industry_acbal['sum'],
         'maximum_amounts_by_industry': industry_acbal['max'],
         'average_amounts_by_industry': industry_acbal['mean'],
         'minimum_amounts_by_industry': industry_acbal['min'],
         'industries_with_negative_balance': industry_negative_acbal['count'],
-        'inactive_accounts_by_industry': df[df['inactive']].groupby('industry')['inactive'].count().to_dict(),
-        # 'active_accounts_by_industry': df[df['active']].groupby('industry')['active'].count().to_dict()
+        'inactive_accounts_by_industry': df[df['account_inactive']].groupby('customer_industry')['account_inactive'].count().to_dict(),
+        # 'active_accounts_by_industry': df[df['active']].groupby('customer_industry')['active'].count().to_dict()
     }
 
     # Category Analysis
-    category_acbal = df.groupby('category')['acbal'].agg(['mean', 'sum', 'min', 'max']).to_dict()
-    category_negative_acbal = df[df['acbal'] < 0].groupby('category')['acbal'].agg(['count', 'sum']).to_dict()
+    category_acbal = df.groupby('account_category')['account_balance'].agg(['mean', 'sum', 'min', 'max']).to_dict()
+    category_negative_acbal = df[df['account_balance'] < 0].groupby('account_category')['account_balance'].agg(['count', 'sum']).to_dict()
     category_analysis = {
-        # 'category_by_numbers': df['category'].value_counts().to_dict(),
+        # 'category_by_numbers': df['account_category'].value_counts().to_dict(),
         'total_amount_by_category': category_acbal['sum'],
         'maximum_amounts_by_category': category_acbal['max'],
         'average_amounts_by_category': category_acbal['mean'],
         'minimum_amounts_by_category': category_acbal['min'],
         'categories_with_negative_balance': category_negative_acbal['count'],
-        'inactive_accounts_by_category': df[df['inactive']].groupby('category')['inactive'].count().to_dict(),
-        # 'active_accounts_by_category': df[df['active']].groupby('category')['active'].count().to_dict()
+        'inactive_accounts_by_category': df[df['account_inactive']].groupby('account_category')['account_inactive'].count().to_dict(),
+        # 'active_accounts_by_category': df[df['active']].groupby('account_category')['active'].count().to_dict()
     }
     
     # Branch and Account Type Analysis
     branch_analysis = {
-        'total_branches': df['branch'].nunique(),
-        'branch_distribution': df['branch'].value_counts().to_dict(),
-        'branch_balance': df.groupby('branch')['acbal'].agg(['mean', 'sum', 'min', 'max']).to_dict(),
-        'branch_negative_balance': df[df['acbal'] < 0].groupby('branch')['acbal'].agg(['count', 'sum']).to_dict(),
-        'branch_wise_inactive_account': df[df['inactive']].groupby('branch')['inactive'].count().to_dict(),
-        'branch_wise_active_account': df[~df['inactive']].groupby('branch')['inactive'].count().to_dict(),
-        'branch_wise_account_type': df.groupby('branch')['actype'].value_counts().unstack().to_dict(),
-        'branch_wise_sector': df.groupby('branch')['sector'].value_counts().unstack().to_dict(),
-        'branch_wise_category': df.groupby('branch')['category'].value_counts().unstack().to_dict(),
-        'branch_wise_nationalities': df.groupby('branch')['national'].value_counts().unstack().to_dict(),
-        'branch_wise_mobile_banking': df.groupby('branch')['mbservice'].sum().to_dict(),
-        'branch_wise_internet_banking': df.groupby('branch')['ibservice'].sum().to_dict(),
-        'branch_wise_account_service': df.groupby('branch')['acservice'].sum().to_dict(),
-        'branch_wise_total_balance': df.groupby('branch')['acbal'].agg(['mean', 'sum']).to_dict(),
-        'branch_wise_average_balance': df.groupby('branch')['acbal'].mean().to_dict(),
-        'branch_wise_max_balance': df.groupby('branch')['acbal'].max().to_dict(),
-        'branch_wise_min_balance': df.groupby('branch')['acbal'].min().to_dict(),
+        'total_branches': df['bank_branch_account'].nunique(),
+        'branch_distribution': df['bank_branch_account'].value_counts().to_dict(),
+        'branch_balance': df.groupby('bank_branch_account')['account_balance'].agg(['mean', 'sum', 'min', 'max']).to_dict(),
+        'branch_negative_balance': df[df['account_balance'] < 0].groupby('bank_branch_account')['account_balance'].agg(['count', 'sum']).to_dict(),
+        'branch_wise_inactive_account': df[df['account_inactive']].groupby('bank_branch_account')['account_inactive'].count().to_dict(),
+        'branch_wise_active_account': df[~df['account_inactive']].groupby('bank_branch_account')['account_inactive'].count().to_dict(),
+        'branch_wise_account_type': df.groupby('bank_branch_account')['account_type'].value_counts().unstack().to_dict(),
+        'branch_wise_sector': df.groupby('bank_branch_account')['economic_sector'].value_counts().unstack().to_dict(),
+        'branch_wise_category': df.groupby('bank_branch_account')['account_category'].value_counts().unstack().to_dict(),
+        'branch_wise_nationalities': df.groupby('bank_branch_account')['nationality'].value_counts().unstack().to_dict(),
+        'branch_wise_mobile_banking': df.groupby('bank_branch_account')['mobile_banking'].sum().to_dict(),
+        'branch_wise_internet_banking': df.groupby('bank_branch_account')['internet_banking'].sum().to_dict(),
+        'branch_wise_account_service': df.groupby('bank_branch_account')['account_service'].sum().to_dict(),
+        'branch_wise_total_balance': df.groupby('bank_branch_account')['account_balance'].agg(['mean', 'sum']).to_dict(),
+        'branch_wise_average_balance': df.groupby('bank_branch_account')['account_balance'].mean().to_dict(),
+        'branch_wise_max_balance': df.groupby('bank_branch_account')['account_balance'].max().to_dict(),
+        'branch_wise_min_balance': df.groupby('bank_branch_account')['account_balance'].min().to_dict(),
 
-        # 'branch_actype_matrix': pd.crosstab(df['branch'], df['actype']).to_dict(),
-        # 'branch_transaction_matrix': pd.crosstab(df['branch'], df['acbal']).to_dict(),
-        # 'branch_sector_matrix': pd.crosstab(df['branch'], df['sector']).to_dict(),
-        # 'branch_category_matrix': pd.crosstab(df['branch'], df['category']).to_dict(),
-        # 'branch_national_matrix': pd.crosstab(df['branch'], df['national']).to_dict(),
-        # 'branch_account_matrix': pd.crosstab(df['branch'], analysis_df['is_personal']).to_dict(),
-        # 'branch_inactive_matrix': pd.crosstab(df['branch'], df['inactive']).to_dict(),
-        # 'branch_negative_balance_matrix': pd.crosstab(df['branch'], df['acbal'] < 0).to_dict(),
-        # 'branch_zero_balance_matrix': pd.crosstab(df['branch'], df['acbal'] == 0).to_dict(),
-        # 'branch_kyc_matrix': pd.crosstab(df['branch'], df['kyc']).to_dict(),
-        # 'branch_mobile_banking_matrix': pd.crosstab(df['branch'], df['mbservice']).to_dict(),
-        # 'branch_internet_banking_matrix': pd.crosstab(df['branch'], df['ibservice']).to_dict(),
-        # 'branch_ac_service_matrix': pd.crosstab(df['branch'], df['acservice']).to_dict(),
-        # 'branch_total_balance_matrix': pd.crosstab(df['branch'], pd.cut(df['acbal'], bins=[-np.inf, 0, 1000, 10000, 100000, np.inf], labels=['Negative', 'Low', 'Medium', 'High', 'Very High'])).to_dict()
-        # 'branch_age_matrix': pd.crosstab(df['branch'], pd.cut(df['age'], bins=[0, 30, 50, 70, 100], labels=['Young', 'Middle-aged', 'Senior', 'Elderly'])).to_dict()
+        # 'branch_actype_matrix': pd.crosstab(df['bank_branch_account'], df['account_type']).to_dict(),
+        # 'branch_transaction_matrix': pd.crosstab(df['bank_branch_account'], df['account_balance']).to_dict(),
+        # 'branch_sector_matrix': pd.crosstab(df['bank_branch_account'], df['economic_sector']).to_dict(),
+        # 'branch_category_matrix': pd.crosstab(df['bank_branch_account'], df['account_category']).to_dict(),
+        # 'branch_national_matrix': pd.crosstab(df['bank_branch_account'], df['nationality']).to_dict(),
+        # 'branch_account_matrix': pd.crosstab(df['bank_branch_account'], analysis_df['is_personal']).to_dict(),
+        # 'branch_inactive_matrix': pd.crosstab(df['bank_branch_account'], df['account_inactive']).to_dict(),
+        # 'branch_negative_balance_matrix': pd.crosstab(df['bank_branch_account'], df['account_balance'] < 0).to_dict(),
+        # 'branch_zero_balance_matrix': pd.crosstab(df['bank_branch_account'], df['account_balance'] == 0).to_dict(),
+        # 'branch_kyc_matrix': pd.crosstab(df['bank_branch_account'], df['kyc_status']).to_dict(),
+        # 'branch_mobile_banking_matrix': pd.crosstab(df['bank_branch_account'], df['mobile_banking']).to_dict(),
+        # 'branch_internet_banking_matrix': pd.crosstab(df['bank_branch_account'], df['internet_banking']).to_dict(),
+        # 'branch_ac_service_matrix': pd.crosstab(df['bank_branch_account'], df['acservice']).to_dict(),
+        # 'branch_total_balance_matrix': pd.crosstab(df['bank_branch_account'], pd.cut(df['account_balance'], bins=[-np.inf, 0, 1000, 10000, 100000, np.inf], labels=['Negative', 'Low', 'Medium', 'High', 'Very High'])).to_dict()
+        # 'branch_age_matrix': pd.crosstab(df['bank_branch_account'], pd.cut(df['age'], bins=[0, 30, 50, 70, 100], labels=['Young', 'Middle-aged', 'Senior', 'Elderly'])).to_dict()
     }
     print('Branch analysis done')
     
     # Service Adoption Analysis
     service_adoption = {
-        'mobile_banking_total_users': df['mbservice'].sum(),
-        'mobile_banking_adoption_rate': (df['mbservice'].sum() / len(df) * 100),
-        'mobile_banking_by_account_type': df.groupby('actype')['mbservice'].mean().to_dict(),
-        'mobile_banking_by_sector': df.groupby('sector')['mbservice'].mean().to_dict(),
-        'mobile_banking_by_industry': df.groupby('industry')['mbservice'].mean().to_dict(),
-        'mobile_banking_by_nationals': df.groupby('national')['mbservice'].mean().to_dict(),
-        'mobile_banking_by_category': df.groupby('category')['mbservice'].mean().to_dict(),
+        'mobile_banking_total_users': df['mobile_banking'].sum(),
+        'mobile_banking_adoption_rate': (df['mobile_banking'].sum() / len(df) * 100),
+        'mobile_banking_by_account_type': df.groupby('account_type')['mobile_banking'].mean().to_dict(),
+        'mobile_banking_by_sector': df.groupby('economic_sector')['mobile_banking'].mean().to_dict(),
+        'mobile_banking_by_industry': df.groupby('customer_industry')['mobile_banking'].mean().to_dict(),
+        'mobile_banking_by_nationals': df.groupby('nationality')['mobile_banking'].mean().to_dict(),
+        'mobile_banking_by_category': df.groupby('account_category')['mobile_banking'].mean().to_dict(),
 
-        'internet_banking_total_users': df['ibservice'].sum(),
-        'internet_banking_adoption_rate': (df['ibservice'].sum() / len(df) * 100),
-        'internet_banking_by_account_type': df.groupby('actype')['ibservice'].mean().to_dict(),
-        'internet_banking_by_sector': df.groupby('sector')['ibservice'].mean().to_dict(),
-        'internet_banking_by_industry': df.groupby('industry')['mbservice'].mean().to_dict(),
-        'internet_banking_by_nationals': df.groupby('national')['ibservice'].mean().to_dict(),
-        'internet_banking_by_category': df.groupby('category')['ibservice'].mean().to_dict(),
+        'internet_banking_total_users': df['internet_banking'].sum(),
+        'internet_banking_adoption_rate': (df['internet_banking'].sum() / len(df) * 100),
+        'internet_banking_by_account_type': df.groupby('account_type')['internet_banking'].mean().to_dict(),
+        'internet_banking_by_sector': df.groupby('economic_sector')['internet_banking'].mean().to_dict(),
+        'internet_banking_by_industry': df.groupby('customer_industry')['mobile_banking'].mean().to_dict(),
+        'internet_banking_by_nationals': df.groupby('nationality')['internet_banking'].mean().to_dict(),
+        'internet_banking_by_category': df.groupby('account_category')['internet_banking'].mean().to_dict(),
 
-        'account_service_total_users': df['acservice'].sum(),
-        'account_service_adoption_rate': (df['acservice'].sum() / len(df) * 100),
-        'account_service_by_account_type': df.groupby('actype')['acservice'].mean().to_dict(),
-        'account_service_by_sector': df.groupby('sector')['acservice'].mean().to_dict(),
-        'account_service_by_industry': df.groupby('industry')['mbservice'].mean().to_dict(),
-        'account_service_by_nationals': df.groupby('national')['acservice'].mean().to_dict(),
-        'account_service_by_category': df.groupby('category')['acservice'].mean().to_dict(),
+        'account_service_total_users': df['account_service'].sum(),
+        'account_service_adoption_rate': (df['account_service'].sum() / len(df) * 100),
+        'account_service_by_account_type': df.groupby('account_type')['account_service'].mean().to_dict(),
+        'account_service_by_sector': df.groupby('economic_sector')['account_service'].mean().to_dict(),
+        'account_service_by_industry': df.groupby('customer_industry')['mobile_banking'].mean().to_dict(),
+        'account_service_by_nationals': df.groupby('nationality')['account_service'].mean().to_dict(),
+        'account_service_by_category': df.groupby('account_category')['account_service'].mean().to_dict(),
     }
                 
     # Balance Analysis
     balance_analysis = {
-        'total_balance': df['acbal'].sum(),
-        'average_balance': df['acbal'].mean(),
-        'maximum_balance': df['acbal'].max(),
-        'minimum_balance': df['acbal'].min(),
-        'balance_by_account_type': df.groupby('actype')['acbal'].agg(['mean', 'sum', 'count']).to_dict(),
-        'balance_by_sector': df.groupby('sector')['acbal'].agg(['mean', 'sum', 'count']).to_dict(),
-        'balance_by_category': df.groupby('category')['acbal'].agg(['mean', 'sum', 'count']).to_dict(),
-        'minimim_balance_by_account_type': df.groupby('actype')['acbal'].min().to_dict(),
-        'minimim_balance_by_sector': df.groupby('sector')['acbal'].min().to_dict(),
-        'minimim_balance_by_category': df.groupby('category')['acbal'].min().to_dict(),
-        'maximum_balance_by_account_type': df.groupby('actype')['acbal'].max().to_dict(),
-        'maximum_balance_by_sector': df.groupby('sector')['acbal'].max().to_dict(),
-        'maximum_balance_by_category': df.groupby('category')['acbal'].max().to_dict(),
+        'total_balance': df['account_balance'].sum(),
+        'average_balance': df['account_balance'].mean(),
+        'maximum_balance': df['account_balance'].max(),
+        'minimum_balance': df['account_balance'].min(),
+        'balance_by_account_type': df.groupby('account_type')['account_balance'].agg(['mean', 'sum', 'count']).to_dict(),
+        'balance_by_sector': df.groupby('economic_sector')['account_balance'].agg(['mean', 'sum', 'count']).to_dict(),
+        'balance_by_category': df.groupby('account_category')['account_balance'].agg(['mean', 'sum', 'count']).to_dict(),
+        'minimim_balance_by_account_type': df.groupby('account_type')['account_balance'].min().to_dict(),
+        'minimim_balance_by_sector': df.groupby('economic_sector')['account_balance'].min().to_dict(),
+        'minimim_balance_by_category': df.groupby('account_category')['account_balance'].min().to_dict(),
+        'maximum_balance_by_account_type': df.groupby('account_type')['account_balance'].max().to_dict(),
+        'maximum_balance_by_sector': df.groupby('economic_sector')['account_balance'].max().to_dict(),
+        'maximum_balance_by_category': df.groupby('account_category')['account_balance'].max().to_dict(),
         'negative_balance': {
-            'count': len(df[df['acbal'] < 0]),
-            'total_amount': df[df['acbal'] < 0]['acbal'].sum(),
-            'by_account_type': df[df['acbal'] < 0].groupby('actype').size().to_dict()
+            'count': len(df[df['account_balance'] < 0]),
+            'total_amount': df[df['account_balance'] < 0]['account_balance'].sum(),
+            'by_account_type': df[df['account_balance'] < 0].groupby('account_type').size().to_dict()
         }
     }
     
     # KYC and Compliance Analysis
     compliance_analysis = {
         'kyc_completion': {
-            'kyc_completed': df['kyc'].sum(),
-            'kyc_pending': len(df) - df['kyc'].sum(),
-            'kyc_not_started': len(df[df['kyc'].isna()]),
-            'kyc_completed_by_account_type': df.groupby('actype')['kyc'].sum().to_dict(),
-            'kyc_completed_by_sector': df.groupby('sector')['kyc'].sum().to_dict(),
-            'kyc_completed_by_national': df.groupby('national')['kyc'].sum().to_dict(),
-            'kyc_completed_by_category': df.groupby('category')['kyc'].sum().to_dict(),
-            'kyc_completed_by_branch': df.groupby('branch')['kyc'].sum().to_dict(),
+            'kyc_completed': df['kyc_status'].sum(),
+            'kyc_pending': len(df) - df['kyc_status'].sum(),
+            'kyc_not_started': len(df[df['kyc_status'].isna()]),
+            'kyc_completed_by_account_type': df.groupby('account_type')['kyc_status'].sum().to_dict(),
+            'kyc_completed_by_sector': df.groupby('economic_sector')['kyc_status'].sum().to_dict(),
+            'kyc_completed_by_national': df.groupby('nationality')['kyc_status'].sum().to_dict(),
+            'kyc_completed_by_category': df.groupby('account_category')['kyc_status'].sum().to_dict(),
+            'kyc_completed_by_branch': df.groupby('bank_branch_account')['kyc_status'].sum().to_dict(),
         }
     }
 
     # # Account age analysis for personal accounts
-    # personal_accounts['account_age_years'] = (pd.Timestamp.now() - personal_accounts['opendate']).dt.total_seconds() / (365.25 * 24 * 60 * 60)
+    # personal_accounts['account_age_years'] = (pd.Timestamp.now() - personal_accounts['account_open_date']).dt.total_seconds() / (365.25 * 24 * 60 * 60)
     
     # age_demographics = {
     #     'avg_customer_age': personal_accounts['age'].mean(),
@@ -395,13 +641,13 @@ def analyze_banking_data_a(df):
     # Recent activity analysis
    
     # Calculate the number of days since the last credit
-    df['days_since_last_credit'] = (datetime.now() - df['lcrdate']).dt.days
-    df['days_since_last_debit'] = (datetime.now() - df['ldrdate']).dt.days
+    df['days_since_last_credit'] = (datetime.now() - df['last_credit_date']).dt.days
+    df['days_since_last_debit'] = (datetime.now() - df['last_debit_date']).dt.days
     activity_metrics = {
         'avg_days_since_last_credit': df['days_since_last_credit'].mean(),
         'avg_days_since_last_debit': df['days_since_last_debit'].mean(),
-        'total_amount_credited_last_30_days': df[df['days_since_last_credit'] <= 30]['lcyacbal'].sum(),
-        'total_amount_debited_last_30_days': df[df['days_since_last_debit'] <= 30]['lcyacbal'].sum(),
+        'total_amount_credited_last_30_days': df[df['days_since_last_credit'] <= 30]['local_currency_balance'].sum(),
+        'total_amount_debited_last_30_days': df[df['days_since_last_debit'] <= 30]['local_currency_balance'].sum(),
         }
 
     return {
@@ -621,7 +867,11 @@ def preprocess_raw_dataframe(df_account, df_statement):
     df_statement.rename(columns=rename_statement_mapping, inplace=True)
 
     # df_final = df_account.merge(df_statement, on="customer_id")
-    df_final = pd.merge(df_account, df_statement, how='inner', on="customer_id")
+    df_final = pd.merge(df_account, df_statement, 
+                     on=['customer_id'], 
+                     how='inner', 
+                     suffixes=('_account', '_transaction'))
+    # df_final = pd.merge(df_account, df_statement, how='inner', on="customer_id")
     return df_final
 
 def preprocess_data(df_account, df_statement):
@@ -646,32 +896,6 @@ def preprocess_data(df_account, df_statement):
     """
 
     df = preprocess_raw_dataframe(df_account, df_statement)
-    print(df.head(10))
-    print(df.columns)
-    # print(df['bank_branch_x'].value_counts())
-    # print(df['bank_branch_y'].value_counts())
-    # print(df['account_number_x'].value_counts())
-    # print(df['account_number_y'].value_counts())
-    # print(df['currency_code_x'].value_counts())
-    # print(df['currency_code_y'].value_counts())
-    
-    grouped_df = df.groupby('customer_name').agg({
-        'bank_branch_x': lambda x: x.mode()[0] if not x.mode().empty else 'Unknown',
-        'kyc_status': 'first',
-        'transaction_date': lambda x: x.max(),
-        'account_balance': ['mean', 'sum', 'min', 'max'],
-        'currency_code_x': lambda x: x.max(),
-        'economic_sector': lambda x: x.max(),
-        'transaction_amount': ['mean', 'sum', 'min', 'max']
-    }).reset_index()
-
-    print(grouped_df)
-
-    exit()
-
-    
-    # Save the updated CSV
-    print(df.columns)
 
     # mapping to be done: Branch, Industry, Sector, Account_type, Category
     branch_code_to_name = column_mapping(BRANCH,'Code','Desc')
@@ -681,7 +905,7 @@ def preprocess_data(df_account, df_statement):
     category_code_to_name = column_mapping(CATEGORY,'Code','Desc')
 
     # Replace unwanted values other than numeric with 0000
-    df['bank_branch'] = pd.to_numeric(df['bank_branch'], errors='coerce')
+    df['bank_branch_account'] = pd.to_numeric(df['bank_branch_account'], errors='coerce') #TEST
     df['account_type'] = pd.to_numeric(df['account_type'], errors='coerce')
     df['customer_industry'] = pd.to_numeric(df['customer_industry'], errors='coerce')
     df['economic_sector'] = pd.to_numeric(df['economic_sector'], errors='coerce')
@@ -694,7 +918,7 @@ def preprocess_data(df_account, df_statement):
     df[int_cols] = df[int_cols].astype('int32')
 
     # Map numeric codes with strings
-    df["bank_branch"] = df["bank_branch"].map(branch_code_to_name).fillna('BBRANCH')
+    df["bank_branch_account"] = df["bank_branch_account"].map(branch_code_to_name).fillna('BBRANCH')
     df["account_type"] = df["account_type"].map(account_code_to_name).fillna('AACCOUNT')
     df["customer_industry"] = df["customer_industry"].map(industry_code_to_name).fillna('IINDUSTRY')
     df["economic_sector"] = df["economic_sector"].map(sector_code_to_name).fillna('SSECTOR')
@@ -743,34 +967,42 @@ if __name__ == "__main__":
     df_account = pd.read_csv(ACCOUNT_PATH)  # AccountData
     df_statement = pd.read_csv(STATEMENT_PATH)
     df = preprocess_data(df_account, df_statement)
-    df = set_column_names(df)
-    print(df.info())
-    print(df.describe())
-    exit()
-    # df = pd.read_csv(STMT_PATH) # Statements
-    # Here is the context to you to answer the question
-    # Provide an answer to this question using the above context.
-    response = query_ai_llm(
-        model_name, 
-        f"""
-        You're expert in Python programming using Pandas for data analysis.
-        Use dataframe name as 'df'. Use columns available on {str(df.columns)} only.
-        Create a python code relevant to the column named 'sector'and provide the appropriate groupby methods that makes sense.
-        Use agg() with ['mean', 'sum', 'min', 'max'].
-        Code should contain only the lines including groupby method.
-        Provide only the lines of code with method groupby().
-        No explanation is necessary.
-        """
-        )
+    print(df.head(3))
+    print(f"Total Columns: {len(df.columns)}")
+
+    # Sector
+    analysis_results = analyze_economic_sector(df)
+    # for sector, balance_metrics in analysis_results['balance_metrics'].items():
+    #     print(sector)
+    #     print(balance_metrics)
+    #     print(f"{sector} : Total Balance: ${balance_metrics['total_balance']:,.2f}")
+    #     exit()
+
+    # print(
+    #     [f"  {sector}: "
+    # f"Total Balance: ${balance_metrics['total_balance']:,.2f}, "
+    # f"Mean Balance: ${balance_metrics['mean_balance']:,.2f}, "
+    # f"Negative Balance Ratio: {balance_metrics['negative_balance_ratio']*100:.2f}%, "
+    # f"Positive Balance Ratio: {balance_metrics['positive_balance_ratio']*100:.2f}%"
+    # for sector, balance_metrics in analysis_results['balance_metrics'].items()])
+    
+    prompt_text = generate_sector_analysis_prompt(analysis_results)
+
+    response = query_ai_llm(model_name, prompt_text)
     print(response)
+
     exit()
+
+    # df = pd.read_csv(STMT_PATH) # Statements
     
     # TODO: Link Merge StmtData with AccountData
-    # TODO: Rename column
     # custid,name,national,resident,industry,sector,branch,actype,accountno,ccy,category,acbal,lcyacbal,mbservice,ibservice,acservice,kyc,inactive,mobileno,opendate,ldrdate,lcrdate,dob
-
+    # 'customer_id', 'customer_name', 'nationality', 'residency_status','customer_industry', 'economic_sector', 'bank_branch_account',
+    #    'account_type', 'account_number_account', 'currency_code_account','account_category', 'account_balance', 'local_currency_balance', 'mobile_banking', 'internet_banking', 'account_service', 'kyc_status',
+    #    'account_inactive', 'mobile_number', 'account_open_date','last_debit_date', 'last_credit_date', 'date_of_birth', 'statement_id','account_number_transaction', 'bank_branch_transaction',
+    #    'transaction_code', 'transaction_reference', 'transaction_description','transaction_date', 'value_date', 'currency_code_transaction','transaction_amount', 'local_currency_amount', 'exchange_rate','our_reference', 'system_id', 'override_status', 'input_user','input_datetime', 'authorized_user', 'authorization_datetime','user_branch'
     # Get analysis results and prompt
-    analysis, prompt = run_analysis(df) # Analyze bank data 'A' & Return Prompt
+    # analysis, prompt = run_analysis(df) # Analyze bank data 'A' & Return Prompt
     now_datetime = datetime.now().strftime(date_time_format)
     response = query_ai_llm(model_name, prompt)
     print(response)
