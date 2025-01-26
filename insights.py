@@ -235,7 +235,6 @@ def analyze_economic_sector(df):
             'count', 
             'sum', 
             'mean', 
-            'median', 
             'min', 
             'max'
         ],
@@ -243,19 +242,32 @@ def analyze_economic_sector(df):
         'is_positive_balance': 'mean'
     })
     balance_metrics.columns = [
-        'total_accounts', 
-        'total_balance', 
-        'mean_balance', 
-        'median_balance', 
-        'min_balance', 
-        'max_balance', 
-        'negative_balance_ratio', 
-        'positive_balance_ratio'
+        'total_accounts_by_sector', 
+        'total_balance_by_sector', 
+        'average_balance_by_sector', 
+        'minimum_balance_by_sector', 
+        'maximum_balance_by_sector', 
+        'negative_balance_ratio_by_sector', 
+        'positive_balance_ratio_by_sector'
     ]
     sector_analysis['balance_metrics'] = balance_metrics.to_dict()
     
     # Branch and Service Analysis
-    branch_service_analysis = df.groupby(['economic_sector', 'user_branch', 'account_service']).size().unstack(fill_value=0)
+    # branch_service_analysis = df.groupby(['economic_sector', 'user_branch', 'account_service']).size().unstack(fill_value=0)
+    branch_service_analysis = df.groupby('economic_sector').agg({
+        'bank_branch_account': 'nunique',
+        'account_service': 'sum',
+        'mobile_banking': 'mean',
+        'account_balance': 'mean',
+        'internet_banking': 'mean'
+    })
+    branch_service_analysis.columns = [
+        'total_branches_by_sector',
+        'total_account_services_by_sector',
+        'average_mobile_banking_by_sector',
+        'average_balance_by_sector',
+        'average_internet_banking_by_sector'
+    ]
     sector_analysis['branch_service_breakdown'] = branch_service_analysis.to_dict()
     
     # Inactivity Analysis
@@ -271,16 +283,14 @@ def analyze_economic_sector(df):
             'count', 
             'sum', 
             'mean', 
-            'median'
         ],
         'last_debit_date': 'max',
         'last_credit_date': 'max'
     })
     transaction_metrics.columns = [
-        'total_transactions', 
-        'total_transaction_value', 
-        'mean_transaction', 
-        'median_transaction', 
+        'total_transactions_by_sector', 
+        'total_transaction_value_by_sector', 
+        'average_transaction_by_sector', 
         'latest_debit_date', 
         'latest_credit_date'
     ]
@@ -301,6 +311,71 @@ def analyze_economic_sector(df):
 
     # Example usage
     # analysis_results = analyze_economic_sector(df)
+
+def analyze_bank_branch(df):
+    # Branch-wise Basic Statistics
+    branch_stats = df.groupby('bank_branch_account').agg({
+        'customer_id': 'count',
+        'account_balance': ['mean', 'sum', 'min', 'max'],
+        'local_currency_balance': ['mean', 'sum'],
+        'transaction_amount': ['count', 'sum']
+    }).reset_index()
+    
+    # Rename columns for clarity
+    branch_stats.columns = [
+        'Branch', 
+        'Total_Customers', 
+        'Avg_Account_Balance', 
+        'Total_Account_Balance', 
+        'Min_Account_Balance', 
+        'Max_Account_Balance',
+        'Avg_Local_Currency_Balance', 
+        'Total_Local_Currency_Balance',
+        'Total_Transactions', 
+        'Total_Transaction_Amount'
+    ]
+    
+    # Customer Segmentation by Branch
+    customer_segmentation = df.groupby(['bank_branch_account', 'economic_sector']).size().unstack(fill_value=0)
+    
+    # Digital Banking Penetration
+    digital_banking = df.groupby('bank_branch_account').agg({
+        'mobile_banking': 'mean',
+        'internet_banking': 'mean',
+        'kyc_status': lambda x: (x == 'Completed').mean()
+    }).reset_index()
+    digital_banking.columns = ['Branch', 'Mobile_Banking_Rate', 'Internet_Banking_Rate', 'KYC_Compliance_Rate']
+    
+    # Transaction Characteristics
+    transaction_analysis = df.groupby('bank_branch_account').agg({
+        'transaction_amount': ['mean', 'median', 'std'],
+        'transaction_code': 'nunique'
+    }).reset_index()
+    transaction_analysis.columns = ['Branch', 'Avg_Transaction', 'Median_Transaction', 'Transaction_Std_Dev', 'Unique_Transaction_Types']
+    
+    # Inactive Account Analysis
+    inactive_accounts = df.groupby('bank_branch_account').agg({
+        'account_inactive': lambda x: (x == True).mean()
+    }).reset_index()
+    inactive_accounts.columns = ['Branch', 'Inactive_Account_Ratio']
+    
+    # Merge all analyses
+    comprehensive_analysis = branch_stats.merge(
+        digital_banking, on='Branch'
+    ).merge(
+        transaction_analysis, on='Branch'
+    ).merge(
+        inactive_accounts, on='Branch'
+    )
+    
+    return {
+        'branch_statistics': branch_stats,
+        'customer_segmentation': customer_segmentation,
+        'comprehensive_analysis': comprehensive_analysis,
+        'digital_banking_penetration': digital_banking,
+        'transaction_characteristics': transaction_analysis,
+        'inactive_accounts': inactive_accounts
+    }
 
 def generate_sector_analysis_prompt1(sector_analysis):
     """
@@ -926,12 +1001,80 @@ def preprocess_data(df_account, df_statement):
     
     return df
 
+def branch_prompts(df):
+    prompt = f"""Conduct a comprehensive multi-dimensional analysis of bank branch performance using provided DataFrame.
+    {str(df)}
+    Key Analysis Dimensions
+
+    Customer Metrics
+
+
+    Total customer count
+    Customer segmentation by economic sector
+    Customer distribution across branches
+
+
+    Financial Performance
+
+
+    Account balance statistics
+    Transaction volume and value
+    Currency-wise transaction analysis
+    Local vs. foreign currency transactions
+
+
+    Digital Banking Metrics
+
+
+    Mobile banking penetration
+    Internet banking adoption
+    KYC compliance rates
+
+
+    Temporal Analysis
+
+
+    Transaction date range
+    First and last transaction dates
+    Transaction frequency trends
+
+
+    Branch Operational Insights
+
+
+    Inactive account ratios
+    Average transaction characteristics
+    Unique transaction type diversity
+
+    Analytical Requirements
+
+    Precision: 2 decimal points
+    Statistical methods: Descriptive statistics
+    Visualization: Recommended charts/graphs
+    Comparative analysis across branches
+
+    Deliverable
+    Comprehensive report with:
+
+    Executive summary
+    Detailed branch-wise insights
+    Potential optimization recommendations
+    Risk assessment markers
+
+    Output Format
+
+    Tabular data
+    Statistical summaries
+    Trend visualizations
+    Actionable strategic insights
+    """
+    return prompt
+
 # Example usage function
 def run_analysis(df):
     analysis_results = analyze_banking_data_a(df)       # analysis_results = analyze_banking_data(df)
     prompt = generate_llm_prompt(analysis_results)
     return analysis_results, prompt.strip()
-
 
 def query_ai_llm(model, prompt):
     """
@@ -968,28 +1111,65 @@ if __name__ == "__main__":
     df_statement = pd.read_csv(STATEMENT_PATH)
     df = preprocess_data(df_account, df_statement)
     print(df.head(3))
-    print(f"Total Columns: {len(df.columns)}")
+    print(df.columns)
 
     # Sector
-    analysis_results = analyze_economic_sector(df)
-    # for sector, balance_metrics in analysis_results['balance_metrics'].items():
-    #     print(sector)
-    #     print(balance_metrics)
-    #     print(f"{sector} : Total Balance: ${balance_metrics['total_balance']:,.2f}")
-    #     exit()
+    # analysis_results = analyze_economic_sector(df)
+    # filename = f"{OUTPUT}sectoranalysis_{model_name.replace(':', '_')}.txt"
+    # Branch
+    analysis_results = analyze_bank_branch(df)
+    filename = f"{OUTPUT}branchanalysis_{model_name.replace(':', '_')}.txt"
+    print(analysis_results.keys())
 
-    # print(
-    #     [f"  {sector}: "
-    # f"Total Balance: ${balance_metrics['total_balance']:,.2f}, "
-    # f"Mean Balance: ${balance_metrics['mean_balance']:,.2f}, "
-    # f"Negative Balance Ratio: {balance_metrics['negative_balance_ratio']*100:.2f}%, "
-    # f"Positive Balance Ratio: {balance_metrics['positive_balance_ratio']*100:.2f}%"
-    # for sector, balance_metrics in analysis_results['balance_metrics'].items()])
+    print(type(analysis_results))
+    with open(filename, 'w') as f:
+        # f.write(convert_to_json(analysis_results, indent=2).encode('utf-8'))
+        f.write(str(analysis_results))
+    print(f" -- Analysis results saved to {filename}")
+
+    prompt = f"""
+    You're an expert in analyzing financial data..
+    You have been asked to analyze the data provided.
+
+    Consider the context provided and generate insights based on the data:
     
-    prompt_text = generate_sector_analysis_prompt(analysis_results)
+    Sector Distributions: {analysis_results['sector_distribution']}
 
-    response = query_ai_llm(model_name, prompt_text)
-    print(response)
+    Balances by Sector: {analysis_results['balance_metrics']}
+
+    Inactivity by Sector: {analysis_results['inactivity_metrics']}
+
+    Transactions by Sector: {analysis_results['transaction_metrics']}
+
+    Banking Services by Sector: {analysis_results['banking_service_penetration']}
+
+    Branches by Sector: {analysis_results['branch_service_breakdown']}
+
+    KYC Compliance by Sector: {analysis_results['kyc_status_distribution']}
+
+    Generate insights about:
+    1. Distribution of transactions by sector
+    2. Recent transaction activity by sector
+    3. Account balances and trends by sector
+    4. Customer demographics and behavior by sector
+    5. Service adoption and usage by sector
+    6. General Amount Metrices (Total Amount, Avg Amount, Low Amount, Active Inactive Account Ratio, Positive/Negative Balance ratio) by sector
+    7. Compliance and KYC status by sector
+    8. Branch performance by sector
+    9. Industry concentration by sector
+    10. Opportunities for improvement by sector
+
+    Provide a detailed analysis with numerical figures in currency NPR only, and actionable recommendations.
+    """
+    print(prompt)
+
+    response = query_ai_llm(model_name, prompt)
+    current_datetime = datetime.now().strftime(date_time_format)
+    print(f'< Writing LLM Analysis to file...{current_datetime}')
+    # Create a filename with the current date and time
+    filename = f"{OUTPUT}analysis_{model_name.replace(':', '_')}_{current_datetime.replace(' ','_').replace(':','_')}.txt"
+    with open(filename, 'w') as f:
+        f.write(response)
 
     exit()
 
