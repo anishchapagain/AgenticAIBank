@@ -21,3 +21,6 @@ output/
 cache/
 db/
 data/
+*.txt
+*.db
+*.log
