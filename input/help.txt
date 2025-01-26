@@ -81,3 +81,39 @@ Visual Representation:
 
 Include suggestions for visualizing this data, such as bar charts, pie charts, or heatmaps, to provide clear insights for decision-makers.
 Provide your findings in a structured format, including summaries, detailed analyses, and actionable recommendations where applicable.
+
+
+prompt = f"""
+    You're an expert in analyzing financial data..
+    You have been asked to analyze the data provided.
+
+    Consider the context provided and generate insights based on the data:
+    
+    Sector Distributions: {analysis_results['sector_distribution']}
+
+    Balances by Sector: {analysis_results['balance_metrics']}
+
+    Inactivity by Sector: {analysis_results['inactivity_metrics']}
+
+    Transactions by Sector: {analysis_results['transaction_metrics']}
+
+    Banking Services by Sector: {analysis_results['banking_service_penetration']}
+
+    Branches by Sector: {analysis_results['branch_service_breakdown']}
+
+    KYC Compliance by Sector: {analysis_results['kyc_status_distribution']}
+
+    Generate insights about:
+    1. Distribution of transactions by sector
+    2. Recent transaction activity by sector
+    3. Account balances and trends by sector
+    4. Customer demographics and behavior by sector
+    5. Service adoption and usage by sector
+    6. General Amount Metrices (Total Amount, Avg Amount, Low Amount, Active Inactive Account Ratio, Positive/Negative Balance ratio) by sector
+    7. Compliance and KYC status by sector
+    8. Branch performance by sector
+    9. Industry concentration by sector
+    10. Opportunities for improvement by sector
+
+    Provide a detailed analysis with numerical figures in currency NPR only, and actionable recommendations.
+    """

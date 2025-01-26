@@ -1001,7 +1001,6 @@ def preprocess_data(df_account, df_statement):
     
     return df
 
-def branch_prompts(df):
     prompt = f"""Conduct a comprehensive multi-dimensional analysis of bank branch performance using provided DataFrame.
     {str(df)}
     Key Analysis Dimensions
@@ -1126,39 +1125,26 @@ if __name__ == "__main__":
         # f.write(convert_to_json(analysis_results, indent=2).encode('utf-8'))
         f.write(str(analysis_results))
     print(f" -- Analysis results saved to {filename}")
+    
 
     prompt = f"""
     You're an expert in analyzing financial data..
     You have been asked to analyze the data provided.
 
     Consider the context provided and generate insights based on the data:
+
+    Branch Statistics:{analysis_results['branch_statistics']}
+
+    Customer Segmentation by branch:{analysis_results['customer_segmentation']}
+
+    Comprehensive Analysis: {analysis_results['comprehensive_analysis']}
     
-    Sector Distributions: {analysis_results['sector_distribution']}
-
-    Balances by Sector: {analysis_results['balance_metrics']}
-
-    Inactivity by Sector: {analysis_results['inactivity_metrics']}
-
-    Transactions by Sector: {analysis_results['transaction_metrics']}
-
-    Banking Services by Sector: {analysis_results['banking_service_penetration']}
-
-    Branches by Sector: {analysis_results['branch_service_breakdown']}
-
-    KYC Compliance by Sector: {analysis_results['kyc_status_distribution']}
-
-    Generate insights about:
-    1. Distribution of transactions by sector
-    2. Recent transaction activity by sector
-    3. Account balances and trends by sector
-    4. Customer demographics and behavior by sector
-    5. Service adoption and usage by sector
-    6. General Amount Metrices (Total Amount, Avg Amount, Low Amount, Active Inactive Account Ratio, Positive/Negative Balance ratio) by sector
-    7. Compliance and KYC status by sector
-    8. Branch performance by sector
-    9. Industry concentration by sector
-    10. Opportunities for improvement by sector
-
+    Digital Banking: {analysis_results['digital_banking_penetration']}
+    
+    Transaction Characteristics: {analysis_results['transaction_characteristics']}
+    
+    Inactive Accounts:{analysis_results['inactive_accounts']}
+    
     Provide a detailed analysis with numerical figures in currency NPR only, and actionable recommendations.
     """
     print(prompt)
