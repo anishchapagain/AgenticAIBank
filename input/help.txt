@@ -160,3 +160,9 @@ prompt = f"""
     
     Provide a detailed analysis with numerical figures in currency NPR only, and actionable recommendations.
     """
+
+# Load Data
+# Mapping
+# Clean
+# Individual Analysis
+# Statement Analysis
