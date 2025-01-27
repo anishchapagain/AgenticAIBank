@@ -117,3 +117,46 @@ prompt = f"""
 
     Provide a detailed analysis with numerical figures in currency NPR only, and actionable recommendations.
     """
+
+
+    prompt = f"""
+    You're an expert in analyzing financial data..
+    You have been asked to analyze the data provided.
+
+    Consider the context provided and generate insights based on the data:
+
+    Branch Statistics:{analysis_results['branch_statistics']}
+
+    Customer Segmentation by branch:{analysis_results['customer_segmentation']}
+
+    Comprehensive Analysis: {analysis_results['comprehensive_analysis']}
+    
+    Digital Banking: {analysis_results['digital_banking_penetration']}
+    
+    Transaction Characteristics: {analysis_results['transaction_characteristics']}
+    
+    Inactive Accounts:{analysis_results['inactive_accounts']}
+    
+    Provide a detailed analysis with numerical figures in currency NPR only, and actionable recommendations.
+    """
+
+prompt = f"""
+    You're an expert in analyzing financial data..
+    You have been asked to analyze the data provided.
+
+    Consider the context provided and generate insights based on the data:
+
+    Customer Demographics:{analysis_results['demographics']}
+
+    Customer Services:{analysis_results['services']}
+
+    Customer Balances: {analysis_results['financial_behavior']}
+    
+    KYC and Inactive Accounts: {analysis_results['compliance']}
+    
+    Branch distribution and transaction: {analysis_results['branch_metrics']}
+    
+    Risk: {analysis_results['risk_metrics']}
+    
+    Provide a detailed analysis with numerical figures in currency NPR only, and actionable recommendations.
+    """

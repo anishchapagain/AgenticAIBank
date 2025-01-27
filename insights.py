@@ -312,9 +312,118 @@ def analyze_economic_sector(df):
     # Example usage
     # analysis_results = analyze_economic_sector(df)
 
+def analyze_customers(df):
+    """
+    Perform comprehensive customer analysis including demographics, 
+    financial behavior, and service adoption patterns
+    
+    Parameters:
+    df (pandas.DataFrame): Input dataframe with customer information
+    
+    Returns:
+    dict: Comprehensive customer analysis results
+    """
+    customer_analysis = {}
+    
+    # 1. Customer Demographics Analysis
+    customer_analysis['demographics'] = {
+        'nationality_distribution': df['nationality'].value_counts().to_dict(),
+        'nationality_percentage': (df['nationality'].value_counts(normalize=True) * 100).to_dict(),
+        'residency_status': df['residency_status'].value_counts().to_dict(),
+        'industry_distribution': df['customer_industry'].value_counts().to_dict(),
+        'total_customers': len(df['customer_id'].unique())
+    }
+    
+    # 2. Account Services Analysis
+    customer_analysis['services'] = {
+        'mobile_banking_adoption': (df['mobile_banking'].mean() * 100),
+        'internet_banking_adoption': (df['internet_banking'].mean() * 100),
+        'account_services': df['account_service'].value_counts().to_dict(),
+        'account_types': df['account_type'].value_counts().to_dict(),
+        'currency_distribution': df['currency_code_account'].value_counts().to_dict()
+    }
+    
+    # # 3. Customer Age and Account Age Analysis
+    # current_date = pd.Timestamp.now()
+    # df['customer_age'] = (current_date - pd.to_datetime(df['date_of_birth'])).dt.days / 365
+    # df['account_age'] = (current_date - pd.to_datetime(df['account_open_date'])).dt.days / 365
+    
+    # customer_analysis['age_metrics'] = {
+    #     'customer_age_stats': {
+    #         'mean': df['customer_age'].mean(),
+    #         'median': df['customer_age'].median(),
+    #         'min': df['customer_age'].min(),
+    #         'max': df['customer_age'].max()
+    #     },
+    #     'account_age_stats': {
+    #         'mean': df['account_age'].mean(),
+    #         'median': df['account_age'].median(),
+    #         'min': df['account_age'].min(),
+    #         'max': df['account_age'].max()
+    #     }
+    # }
+    
+    # 4. Financial Behavior Analysis
+    customer_analysis['financial_behavior'] = {
+        'balance_stats': {
+            'mean_balance': df['account_balance'].mean(),
+            'median_balance': df['account_balance'].median(),
+            'total_balance': df['account_balance'].sum(),
+            'negative_balance_count': (df['account_balance'] < 0).sum(),
+            'zero_balance_count': (df['account_balance'] == 0).sum(),
+            'positive_balance_count': (df['account_balance'] > 0).sum()
+        },
+        'transaction_stats': {
+            'avg_transaction_amount': df['transaction_amount'].mean(),
+            'total_transaction_volume': df['transaction_amount'].sum(),
+            'transaction_frequency': len(df) / len(df['customer_id'].unique())
+        }
+    }
+    
+    # 5. KYC and Compliance Analysis
+    customer_analysis['compliance'] = {
+        'kyc_status': df['kyc_status'].value_counts().to_dict(),
+        'kyc_completion_rate': (df['kyc_status'].value_counts(normalize=True) * 100).to_dict(),
+        'inactive_accounts': df['account_inactive'].sum(),
+        'inactive_rate': (df['account_inactive'].mean() * 100)
+    }
+    
+    # 6. Branch and Location Analysis
+    customer_analysis['branch_metrics'] = {
+        'branch_distribution': df['bank_branch_account'].value_counts().to_dict(),
+        'transactions_by_branch': df.groupby('bank_branch_transaction')['transaction_amount'].agg([
+            'count', 'sum', 'mean'
+        ]).to_dict()
+    }
+    
+    # # 7. Customer Activity Patterns
+    # df['last_activity'] = pd.to_datetime(df[['last_debit_date', 'last_credit_date']].max(axis=1))
+    # recent_date = df['last_activity'].max()
+    # df['days_since_last_activity'] = (recent_date - df['last_activity']).dt.days
+    
+    # customer_analysis['activity_patterns'] = {
+    #     'activity_age_stats': {
+    #         'mean_days_inactive': df['days_since_last_activity'].mean(),
+    #         'median_days_inactive': df['days_since_last_activity'].median(),
+    #         'inactive_30_days': (df['days_since_last_activity'] > 30).sum(),
+    #         'inactive_90_days': (df['days_since_last_activity'] > 90).sum()
+    #     }
+    # }
+    
+    # 8. Risk Metrics
+    customer_analysis['risk_metrics'] = {
+        'high_value_customers': (df['account_balance'] > df['account_balance'].quantile(0.95)).sum(),
+        # 'dormant_accounts': (df['days_since_last_activity'] > 180).sum(),
+        'kyc_pending_high_balance': ((df['kyc_status'] != 'COMPLETED') & 
+                                   (df['account_balance'] > df['account_balance'].quantile(0.75))).sum()
+    }
+    
+    return customer_analysis
+
 def analyze_bank_branch(df):
+    # bank_branch_transaction
     # Branch-wise Basic Statistics
-    branch_stats = df.groupby('bank_branch_account').agg({
+    branch_stats = df.groupby('bank_branch_transaction').agg({
         'customer_id': 'count',
         'account_balance': ['mean', 'sum', 'min', 'max'],
         'local_currency_balance': ['mean', 'sum'],
@@ -336,10 +445,10 @@ def analyze_bank_branch(df):
     ]
     
     # Customer Segmentation by Branch
-    customer_segmentation = df.groupby(['bank_branch_account', 'economic_sector']).size().unstack(fill_value=0)
+    customer_segmentation = df.groupby(['bank_branch_transaction', 'economic_sector']).size().unstack(fill_value=0)
     
     # Digital Banking Penetration
-    digital_banking = df.groupby('bank_branch_account').agg({
+    digital_banking = df.groupby('bank_branch_transaction').agg({
         'mobile_banking': 'mean',
         'internet_banking': 'mean',
         'kyc_status': lambda x: (x == 'Completed').mean()
@@ -347,14 +456,14 @@ def analyze_bank_branch(df):
     digital_banking.columns = ['Branch', 'Mobile_Banking_Rate', 'Internet_Banking_Rate', 'KYC_Compliance_Rate']
     
     # Transaction Characteristics
-    transaction_analysis = df.groupby('bank_branch_account').agg({
-        'transaction_amount': ['mean', 'median', 'std'],
+    transaction_analysis = df.groupby('bank_branch_transaction').agg({
+        'transaction_amount': ['mean', 'std'],
         'transaction_code': 'nunique'
     }).reset_index()
-    transaction_analysis.columns = ['Branch', 'Avg_Transaction', 'Median_Transaction', 'Transaction_Std_Dev', 'Unique_Transaction_Types']
+    transaction_analysis.columns = ['Branch', 'Avg_Transaction', 'Transaction_Std_Dev', 'Unique_Transaction_Types']
     
     # Inactive Account Analysis
-    inactive_accounts = df.groupby('bank_branch_account').agg({
+    inactive_accounts = df.groupby('bank_branch_transaction').agg({
         'account_inactive': lambda x: (x == True).mean()
     }).reset_index()
     inactive_accounts.columns = ['Branch', 'Inactive_Account_Ratio']
@@ -908,6 +1017,50 @@ def generate_llm_prompt(analysis_results):
 # """
     return prompt
 
+def standardize_dob(df, dob_column='date_of_birth'):
+    """
+    Standardize date of birth format and handle missing values
+    
+    Parameters:
+    df (pandas.DataFrame): Input dataframe
+    dob_column (str): Name of the date of birth column
+    
+    Returns:
+    pandas.Series: Standardized date of birth series
+    """
+    def process_date(date_str):
+        if pd.isna(date_str) or str(date_str).strip() == '':
+            return '01-Jan-1970'
+            
+        try:
+            # Convert to string if not already
+            date_str = str(date_str).strip()
+            
+            # Split the date string
+            parts = date_str.split('-')
+            if len(parts) != 3:
+                return '01-Jan-1970'
+                
+            day, month, year = parts
+            
+            # Process year
+            year = year.strip()
+            if len(year) == 2:
+                # Convert 2-digit year to 4-digit year
+                year = '19' + year if int(year) >= 0 else '20' + year
+            
+            # Reconstruct the date string
+            return f"{day}-{month}-{year}"
+            
+        except Exception as e:
+            print(f"Error processing date: {date_str}, Error: {str(e)}")
+            return '01-Jan-1970'
+    
+    # Apply the standardization
+    standardized_dates = df[dob_column].apply(process_date)
+    
+    return standardized_dates
+
 def column_mapping(file_path, old_column, new_column):
     cols = pd.read_json(file_path)
     mapping = dict(
@@ -981,6 +1134,7 @@ def preprocess_data(df_account, df_statement):
 
     # Replace unwanted values other than numeric with 0000
     df['bank_branch_account'] = pd.to_numeric(df['bank_branch_account'], errors='coerce') #TEST
+    df['bank_branch_transaction'] = pd.to_numeric(df['bank_branch_transaction'], errors='coerce') #TEST
     df['account_type'] = pd.to_numeric(df['account_type'], errors='coerce')
     df['customer_industry'] = pd.to_numeric(df['customer_industry'], errors='coerce')
     df['economic_sector'] = pd.to_numeric(df['economic_sector'], errors='coerce')
@@ -994,80 +1148,13 @@ def preprocess_data(df_account, df_statement):
 
     # Map numeric codes with strings
     df["bank_branch_account"] = df["bank_branch_account"].map(branch_code_to_name).fillna('BBRANCH')
+    df["bank_branch_transaction"] = df["bank_branch_transaction"].map(branch_code_to_name).fillna('BBRANCH')
     df["account_type"] = df["account_type"].map(account_code_to_name).fillna('AACCOUNT')
     df["customer_industry"] = df["customer_industry"].map(industry_code_to_name).fillna('IINDUSTRY')
     df["economic_sector"] = df["economic_sector"].map(sector_code_to_name).fillna('SSECTOR')
     df["account_category"] = df["account_category"].map(category_code_to_name).fillna('CCATEGORY')
     
     return df
-
-    prompt = f"""Conduct a comprehensive multi-dimensional analysis of bank branch performance using provided DataFrame.
-    {str(df)}
-    Key Analysis Dimensions
-
-    Customer Metrics
-
-
-    Total customer count
-    Customer segmentation by economic sector
-    Customer distribution across branches
-
-
-    Financial Performance
-
-
-    Account balance statistics
-    Transaction volume and value
-    Currency-wise transaction analysis
-    Local vs. foreign currency transactions
-
-
-    Digital Banking Metrics
-
-
-    Mobile banking penetration
-    Internet banking adoption
-    KYC compliance rates
-
-
-    Temporal Analysis
-
-
-    Transaction date range
-    First and last transaction dates
-    Transaction frequency trends
-
-
-    Branch Operational Insights
-
-
-    Inactive account ratios
-    Average transaction characteristics
-    Unique transaction type diversity
-
-    Analytical Requirements
-
-    Precision: 2 decimal points
-    Statistical methods: Descriptive statistics
-    Visualization: Recommended charts/graphs
-    Comparative analysis across branches
-
-    Deliverable
-    Comprehensive report with:
-
-    Executive summary
-    Detailed branch-wise insights
-    Potential optimization recommendations
-    Risk assessment markers
-
-    Output Format
-
-    Tabular data
-    Statistical summaries
-    Trend visualizations
-    Actionable strategic insights
-    """
-    return prompt
 
 # Example usage function
 def run_analysis(df):
@@ -1101,7 +1188,7 @@ if __name__ == "__main__":
         os.makedirs('input')
 
     # Define/Choose the LLM models to use
-    models = ['gemma:2b', 'gemma2:latest', 'phi4:latest', 'llama3.2:latest','deepseek-r1:14b','qwen2.5-coder:7b']
+    models = ['gemma:2b', 'gemma2:latest', 'phi4:latest', 'llama3.2:latest','deepseek-r1:8b','qwen2.5-coder:7b']
     model_name = models[-1]
     
     # >> TEST
@@ -1109,16 +1196,27 @@ if __name__ == "__main__":
     df_account = pd.read_csv(ACCOUNT_PATH)  # AccountData
     df_statement = pd.read_csv(STATEMENT_PATH)
     df = preprocess_data(df_account, df_statement)
-    print(df.head(3))
+    # print(df.head(3))
     print(df.columns)
+    # print(df['customer_name'].value_counts())
+    # print(df['bank_branch_transaction'].value_counts())
 
     # Sector
     # analysis_results = analyze_economic_sector(df)
     # filename = f"{OUTPUT}sectoranalysis_{model_name.replace(':', '_')}.txt"
+    
     # Branch
-    analysis_results = analyze_bank_branch(df)
-    filename = f"{OUTPUT}branchanalysis_{model_name.replace(':', '_')}.txt"
+    # analysis_results = analyze_bank_branch(df)
+    # # print(analysis_results)
+    # filename = f"{OUTPUT}branchanalysis_{model_name.replace(':', '_')}.txt"
+    # print(analysis_results.keys())
+
+    # Branch
+    analysis_results = analyze_customers(df)
+    # print(analysis_results)
+    filename = f"{OUTPUT}customeranalysis_{model_name.replace(':', '_')}.txt"
     print(analysis_results.keys())
+    
 
     print(type(analysis_results))
     with open(filename, 'w') as f:
@@ -1126,34 +1224,33 @@ if __name__ == "__main__":
         f.write(str(analysis_results))
     print(f" -- Analysis results saved to {filename}")
     
-
     prompt = f"""
     You're an expert in analyzing financial data..
     You have been asked to analyze the data provided.
 
     Consider the context provided and generate insights based on the data:
 
-    Branch Statistics:{analysis_results['branch_statistics']}
+    Customer Demographics:{analysis_results['demographics']}
 
-    Customer Segmentation by branch:{analysis_results['customer_segmentation']}
+    Customer Services:{analysis_results['services']}
 
-    Comprehensive Analysis: {analysis_results['comprehensive_analysis']}
+    Customer Balances: {analysis_results['financial_behavior']}
     
-    Digital Banking: {analysis_results['digital_banking_penetration']}
+    KYC and Inactive Accounts: {analysis_results['compliance']}
     
-    Transaction Characteristics: {analysis_results['transaction_characteristics']}
+    Branch distribution and transaction: {analysis_results['branch_metrics']}
     
-    Inactive Accounts:{analysis_results['inactive_accounts']}
+    Risk: {analysis_results['risk_metrics']}
     
     Provide a detailed analysis with numerical figures in currency NPR only, and actionable recommendations.
     """
-    print(prompt)
+    # print(prompt)
 
     response = query_ai_llm(model_name, prompt)
     current_datetime = datetime.now().strftime(date_time_format)
     print(f'< Writing LLM Analysis to file...{current_datetime}')
     # Create a filename with the current date and time
-    filename = f"{OUTPUT}analysis_{model_name.replace(':', '_')}_{current_datetime.replace(' ','_').replace(':','_')}.txt"
+    filename = f"{OUTPUT}customer_analysis_{model_name.replace(':', '_')}_{current_datetime.replace(' ','_').replace(':','_')}.txt"
     with open(filename, 'w') as f:
         f.write(response)
 
