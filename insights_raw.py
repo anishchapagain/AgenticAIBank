@@ -66,113 +66,6 @@ def convert_to_json(data_dict, indent=2):
             
         except Exception as e:
             return f"Error converting to JSON: {str(e)}"
-
-def clean_text(text):
-    """
-    Clean text by removing special characters and standardizing format
-    """
-    if pd.isna(text) or not isinstance(text, str):
-        return text
-    
-    # Remove special characters and standardize
-    cleaned = text.strip()
-    cleaned = re.sub(r'[()[\]{}]', '', cleaned)  # Remove brackets and parentheses
-    cleaned = re.sub(r'\s+', ' ', cleaned)  # Standardize spaces
-    cleaned = re.sub(r'^\-+|\-+$', '', cleaned)  # Remove leading/trailing hyphens
-    cleaned = re.sub(r'\-+', '-', cleaned)  # Standardize multiple hyphens to single
-    cleaned = re.sub(r'[\*\#\@\!\?\;\:]', '', cleaned)  # Remove other special characters
-    return cleaned.strip()
-
-def clean_account_data(df):
-    """
-    Clean and standardize account data
-    """
-    # Create a copy to avoid modifying original data
-    df = df.copy()
-    
-    # Convert column names to snake_case for consistency
-    df.columns = df.columns.str.lower().str.replace(' ', '_')
-    
-    # Clean text in all string columns
-    object_columns = df.select_dtypes(include=['object']).columns
-    for col in object_columns:
-        df[col] = df[col].apply(clean_text)
-    
-    # Clean date columns - handle various date formats
-    date_columns = ['account_open_date', 'last_debit_date', 'last_credit_date', 'date_of_birth']
-    for col in date_columns:
-        # First, clean any special characters in date strings
-        df[col] = df[col].str.replace(r'[^\d\-\s\/\.]', '', regex=True)
-        # Try multiple date formats
-        df[col] = pd.to_datetime(df[col], format='%d-%b-%y', errors='coerce')
-        # For any failed conversions, try different formats
-        mask = df[col].isna()
-        if mask.any():
-            df.loc[mask, col] = pd.to_datetime(df.loc[mask, col], errors='coerce')
-    
-    # Clean numeric columns - handle special characters and convert to numeric
-    numeric_columns = ['account_balance', 'local_currency_balance']
-    for col in numeric_columns:
-        if df[col].dtype == 'object':
-            # Remove currency symbols, commas, and other special characters
-            df[col] = df[col].astype(str).str.replace(r'[^\d\-\.]', '', regex=True)
-        df[col] = pd.to_numeric(df[col], errors='coerce')
-    
-    # Convert boolean columns to proper boolean type
-    boolean_columns = ['mobile_banking', 'internet_banking', 'account_service', 
-                      'kyc_status', 'account_inactive']
-    for col in boolean_columns:
-        # Handle various representations of True/False
-        df[col] = df[col].str.lower() if df[col].dtype == 'object' else df[col]
-        df[col] = df[col].map({
-            'true': True, 'yes': True, '1': True, 't': True, 'y': True,
-            'false': False, 'no': False, '0': False, 'f': False, 'n': False
-        })
-    
-    # Clean and standardize categorical columns
-    df['nationality'] = df['nationality'].str.upper().str.strip()
-    df['residency_status'] = df['residency_status'].str.upper().str.strip()
-    df['customer_industry'] = df['customer_industry'].apply(lambda x: 
-        re.sub(r'\*+', '', str(x)).title().strip())  # Remove asterisks
-    df['economic_sector'] = df['economic_sector'].apply(lambda x: 
-        re.sub(r'\*+', '', str(x)).title().strip())
-    df['bank_branch'] = df['bank_branch'].str.title().str.strip()
-    df['account_type'] = df['account_type'].str.title().str.strip()
-    df['currency_code'] = df['currency_code'].str.upper().str.strip()
-    df['account_category'] = df['account_category'].str.title().str.strip()
-    
-    # Clean mobile number
-    df['mobile_number'] = df['mobile_number'].apply(lambda x: 
-        re.sub(r'[^\d]', '', str(x)) if pd.notnull(x) else '')
-    
-    # Handle missing values
-    df['account_balance'] = df['account_balance'].fillna(0)
-    df['local_currency_balance'] = df['local_currency_balance'].fillna(0)
-    df['mobile_number'] = df['mobile_number'].fillna('')
-    
-    # Add derived columns
-    df['account_age_days'] = (pd.Timestamp.now() - df['account_open_date']).dt.days
-    df['customer_age'] = (pd.Timestamp.now() - df['date_of_birth']).dt.years
-    
-    # Create account status column based on balance and activity
-    df['account_status'] = np.where(
-        df['account_inactive'], 'Inactive',
-        np.where(
-            df['account_balance'] < 0, 'Overdrawn', 'Active'
-            )
-        )
-    
-    # Clean customer_id - remove any non-numeric characters if it's meant to be numeric
-    df['customer_id'] = pd.to_numeric(df['customer_id'].astype(str).str.replace(r'\D', '', regex=True), 
-                                    errors='coerce')
-    
-    # Sort by customer_id for consistency
-    df = df.sort_values('customer_id')
-    
-    # Reset index
-    df = df.reset_index(drop=True)
-    
-    return df
         
 def analyze_banking_data(df):
     """
@@ -1267,22 +1160,20 @@ def run_analysis(df):
 
 def query_ai_llm(model, prompt):
     """
-    LLM Query Function
+    
     """
     try:
         response = request.post("http://localhost:11434/api/generate",
         json={
             "model": model,
             "prompt": prompt,
-            "stream": False,
-            'temperature': 0.1,
+            "stream": False
             }
         )
         return response.json()['response']
     except Exception as e:
         print(f"Error querying AI-LLM: {e}")
         return "Error generating response"
-    
         
 if __name__ == "__main__":
     date_time_format = "%Y-%m-%d %H:%M:%S"
@@ -1294,7 +1185,7 @@ if __name__ == "__main__":
 
     # Define/Choose the LLM models to use
     models = ['gemma:2b', 'gemma2:latest', 'phi4:latest', 'llama3.2:latest','deepseek-r1:8b','qwen2.5-coder:7b']
-    model_name = models[-2]
+    model_name = models[-1]
     
     # >> TEST
     # Load the data
