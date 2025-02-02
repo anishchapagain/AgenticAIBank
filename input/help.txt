@@ -161,8 +161,39 @@ prompt = f"""
     Provide a detailed analysis with numerical figures in currency NPR only, and actionable recommendations.
     """
 
+Personal accounts (industry=9009) must have DOB
+Industry with personal accounts should be choosen.
+Non-personal accounts must NOT have DOB
+All accounts must have opendate
+ldrdate and lcrdate are optional
+
+Activity:
 # Load Data
-# Mapping
-# Clean
-# Individual Analysis
-# Statement Analysis
+# Mapping (Datatypes / Column Names)
+    - Map Column Name
+# Clean 
+    - Formatting
+    - Dropping
+    - Classify
+
+# Full Data vs Breakdown
+    # Full Data (Not so accurate - Time Consuming)
+    # Individual Analysis
+    # Statement Analysis 
+
+Customer Demographics Analysis: demographics
+Account Services Analysis : services
+Financial Behavior Analysis : financial_behavior
+KYC and Compliance Analysis : compliance
+Branch and Location Analysis : branch_metrics
+Customer Activity Patterns : activity_patterns
+Risk Metrics : risk_metrics
+
+
+    # df_final = df_account.merge(df_statement, on="customer_id")
+    df_final = pd.merge(df_account, df_statement, 
+                     on=['customer_id'], 
+                     how='inner', 
+                     suffixes=('_account', '_transaction'))
+    # df_final = pd.merge(df_account, df_statement, how='inner', on="customer_id")
+    return df_final

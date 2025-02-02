@@ -3,9 +3,9 @@ from pandasai.llm.local_llm import LocalLLM
 
 llm = LocalLLM(
     api_base="http://localhost:11434/v1",
-    model="llama3.2:latest"
+    model="deepseek-r1:8b"
     )
-# models = ['gemma:2b', 'gemma2:latest', 'phi4:latest', 'llama3.2:latest']
+# models = ['gemma:2b', 'gemma2:latest', 'phi4:latest', 'llama3.2:latest, 'qwen2.5:latest']
 
 pandas_ai = SmartDataframe('data/AccountData.csv', config={"llm": llm})
 
