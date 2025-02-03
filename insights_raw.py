@@ -393,18 +393,18 @@ def analyze_customers(df):
         ]).to_dict()
     }
     
-    # 7. Customer Activity Patterns
-    df['last_activity'] = pd.to_datetime(df[['last_debit_date', 'last_credit_date']].max(axis=1))
-    recent_date = df['last_activity'].max()
-    df['days_since_last_activity'] = (recent_date - df['last_activity']).dt.days
+    # # 7. Customer Activity Patterns
+    # df['last_activity'] = pd.to_datetime(df[['last_debit_date', 'last_credit_date']].max(axis=1))
+    # recent_date = df['last_activity'].max()
+    # df['days_since_last_activity'] = (recent_date - df['last_activity']).dt.days
     
-    customer_analysis['activity_patterns'] = {
-        'activity_age_stats': {
-            'mean_days_inactive': df['days_since_last_activity'].mean(),
-            'inactive_30_days': (df['days_since_last_activity'] > 30).sum(),
-            'inactive_90_days': (df['days_since_last_activity'] > 90).sum()
-        }
-    }
+    # customer_analysis['activity_patterns'] = {
+    #     'activity_age_stats': {
+    #         'mean_days_inactive': df['days_since_last_activity'].mean(),
+    #         'inactive_30_days': (df['days_since_last_activity'] > 30).sum(),
+    #         'inactive_90_days': (df['days_since_last_activity'] > 90).sum()
+    #     }
+    # }
     
     # 8. Risk Metrics
     customer_analysis['risk_metrics'] = {
@@ -1192,14 +1192,27 @@ if __name__ == "__main__":
     df_account = pd.read_csv(ACCOUNT_PATH)  # AccountData
     df_statement = pd.read_csv(STATEMENT_PATH)
     df = preprocess_data(df_account, df_statement)
+
+
+    prompt= f"""
+    Provide me some top customer insights based on the data provided below:
+
+    {df.to_string()}
+
+    """
+    response = query_ai_llm(model_name, prompt)
+    print(response)
+
+    exit()
+
     # print(df.head(3))
-    print(df.columns)
+    # print(df.columns)
     # print(df['customer_name'].value_counts())
     # print(df['bank_branch_transaction'].value_counts())
 
     # Sector
-    # analysis_results = analyze_economic_sector(df)
-    # filename = f"{OUTPUT}sectoranalysis_{model_name.replace(':', '_')}.txt"
+    analysis_results = analyze_economic_sector(df)
+    filename = f"{OUTPUT}sectoranalysis_{model_name.replace(':', '_')}.txt"
     
     # Branch
     # analysis_results = analyze_bank_branch(df)
@@ -1208,9 +1221,11 @@ if __name__ == "__main__":
     # print(analysis_results.keys())
 
     # Branch
-    analysis_results = analyze_customers(df)
-    # print(analysis_results)
-    filename = f"{OUTPUT}customeranalysis_{model_name.replace(':', '_')}.txt"
+    # analysis_results = analyze_customers(df)
+    # # print(analysis_results)
+    # filename = f"{OUTPUT}customeranalysis_{model_name.replace(':', '_')}.txt"
+
+
     print(analysis_results.keys())
     
 
@@ -1219,8 +1234,10 @@ if __name__ == "__main__":
         # f.write(convert_to_json(analysis_results, indent=2).encode('utf-8'))
         f.write(str(analysis_results))
     print(f" -- Analysis results saved to {filename}")
-
-    exit()
+   
+    # df["Opening Year"] = df["issue_d"].dt.year
+    # df["Opening Month"] = df["issue_d"].dt.month
+    # df["Opening Day"] = df["issue_d"].dt.day
     
     prompt = f"""
     You are a professional financial analyst with expertise in data interpretation, trend analysis, and decision-making. 

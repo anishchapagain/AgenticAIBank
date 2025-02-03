@@ -1294,15 +1294,15 @@ if __name__ == "__main__":
 
     # Define/Choose the LLM models to use
     models = ['gemma:2b', 'gemma2:latest', 'phi4:latest', 'llama3.2:latest','deepseek-r1:8b','qwen2.5-coder:7b']
-    model_name = models[-2]
+    model_name = models[-1]
     
     # >> TEST
     # Load the data
     df_account = pd.read_csv(ACCOUNT_PATH)  # AccountData
     df_statement = pd.read_csv(STATEMENT_PATH)
     df = preprocess_data(df_account, df_statement)
-    # print(df.head(3))
-    print(df.columns)
+    print(df.head(3))
+    # print(df.columns)
     # print(df['customer_name'].value_counts())
     # print(df['bank_branch_transaction'].value_counts())
 
