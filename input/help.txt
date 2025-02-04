@@ -188,3 +188,39 @@ KYC and Compliance Analysis : compliance
 Branch and Location Analysis : branch_metrics
 Customer Activity Patterns : activity_patterns
 Risk Metrics : risk_metrics
+
+sector_mapping = {
+    "LOCAL - PERSONS": "LOCAL INDIVIDUALS",
+    "PROPRIETORY CONCERN": "BUSINESS ENTITIES",
+    "PUBLIC LIMITED COMPANY": "BUSINESS ENTITIES",
+    "NA_SECTOR": "UNKNOWN",  # Or investigate and map if possible
+    "LOCAL - GOVERNMENT": "GOVERNMENT",
+    "NON-GOVERNMENTAL ORGANISATION (NGO)": "NON-GOVERNMENTAL",
+    "OTHERS": "MISCELLANEOUS",  # Or analyze and map if possible
+    "PRIVATE LIMITED COMPANY": "BUSINESS ENTITIES",
+    "FOREIGN - PRIVATE": "FOREIGN ENTITIES",
+    "INT'L NON-GOVERNMENTAL ORGANISATION": "NON-GOVERNMENTAL",
+    "LOCAL - PRIVATE": "LOCAL BUSINESSES",
+    "JOINT VENTURE COMPANY": "BUSINESS ENTITIES",
+    "FOREIGN - PERSONS": "FOREIGN INDIVIDUALS",
+    "PARTNERSHIP FIRM": "BUSINESS ENTITIES",
+    "CORPORATION": "BUSINESS ENTITIES",
+    "INTERNATIONAL CORPORATE": "BUSINESS ENTITIES"
+}
+
+primary_sector_mapping = {  # For general analysis
+    "LOCAL - PERSONS": "LOCAL INDIVIDUALS",
+    # ... other mappings
+    "PARTNERSHIP FIRM": "BUSINESS ENTITIES",  # In primary mapping
+    "CORPORATION": "BUSINESS ENTITIES",        # In primary mapping
+    # ...
+}
+
+secondary_sector_mapping = {  # For specific queries
+    "LOCAL - PERSONS": "LOCAL - PERSONS",  # Keep original names
+    "PROPRIETORY CONCERN": "PROPRIETORY CONCERN",
+    # ... all original sector names mapped to themselves
+    "PARTNERSHIP FIRM": "PARTNERSHIP FIRM",
+    "CORPORATION": "CORPORATION",
+    # ...
+}
