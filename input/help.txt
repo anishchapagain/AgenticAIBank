@@ -188,12 +188,3 @@ KYC and Compliance Analysis : compliance
 Branch and Location Analysis : branch_metrics
 Customer Activity Patterns : activity_patterns
 Risk Metrics : risk_metrics
-
-
-    # df_final = df_account.merge(df_statement, on="customer_id")
-    df_final = pd.merge(df_account, df_statement, 
-                     on=['customer_id'], 
-                     how='inner', 
-                     suffixes=('_account', '_transaction'))
-    # df_final = pd.merge(df_account, df_statement, how='inner', on="customer_id")
-    return df_final
