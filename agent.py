@@ -10,7 +10,7 @@ async def run_search():
     agent = Agent(
         task=(
             # Task description: Navigate to a specific URL and retrieve the page title.
-            'Go to https://www.anishchapagain.com, and list the title you see'
+            'Go to https://www.kumaribank.com.np, and list the title you see'
         ),
         llm=ChatOllama(
             # Specify the language model (LLM) to be used by the agent.

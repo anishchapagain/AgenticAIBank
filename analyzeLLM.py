@@ -11,7 +11,9 @@ class BankManagerAnalytics:
         self.model.to('cuda' if torch.cuda.is_available() else 'cpu')
 
     def calculate_bank_metrics(self, df):
-        """Calculate key banking performance indicators"""
+        """
+        Calculate key banking performance indicators
+        """
         metrics = {
             'portfolio_health': {
                 'total_portfolio_value': df['lcyacbal'].sum(),
