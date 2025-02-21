@@ -1184,7 +1184,7 @@ if __name__ == "__main__":
         os.makedirs('input')
 
     # Define/Choose the LLM models to use
-    models = ['gemma:2b', 'gemma2:latest', 'phi4:latest', 'llama3.2:latest','deepseek-r1:8b','qwen2.5-coder:7b']
+    models = ['gemma:2b', 'gemma2:latest', 'phi4:latest', 'llama3.2:latest','deepseek-r1:8b','qwen2.5-coder:7b','qwen2.5:latest']
     model_name = models[-1]
     
     # >> TEST
@@ -1193,6 +1193,7 @@ if __name__ == "__main__":
     df_statement = pd.read_csv(STATEMENT_PATH)
     df = preprocess_data(df_account, df_statement)
 
+    df.to_csv('data/processed.csv') # Write to file
 
     prompt= f"""
     Provide me some top customer insights based on the data provided below:
