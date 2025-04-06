@@ -1,0 +1,45 @@
+[
+    {
+        "actual": {
+            "Total Current Assets": 179411,
+            "Total Non-Current Assets": 0,
+            "Total Assets": 0,
+            "Total Current Liabilities": 155900,
+            "Total Non-Current Liabilities": 867,
+            "Total Liabilities": 0,
+            "Total Equity": 26742,
+            "Total Liabilities and Equity": 0,
+            "Long-term Debt": 0,
+            "Operating Income": 0,
+            "Gross Profit": -1424,
+            "Total Operating Expenses": 0,
+            "Interest Expense": -6751,
+            "Net Operating Profit": -10004,
+            "Depreciation": -843,
+            "Amortization": 0,
+            "Stocks Trading": 47789,
+            "Inventory": 0
+        }
+    },
+    {
+        "projected": {
+            "Total Current Assets": 132932,
+            "Total Non-Current Assets": 0,
+            "Total Assets": 0,
+            "Total Current Liabilities": 93593,
+            "Total Non-Current Liabilities": 0,
+            "Total Liabilities": 0,
+            "Total Equity": 42747,
+            "Total Liabilities and Equity": 0,
+            "Long-term Debt": 0,
+            "Operating Income": 0,
+            "Gross Profit": -1445,
+            "Interest Expense": -6765,
+            "Net Operating Profit": -7091,
+            "Depreciation": -690,
+            "Amortization": 0,
+            "Stocks Trading": 61292,
+            "Inventory": 0
+        }
+    }
+  ]
